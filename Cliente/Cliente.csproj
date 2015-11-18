@@ -193,6 +193,7 @@
     <Content Include="Content\custom\mdl\material.js" />
     <Content Include="Content\custom\mdl\material.min.css" />
     <Content Include="Content\custom\mdl\material.min.js" />
+    <Content Include="Content\custom\styles.css" />
     <Content Include="Content\images\aerolinea_logo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
