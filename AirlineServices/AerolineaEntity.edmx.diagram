@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="30336797f84a46f4b900b446d23c971b" Name="Diagram1" ZoomLevel="65">
+        <EntityTypeShape EntityType="AerolineaModel.AVION" Width="1.5" PointX="7.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AerolineaModel.CONTINENTE" Width="1.5" PointX="2.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AerolineaModel.LUGAR" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AerolineaModel.MARCA" Width="1.5" PointX="5.375" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AerolineaModel.PAIS" Width="1.5" PointX="3.125" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AerolineaModel.PASAJERO" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AerolineaModel.PILOTO" Width="1.5" PointX="7.875" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="AerolineaModel.RESERVACION" Width="1.5" PointX="7.5" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AerolineaModel.RUTA" Width="1.5" PointX="7.5" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AerolineaModel.VUELO" Width="1.5" PointX="10" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AerolineaModel.vw_MigrantesPaisLugar" Width="1.5" PointX="3.375" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AerolineaModel.VW_VISITAS" Width="1.5" PointX="9.875" PointY="6.5" IsExpanded="true" />
+        <AssociationConnector Association="AerolineaModel.FK_AVION_MARCA" ManuallyRouted="false" />
+        <AssociationConnector Association="AerolineaModel.FK_AVION_PILOTO" ManuallyRouted="false" />
+        <AssociationConnector Association="AerolineaModel.FK_VUELO_AVION" ManuallyRouted="false" />
+        <AssociationConnector Association="AerolineaModel.FK_PAIS_CONTINENTE" ManuallyRouted="false" />
+        <AssociationConnector Association="AerolineaModel.FK_DESTINO" ManuallyRouted="false" />
+        <AssociationConnector Association="AerolineaModel.FK_LUGAR_PAIS" ManuallyRouted="false" />
+        <AssociationConnector Association="AerolineaModel.FK_ORIGEN" ManuallyRouted="false" />
+        <AssociationConnector Association="AerolineaModel.FK_NACIONALIDAD" ManuallyRouted="false" />
+        <AssociationConnector Association="AerolineaModel.FK_RESERVACION_PASAJERO" ManuallyRouted="false" />
+        <AssociationConnector Association="AerolineaModel.FK_RESERVACION_VUELO" ManuallyRouted="false" />
+        <AssociationConnector Association="AerolineaModel.FK_VUELO_RUTA" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
