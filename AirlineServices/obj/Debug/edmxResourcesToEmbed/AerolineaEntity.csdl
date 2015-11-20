@@ -1,0 +1,378 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AerolineaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AVION">
+    <Key>
+      <PropertyRef Name="COD_AVION" />
+    </Key>
+    <Property Name="COD_AVION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MATRICULA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CAPACIDAD" Type="Int32" />
+    <Property Name="COD_MARCA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="COD_PILOTO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="MARCA" Relationship="Self.FK_AVION_MARCA" FromRole="AVION" ToRole="MARCA" />
+    <NavigationProperty Name="PILOTO" Relationship="Self.FK_AVION_PILOTO" FromRole="AVION" ToRole="PILOTO" />
+    <NavigationProperty Name="VUELO" Relationship="Self.FK_VUELO_AVION" FromRole="AVION" ToRole="VUELO" />
+  </EntityType>
+  <EntityType Name="CONTINENTE">
+    <Key>
+      <PropertyRef Name="COD_CONTINENTE" />
+    </Key>
+    <Property Name="COD_CONTINENTE" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NOM_CONTINENTE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PAIS" Relationship="Self.FK_PAIS_CONTINENTE" FromRole="CONTINENTE" ToRole="PAIS" />
+  </EntityType>
+  <EntityType Name="LUGAR">
+    <Key>
+      <PropertyRef Name="COD_LUGAR" />
+    </Key>
+    <Property Name="COD_LUGAR" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NOMBRE_LUGAR" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="LATITUD" Type="Double" />
+    <Property Name="LONGITUD" Type="Double" />
+    <Property Name="NOM_AEROPUERTO" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="COD_PAIS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="RUTA" Relationship="Self.FK_DESTINO" FromRole="LUGAR" ToRole="RUTA" />
+    <NavigationProperty Name="PAIS" Relationship="Self.FK_LUGAR_PAIS" FromRole="LUGAR" ToRole="PAIS" />
+    <NavigationProperty Name="RUTA1" Relationship="Self.FK_ORIGEN" FromRole="LUGAR" ToRole="RUTA" />
+  </EntityType>
+  <EntityType Name="MARCA">
+    <Key>
+      <PropertyRef Name="COD_MARCA" />
+    </Key>
+    <Property Name="COD_MARCA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NOM_MARCA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DESC_MARCA" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AVION" Relationship="Self.FK_AVION_MARCA" FromRole="MARCA" ToRole="AVION" />
+  </EntityType>
+  <EntityType Name="PAIS">
+    <Key>
+      <PropertyRef Name="COD_PAIS" />
+    </Key>
+    <Property Name="COD_PAIS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NOMBRE_PAIS" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="MONEDA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IDIOMA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="COD_CONTINENTE" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="CONTINENTE" Relationship="Self.FK_PAIS_CONTINENTE" FromRole="PAIS" ToRole="CONTINENTE" />
+    <NavigationProperty Name="LUGAR" Relationship="Self.FK_LUGAR_PAIS" FromRole="PAIS" ToRole="LUGAR" />
+    <NavigationProperty Name="PASAJERO" Relationship="Self.FK_NACIONALIDAD" FromRole="PAIS" ToRole="PASAJERO" />
+  </EntityType>
+  <EntityType Name="PASAJERO">
+    <Key>
+      <PropertyRef Name="COD_PASAJERO" />
+    </Key>
+    <Property Name="COD_PASAJERO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DNI" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRE_PASAJERO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="APELLIDO_PASAJERO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="SEXO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NUMERO_TELEFONICO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_NACIMIENTO" Type="DateTime" Precision="3" />
+    <Property Name="COD_PAIS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NACIONALIDAD" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PAIS" Relationship="Self.FK_NACIONALIDAD" FromRole="PASAJERO" ToRole="PAIS" />
+    <NavigationProperty Name="RESERVACION" Relationship="Self.FK_RESERVACION_PASAJERO" FromRole="PASAJERO" ToRole="RESERVACION" />
+  </EntityType>
+  <EntityType Name="PILOTO">
+    <Key>
+      <PropertyRef Name="COD_PILOTO" />
+    </Key>
+    <Property Name="COD_PILOTO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NOMBRE_PILOTO" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="DNI" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AVION" Relationship="Self.FK_AVION_PILOTO" FromRole="PILOTO" ToRole="AVION" />
+  </EntityType>
+  <EntityType Name="RESERVACION">
+    <Key>
+      <PropertyRef Name="COD_RESERVACION" />
+    </Key>
+    <Property Name="COD_RESERVACION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FECHA_RESERVACION" Type="DateTime" Precision="3" />
+    <Property Name="ESTADO_RESERVACION" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="TOMO_VUELO" Type="Boolean" />
+    <Property Name="COD_VUELO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="COD_PASAJERO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PASAJERO" Relationship="Self.FK_RESERVACION_PASAJERO" FromRole="RESERVACION" ToRole="PASAJERO" />
+    <NavigationProperty Name="VUELO" Relationship="Self.FK_RESERVACION_VUELO" FromRole="RESERVACION" ToRole="VUELO" />
+  </EntityType>
+  <EntityType Name="RUTA">
+    <Key>
+      <PropertyRef Name="COD_RUTA" />
+    </Key>
+    <Property Name="COD_RUTA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NOM_RUTA" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="DESCRIPCION_RUTA" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_RUTA" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="COD_ORIGEN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="COD_DESTINO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="LUGAR" Relationship="Self.FK_DESTINO" FromRole="RUTA" ToRole="LUGAR" />
+    <NavigationProperty Name="LUGAR1" Relationship="Self.FK_ORIGEN" FromRole="RUTA" ToRole="LUGAR" />
+    <NavigationProperty Name="VUELO" Relationship="Self.FK_VUELO_RUTA" FromRole="RUTA" ToRole="VUELO" />
+  </EntityType>
+  <EntityType Name="VUELO">
+    <Key>
+      <PropertyRef Name="COD_VUELO" />
+    </Key>
+    <Property Name="COD_VUELO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DESCRIPCION_VUELO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_DESPEQUE" Type="DateTime" Precision="0" />
+    <Property Name="FECHA_LLEGADA" Type="DateTime" Precision="0" />
+    <Property Name="HORA_DESPEGUE" Type="Time" Precision="7" />
+    <Property Name="HORA_LLEGADA" Type="Time" Precision="7" />
+    <Property Name="ESTADO_VUELO" Type="Boolean" />
+    <Property Name="PRECIO_VUELO" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="COD_AVION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="COD_RUTA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AVION" Relationship="Self.FK_VUELO_AVION" FromRole="VUELO" ToRole="AVION" />
+    <NavigationProperty Name="RESERVACION" Relationship="Self.FK_RESERVACION_VUELO" FromRole="VUELO" ToRole="RESERVACION" />
+    <NavigationProperty Name="RUTA" Relationship="Self.FK_VUELO_RUTA" FromRole="VUELO" ToRole="RUTA" />
+  </EntityType>
+  <EntityType Name="vw_MigrantesPaisLugar">
+    <Key>
+      <PropertyRef Name="COD_PASAJERO" />
+    </Key>
+    <Property Name="COD_PASAJERO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NOMBRE_PASAJERO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="APELLIDO_PASAJERO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="DNI" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="NUMERO_TELEFONICO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="SEXO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="DESCRIPCION_VUELO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="COD_PAIS_ORIGEN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PAIS_ORIGEN" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="COD_PAIS_DESTINO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PAIS_DESTINO" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="COD_ORIGEN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRE_ORIGEN" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="COD_DESTINO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRE_DESTINO" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="VW_VISITAS">
+    <Key>
+      <PropertyRef Name="COD_PASAJERO" />
+      <PropertyRef Name="COD_RESERVACION" />
+      <PropertyRef Name="COD_VUELO" />
+      <PropertyRef Name="COD_RUTA" />
+    </Key>
+    <Property Name="COD_PASAJERO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DNI" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="NOMBRE_PASAJERO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="APELLIDO_PASAJERO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="SEXO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="NUMERO_TELEFONICO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NACIONALIDAD" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_NACIMIENTO" Type="DateTime" Precision="3" />
+    <Property Name="COD_RESERVACION" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="COD_VUELO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FECHA_RESERVACION" Type="DateTime" Precision="3" />
+    <Property Name="COD_RUTA" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ESTADO_RESERVACION" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="TOMO_VUELO" Type="Boolean" />
+    <Property Name="DESCRIPCION_VUELO" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="COD_AVION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="FECHA_DESPEQUE" Type="DateTime" Precision="0" />
+    <Property Name="FECHA_LLEGADA" Type="DateTime" Precision="0" />
+    <Property Name="HORA_DESPEGUE" Type="Time" Precision="7" />
+    <Property Name="HORA_LLEGADA" Type="Time" Precision="7" />
+    <Property Name="ESTADO_VUELO" Type="Boolean" />
+    <Property Name="PRECIO_VUELO" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="COD_DESTINO" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="COD_ORIGEN" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DESCRIPCION_RUTA" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="NOM_RUTA" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="TIPO_RUTA" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_AVION_MARCA">
+    <End Role="MARCA" Type="Self.MARCA" Multiplicity="0..1" />
+    <End Role="AVION" Type="Self.AVION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MARCA">
+        <PropertyRef Name="COD_MARCA" />
+      </Principal>
+      <Dependent Role="AVION">
+        <PropertyRef Name="COD_MARCA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AVION_PILOTO">
+    <End Role="PILOTO" Type="Self.PILOTO" Multiplicity="0..1" />
+    <End Role="AVION" Type="Self.AVION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PILOTO">
+        <PropertyRef Name="COD_PILOTO" />
+      </Principal>
+      <Dependent Role="AVION">
+        <PropertyRef Name="COD_PILOTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VUELO_AVION">
+    <End Role="AVION" Type="Self.AVION" Multiplicity="0..1" />
+    <End Role="VUELO" Type="Self.VUELO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AVION">
+        <PropertyRef Name="COD_AVION" />
+      </Principal>
+      <Dependent Role="VUELO">
+        <PropertyRef Name="COD_AVION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PAIS_CONTINENTE">
+    <End Role="CONTINENTE" Type="Self.CONTINENTE" Multiplicity="1" />
+    <End Role="PAIS" Type="Self.PAIS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CONTINENTE">
+        <PropertyRef Name="COD_CONTINENTE" />
+      </Principal>
+      <Dependent Role="PAIS">
+        <PropertyRef Name="COD_CONTINENTE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DESTINO">
+    <End Role="LUGAR" Type="Self.LUGAR" Multiplicity="0..1" />
+    <End Role="RUTA" Type="Self.RUTA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LUGAR">
+        <PropertyRef Name="COD_LUGAR" />
+      </Principal>
+      <Dependent Role="RUTA">
+        <PropertyRef Name="COD_DESTINO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LUGAR_PAIS">
+    <End Role="PAIS" Type="Self.PAIS" Multiplicity="0..1" />
+    <End Role="LUGAR" Type="Self.LUGAR" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAIS">
+        <PropertyRef Name="COD_PAIS" />
+      </Principal>
+      <Dependent Role="LUGAR">
+        <PropertyRef Name="COD_PAIS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ORIGEN">
+    <End Role="LUGAR" Type="Self.LUGAR" Multiplicity="0..1" />
+    <End Role="RUTA" Type="Self.RUTA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LUGAR">
+        <PropertyRef Name="COD_LUGAR" />
+      </Principal>
+      <Dependent Role="RUTA">
+        <PropertyRef Name="COD_ORIGEN" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NACIONALIDAD">
+    <End Role="PAIS" Type="Self.PAIS" Multiplicity="0..1" />
+    <End Role="PASAJERO" Type="Self.PASAJERO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PAIS">
+        <PropertyRef Name="COD_PAIS" />
+      </Principal>
+      <Dependent Role="PASAJERO">
+        <PropertyRef Name="COD_PAIS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RESERVACION_PASAJERO">
+    <End Role="PASAJERO" Type="Self.PASAJERO" Multiplicity="0..1" />
+    <End Role="RESERVACION" Type="Self.RESERVACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PASAJERO">
+        <PropertyRef Name="COD_PASAJERO" />
+      </Principal>
+      <Dependent Role="RESERVACION">
+        <PropertyRef Name="COD_PASAJERO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RESERVACION_VUELO">
+    <End Role="VUELO" Type="Self.VUELO" Multiplicity="0..1" />
+    <End Role="RESERVACION" Type="Self.RESERVACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VUELO">
+        <PropertyRef Name="COD_VUELO" />
+      </Principal>
+      <Dependent Role="RESERVACION">
+        <PropertyRef Name="COD_VUELO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VUELO_RUTA">
+    <End Role="RUTA" Type="Self.RUTA" Multiplicity="0..1" />
+    <End Role="VUELO" Type="Self.VUELO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RUTA">
+        <PropertyRef Name="COD_RUTA" />
+      </Principal>
+      <Dependent Role="VUELO">
+        <PropertyRef Name="COD_RUTA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AerolineaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AVION" EntityType="Self.AVION" />
+    <EntitySet Name="CONTINENTE" EntityType="Self.CONTINENTE" />
+    <EntitySet Name="LUGAR" EntityType="Self.LUGAR" />
+    <EntitySet Name="MARCA" EntityType="Self.MARCA" />
+    <EntitySet Name="PAIS" EntityType="Self.PAIS" />
+    <EntitySet Name="PASAJERO" EntityType="Self.PASAJERO" />
+    <EntitySet Name="PILOTO" EntityType="Self.PILOTO" />
+    <EntitySet Name="RESERVACION" EntityType="Self.RESERVACION" />
+    <EntitySet Name="RUTA" EntityType="Self.RUTA" />
+    <EntitySet Name="VUELO" EntityType="Self.VUELO" />
+    <EntitySet Name="vw_MigrantesPaisLugar" EntityType="Self.vw_MigrantesPaisLugar" />
+    <EntitySet Name="VW_VISITAS" EntityType="Self.VW_VISITAS" />
+    <AssociationSet Name="FK_AVION_MARCA" Association="Self.FK_AVION_MARCA">
+      <End Role="MARCA" EntitySet="MARCA" />
+      <End Role="AVION" EntitySet="AVION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AVION_PILOTO" Association="Self.FK_AVION_PILOTO">
+      <End Role="PILOTO" EntitySet="PILOTO" />
+      <End Role="AVION" EntitySet="AVION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VUELO_AVION" Association="Self.FK_VUELO_AVION">
+      <End Role="AVION" EntitySet="AVION" />
+      <End Role="VUELO" EntitySet="VUELO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PAIS_CONTINENTE" Association="Self.FK_PAIS_CONTINENTE">
+      <End Role="CONTINENTE" EntitySet="CONTINENTE" />
+      <End Role="PAIS" EntitySet="PAIS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DESTINO" Association="Self.FK_DESTINO">
+      <End Role="LUGAR" EntitySet="LUGAR" />
+      <End Role="RUTA" EntitySet="RUTA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LUGAR_PAIS" Association="Self.FK_LUGAR_PAIS">
+      <End Role="PAIS" EntitySet="PAIS" />
+      <End Role="LUGAR" EntitySet="LUGAR" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ORIGEN" Association="Self.FK_ORIGEN">
+      <End Role="LUGAR" EntitySet="LUGAR" />
+      <End Role="RUTA" EntitySet="RUTA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NACIONALIDAD" Association="Self.FK_NACIONALIDAD">
+      <End Role="PAIS" EntitySet="PAIS" />
+      <End Role="PASAJERO" EntitySet="PASAJERO" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RESERVACION_PASAJERO" Association="Self.FK_RESERVACION_PASAJERO">
+      <End Role="PASAJERO" EntitySet="PASAJERO" />
+      <End Role="RESERVACION" EntitySet="RESERVACION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RESERVACION_VUELO" Association="Self.FK_RESERVACION_VUELO">
+      <End Role="VUELO" EntitySet="VUELO" />
+      <End Role="RESERVACION" EntitySet="RESERVACION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VUELO_RUTA" Association="Self.FK_VUELO_RUTA">
+      <End Role="RUTA" EntitySet="RUTA" />
+      <End Role="VUELO" EntitySet="VUELO" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
