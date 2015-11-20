@@ -13,28 +13,21 @@ namespace AirlineServices
 {
 
 using System;
-    using System.Collections.Generic;
     
-public partial class PILOTO
+public partial class usp_ConsultaMaximoMigrantesNacionalidad_Result
 {
 
-    public PILOTO()
-    {
+    public string COD_PAIS_NACIMIENTO { get; set; }
 
-        this.AVION = new HashSet<AVION>();
+    public string COD_PAIS_DESTINO { get; set; }
 
-    }
+    public string NOMBRE_PAIS_DESTINO { get; set; }
 
+    public string MONEDA_PAIS_DESTINO { get; set; }
 
-    public string COD_PILOTO { get; set; }
+    public string IDIOMA_PAIS_DESTINO { get; set; }
 
-    public string NOMBRE_PILOTO { get; set; }
-
-    public string DNI { get; set; }
-
-
-
-    public virtual ICollection<AVION> AVION { get; set; }
+    public Nullable<int> CANTIDAD_VUELOS { get; set; }
 
 }
 

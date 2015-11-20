@@ -28,6 +28,7 @@
         <AssociationConnector Association="AerolineaModel.FK_RESERVACION_PASAJERO" ManuallyRouted="false" />
         <AssociationConnector Association="AerolineaModel.FK_RESERVACION_VUELO" ManuallyRouted="false" />
         <AssociationConnector Association="AerolineaModel.FK_VUELO_RUTA" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AerolineaModel.sysdiagrams" Width="1.5" PointX="0.75571799499714665" PointY="4.3102322389885" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

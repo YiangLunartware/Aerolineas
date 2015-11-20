@@ -13,28 +13,13 @@ namespace AirlineServices
 {
 
 using System;
-    using System.Collections.Generic;
     
-public partial class PILOTO
+public partial class AllVisitas_Result
 {
 
-    public PILOTO()
-    {
+    public string NOMBRES_Y_APELLIDOS { get; set; }
 
-        this.AVION = new HashSet<AVION>();
-
-    }
-
-
-    public string COD_PILOTO { get; set; }
-
-    public string NOMBRE_PILOTO { get; set; }
-
-    public string DNI { get; set; }
-
-
-
-    public virtual ICollection<AVION> AVION { get; set; }
+    public string NOM_RUTA { get; set; }
 
 }
 

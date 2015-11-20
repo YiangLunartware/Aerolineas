@@ -15,26 +15,18 @@ namespace AirlineServices
 using System;
     using System.Collections.Generic;
     
-public partial class PILOTO
+public partial class sysdiagrams
 {
 
-    public PILOTO()
-    {
+    public string name { get; set; }
 
-        this.AVION = new HashSet<AVION>();
+    public int principal_id { get; set; }
 
-    }
+    public int diagram_id { get; set; }
 
+    public Nullable<int> version { get; set; }
 
-    public string COD_PILOTO { get; set; }
-
-    public string NOMBRE_PILOTO { get; set; }
-
-    public string DNI { get; set; }
-
-
-
-    public virtual ICollection<AVION> AVION { get; set; }
+    public byte[] definition { get; set; }
 
 }
 

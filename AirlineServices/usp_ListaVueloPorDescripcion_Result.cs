@@ -13,28 +13,21 @@ namespace AirlineServices
 {
 
 using System;
-    using System.Collections.Generic;
     
-public partial class PILOTO
+public partial class usp_ListaVueloPorDescripcion_Result
 {
 
-    public PILOTO()
-    {
+    public string COD_VUELO { get; set; }
 
-        this.AVION = new HashSet<AVION>();
+    public string DESCRIPCION_VUELO { get; set; }
 
-    }
+    public Nullable<System.DateTime> FECHA_DESPEQUE { get; set; }
 
+    public Nullable<System.DateTime> FECHA_LLEGADA { get; set; }
 
-    public string COD_PILOTO { get; set; }
+    public Nullable<bool> ESTADO_VUELO { get; set; }
 
-    public string NOMBRE_PILOTO { get; set; }
-
-    public string DNI { get; set; }
-
-
-
-    public virtual ICollection<AVION> AVION { get; set; }
+    public Nullable<decimal> PRECIO_VUELO { get; set; }
 
 }
 

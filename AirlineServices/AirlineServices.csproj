@@ -67,10 +67,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AerolineaEntity.edmx</DependentUpon>
     </Compile>
+    <Compile Include="AllVisitas_Result.cs">
+      <DependentUpon>AerolineaEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="AVION.cs">
       <DependentUpon>AerolineaEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="CONTINENTE.cs">
+      <DependentUpon>AerolineaEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetVisitas_X_LugarOrigen_Result.cs">
       <DependentUpon>AerolineaEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="IServicioHistorialPasajero.cs" />
@@ -103,6 +109,45 @@
     <Compile Include="ServicioMigrantes.cs" />
     <Compile Include="ServicioVisitas.cs" />
     <Compile Include="ServicioVuelos.cs" />
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>AerolineaEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_CantidaDeVuelosFechas_Result.cs">
+      <DependentUpon>AerolineaEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ConsultaMaximoMigrantesNacionalidad_Result.cs">
+      <DependentUpon>AerolineaEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_GetVisitas_X_Fecha_Result.cs">
+      <DependentUpon>AerolineaEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListaVueloPorDescripcion_Result.cs">
+      <DependentUpon>AerolineaEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListaVueloPorEstadoFechas_Result.cs">
+      <DependentUpon>AerolineaEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListaVueloPorFecha_Result.cs">
+      <DependentUpon>AerolineaEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListaVueloPorPrecioFechas_Result.cs">
+      <DependentUpon>AerolineaEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListaVuelosPorCapacidadFechas_Result.cs">
+      <DependentUpon>AerolineaEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_RankingDestinosPeruanosDemandaFechas_Result.cs">
+      <DependentUpon>AerolineaEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_RankingPaisDemandaFechas_Result.cs">
+      <DependentUpon>AerolineaEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_RankingVuelosPrecioFechas_Result.cs">
+      <DependentUpon>AerolineaEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_RANKING_VISITAS_Result.cs">
+      <DependentUpon>AerolineaEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="VUELO.cs">
       <DependentUpon>AerolineaEntity.tt</DependentUpon>
     </Compile>

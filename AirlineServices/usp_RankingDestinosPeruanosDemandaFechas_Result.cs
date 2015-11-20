@@ -13,28 +13,17 @@ namespace AirlineServices
 {
 
 using System;
-    using System.Collections.Generic;
     
-public partial class PILOTO
+public partial class usp_RankingDestinosPeruanosDemandaFechas_Result
 {
 
-    public PILOTO()
-    {
+    public string NOMBRE_LUGAR { get; set; }
 
-        this.AVION = new HashSet<AVION>();
+    public Nullable<int> Demanda { get; set; }
 
-    }
+    public Nullable<System.DateTime> FECHA_DESPEQUE { get; set; }
 
-
-    public string COD_PILOTO { get; set; }
-
-    public string NOMBRE_PILOTO { get; set; }
-
-    public string DNI { get; set; }
-
-
-
-    public virtual ICollection<AVION> AVION { get; set; }
+    public Nullable<System.DateTime> FECHA_LLEGADA { get; set; }
 
 }
 

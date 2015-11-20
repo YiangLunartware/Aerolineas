@@ -13,28 +13,17 @@ namespace AirlineServices
 {
 
 using System;
-    using System.Collections.Generic;
     
-public partial class PILOTO
+public partial class USP_RANKING_VISITAS_Result
 {
 
-    public PILOTO()
-    {
+    public Nullable<int> RANKING { get; set; }
 
-        this.AVION = new HashSet<AVION>();
+    public string COD_DESTINO { get; set; }
 
-    }
+    public string NOMBRE_LUGAR { get; set; }
 
-
-    public string COD_PILOTO { get; set; }
-
-    public string NOMBRE_PILOTO { get; set; }
-
-    public string DNI { get; set; }
-
-
-
-    public virtual ICollection<AVION> AVION { get; set; }
+    public Nullable<System.DateTime> FECHA_LLEGADA { get; set; }
 
 }
 
