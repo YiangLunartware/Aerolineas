@@ -4,19 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="30336797f84a46f4b900b446d23c971b" Name="Diagram1" ZoomLevel="65">
-        <EntityTypeShape EntityType="AerolineaModel.AVION" Width="1.5" PointX="7.75" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="AerolineaModel.CONTINENTE" Width="1.5" PointX="2.75" PointY="5.375" IsExpanded="true" />
+      <Diagram DiagramId="18efbef54a1e46789cb6f6e0ac891bd9" Name="Diagram1" ZoomLevel="85">
+        <EntityTypeShape EntityType="AerolineaModel.AVION" Width="1.5" PointX="7.5" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AerolineaModel.CONTINENTE" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="AerolineaModel.LUGAR" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="AerolineaModel.MARCA" Width="1.5" PointX="5.375" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AerolineaModel.PAIS" Width="1.5" PointX="3.125" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AerolineaModel.MARCA" Width="1.5" PointX="5.25" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AerolineaModel.PAIS" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AerolineaModel.PASAJERO" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="AerolineaModel.PILOTO" Width="1.5" PointX="7.875" PointY="11" IsExpanded="true" />
-        <EntityTypeShape EntityType="AerolineaModel.RESERVACION" Width="1.5" PointX="7.5" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AerolineaModel.PILOTO" Width="1.5" PointX="5.25" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AerolineaModel.RESERVACION" Width="1.5" PointX="12" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="AerolineaModel.RUTA" Width="1.5" PointX="7.5" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="AerolineaModel.VUELO" Width="1.5" PointX="10" PointY="2.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="AerolineaModel.vw_MigrantesPaisLugar" Width="1.5" PointX="3.375" PointY="8.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="AerolineaModel.VW_VISITAS" Width="1.5" PointX="9.875" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AerolineaModel.VUELO" Width="1.5" PointX="9.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AerolineaModel.vw_MigrantesPaisLugar" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AerolineaModel.VW_VISITAS" Width="1.5" PointX="9.75" PointY="7.75" IsExpanded="true" />
         <AssociationConnector Association="AerolineaModel.FK_AVION_MARCA" ManuallyRouted="false" />
         <AssociationConnector Association="AerolineaModel.FK_AVION_PILOTO" ManuallyRouted="false" />
         <AssociationConnector Association="AerolineaModel.FK_VUELO_AVION" ManuallyRouted="false" />

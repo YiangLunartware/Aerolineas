@@ -103,6 +103,39 @@
     <Compile Include="ServicioMigrantes.cs" />
     <Compile Include="ServicioVisitas.cs" />
     <Compile Include="ServicioVuelos.cs" />
+    <Compile Include="usp_CantidaDeVuelosFechas_Result.cs">
+      <DependentUpon>AerolineaEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ConsultaMaximoMigrantesNacionalidad_Result.cs">
+      <DependentUpon>AerolineaEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListaVueloPorDescripcion_Result.cs">
+      <DependentUpon>AerolineaEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListaVueloPorEstadoFechas_Result.cs">
+      <DependentUpon>AerolineaEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListaVueloPorFecha_Result.cs">
+      <DependentUpon>AerolineaEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListaVueloPorPrecioFechas_Result.cs">
+      <DependentUpon>AerolineaEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ListaVuelosPorCapacidadFechas_Result.cs">
+      <DependentUpon>AerolineaEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_RankingDestinosPeruanosDemandaFechas_Result.cs">
+      <DependentUpon>AerolineaEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_RankingPaisDemandaFechas_Result.cs">
+      <DependentUpon>AerolineaEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_RankingVuelosPrecioFechas_Result.cs">
+      <DependentUpon>AerolineaEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_RANKING_VISITAS_Result.cs">
+      <DependentUpon>AerolineaEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="VUELO.cs">
       <DependentUpon>AerolineaEntity.tt</DependentUpon>
     </Compile>
@@ -125,6 +158,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="AerolineaEntity.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>AerolineaEntity.edmx</DependentUpon>
@@ -135,9 +171,6 @@
       <DependentUpon>AerolineaEntity.edmx</DependentUpon>
       <LastGenOutput>AerolineaEntity.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

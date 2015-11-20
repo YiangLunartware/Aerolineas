@@ -27,75 +27,66 @@ namespace AirlineServices
     {
         //Miembros privados
         private String _nombrePasajero;
+        private DateTime _ApellidoPasajero;
+        private DateTime _fechaDespeque;
+        private DateTime _fechaLlegada;
+        private String _nomRuta;
+        private String _codigoDestino;
+
         [DataMember]
         public String NombrePasajero
         {
             get { return _nombrePasajero; }
             set { _nombrePasajero = value; }
         }
-
-
-        private DateTime _ApellidoPasajero;
+        
         [DataMember]
         public DateTime ApellidoPasajero
         {
             get { return _ApellidoPasajero; }
             set { _ApellidoPasajero = value; }
         }
-
-
-
-
-
-        private DateTime _fechaDespeque;
+        
         [DataMember]
         public DateTime FechaDespeque
         {
             get { return _fechaDespeque; }
             set { _fechaDespeque = value; }
         }
-
-        private DateTime _fechaLlegada;
+        
         [DataMember]
         public DateTime FechaLlegada
         {
             get { return _fechaLlegada; }
             set { _fechaLlegada = value; }
         }
-
-
-
-        private String _nomRuta;
+        
         [DataMember]
         public String NomRuta
         {
             get { return _nomRuta; }
             set { _nomRuta = value; }
         }
-
-
-        private String _codigoDestino;
+        
         [DataMember]
         public String CodigoDestino
         {
             get { return _codigoDestino; }
             set { _codigoDestino = value; }
         }
-
-
-
-
+        
         // Cada propiedad es un DataMember de la Data Contractual
 
         private int _rankingVisitasDestinosPeruanos;
+        private string _nombreLugar;
+
         [DataMember]
         public int RankingVisitasDestinosPeruanos
         {
             get { return _rankingVisitasDestinosPeruanos; }
             set { _rankingVisitasDestinosPeruanos = value; }
         }
-
-        private string _nombreLugar;
+        
         [DataMember]
         public string NombreLugar
         {

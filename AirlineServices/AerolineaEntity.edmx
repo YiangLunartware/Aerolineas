@@ -374,6 +374,53 @@ warning 6013: The table/view 'Aerolinea.dbo.vw_VuelosPaisFechas' does not have a
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="usp_CantidaDeVuelosFechas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fecini" Type="date" Mode="In" />
+          <Parameter Name="fecfin" Type="date" Mode="In" />
+        </Function>
+        <Function Name="usp_ConsultaMaximoMigrantesNacionalidad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="paisNacimiento" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_ListaVueloPorDescripcion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="descrip" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_ListaVueloPorEstadoFechas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="estado" Type="bit" Mode="In" />
+          <Parameter Name="fecini" Type="date" Mode="In" />
+          <Parameter Name="fecfin" Type="date" Mode="In" />
+        </Function>
+        <Function Name="usp_ListaVueloPorFecha" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="fecini" Type="date" Mode="In" />
+          <Parameter Name="fecfin" Type="date" Mode="In" />
+        </Function>
+        <Function Name="usp_ListaVueloPorPrecioFechas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="precio" Type="decimal" Mode="In" />
+          <Parameter Name="fecini" Type="date" Mode="In" />
+          <Parameter Name="fecfin" Type="date" Mode="In" />
+        </Function>
+        <Function Name="usp_ListaVuelosPorCapacidadFechas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="capacidad" Type="int" Mode="In" />
+          <Parameter Name="fecini" Type="date" Mode="In" />
+          <Parameter Name="fecfin" Type="date" Mode="In" />
+        </Function>
+        <Function Name="USP_RANKING_VISITAS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FECHA_LLEGADA" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="usp_RankingDestinosPeruanosDemandaFechas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nom_des" Type="varchar" Mode="In" />
+          <Parameter Name="fecini" Type="smalldatetime" Mode="In" />
+          <Parameter Name="fecfin" Type="smalldatetime" Mode="In" />
+        </Function>
+        <Function Name="usp_RankingPaisDemandaFechas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="descrip" Type="varchar" Mode="In" />
+          <Parameter Name="fecini" Type="smalldatetime" Mode="In" />
+          <Parameter Name="fecfin" Type="smalldatetime" Mode="In" />
+        </Function>
+        <Function Name="usp_RankingVuelosPrecioFechas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nom_ruta" Type="varchar" Mode="In" />
+          <Parameter Name="fecini" Type="smalldatetime" Mode="In" />
+          <Parameter Name="fecfin" Type="smalldatetime" Mode="In" />
+        </Function>
         <EntityContainer Name="AerolineaModelStoreContainer">
           <EntitySet Name="AVION" EntityType="Self.AVION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CONTINENTE" EntityType="Self.CONTINENTE" Schema="dbo" store:Type="Tables" />
@@ -861,7 +908,132 @@ FROM [dbo].[VW_VISITAS] AS [VW_VISITAS]</DefiningQuery>
             <End Role="RUTA" EntitySet="RUTA" />
             <End Role="VUELO" EntitySet="VUELO" />
           </AssociationSet>
+          <FunctionImport Name="usp_CantidaDeVuelosFechas" ReturnType="Collection(AerolineaModel.usp_CantidaDeVuelosFechas_Result)">
+            <Parameter Name="fecini" Mode="In" Type="DateTime" />
+            <Parameter Name="fecfin" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ConsultaMaximoMigrantesNacionalidad" ReturnType="Collection(AerolineaModel.usp_ConsultaMaximoMigrantesNacionalidad_Result)">
+            <Parameter Name="paisNacimiento" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ListaVueloPorDescripcion" ReturnType="Collection(AerolineaModel.usp_ListaVueloPorDescripcion_Result)">
+            <Parameter Name="descrip" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ListaVueloPorEstadoFechas" ReturnType="Collection(AerolineaModel.usp_ListaVueloPorEstadoFechas_Result)">
+            <Parameter Name="estado" Mode="In" Type="Boolean" />
+            <Parameter Name="fecini" Mode="In" Type="DateTime" />
+            <Parameter Name="fecfin" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ListaVueloPorFecha" ReturnType="Collection(AerolineaModel.usp_ListaVueloPorFecha_Result)">
+            <Parameter Name="fecini" Mode="In" Type="DateTime" />
+            <Parameter Name="fecfin" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ListaVueloPorPrecioFechas" ReturnType="Collection(AerolineaModel.usp_ListaVueloPorPrecioFechas_Result)">
+            <Parameter Name="precio" Mode="In" Type="Decimal" />
+            <Parameter Name="fecini" Mode="In" Type="DateTime" />
+            <Parameter Name="fecfin" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ListaVuelosPorCapacidadFechas" ReturnType="Collection(AerolineaModel.usp_ListaVuelosPorCapacidadFechas_Result)">
+            <Parameter Name="capacidad" Mode="In" Type="Int32" />
+            <Parameter Name="fecini" Mode="In" Type="DateTime" />
+            <Parameter Name="fecfin" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="USP_RANKING_VISITAS" ReturnType="Collection(AerolineaModel.USP_RANKING_VISITAS_Result)">
+            <Parameter Name="FECHA_LLEGADA" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="usp_RankingDestinosPeruanosDemandaFechas" ReturnType="Collection(AerolineaModel.usp_RankingDestinosPeruanosDemandaFechas_Result)">
+            <Parameter Name="nom_des" Mode="In" Type="String" />
+            <Parameter Name="fecini" Mode="In" Type="DateTime" />
+            <Parameter Name="fecfin" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="usp_RankingPaisDemandaFechas" ReturnType="Collection(AerolineaModel.usp_RankingPaisDemandaFechas_Result)">
+            <Parameter Name="descrip" Mode="In" Type="String" />
+            <Parameter Name="fecini" Mode="In" Type="DateTime" />
+            <Parameter Name="fecfin" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="usp_RankingVuelosPrecioFechas" ReturnType="Collection(AerolineaModel.usp_RankingVuelosPrecioFechas_Result)">
+            <Parameter Name="nom_ruta" Mode="In" Type="String" />
+            <Parameter Name="fecini" Mode="In" Type="DateTime" />
+            <Parameter Name="fecfin" Mode="In" Type="DateTime" />
+          </FunctionImport>
         </EntityContainer>
+        <ComplexType Name="usp_CantidaDeVuelosFechas_Result">
+          <Property Type="String" Name="NOM_RUTA" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="CantidadDeVuelos" Nullable="true" />
+          <Property Type="DateTime" Name="FECHA_DESPEQUE" Nullable="true" />
+          <Property Type="DateTime" Name="FECHA_LLEGADA" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_ConsultaMaximoMigrantesNacionalidad_Result">
+          <Property Type="String" Name="COD_PAIS_NACIMIENTO" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="COD_PAIS_DESTINO" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="NOMBRE_PAIS_DESTINO" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="MONEDA_PAIS_DESTINO" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IDIOMA_PAIS_DESTINO" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="CANTIDAD_VUELOS" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_ListaVueloPorDescripcion_Result">
+          <Property Type="String" Name="COD_VUELO" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="DESCRIPCION_VUELO" Nullable="true" MaxLength="250" />
+          <Property Type="DateTime" Name="FECHA_DESPEQUE" Nullable="true" />
+          <Property Type="DateTime" Name="FECHA_LLEGADA" Nullable="true" />
+          <Property Type="Boolean" Name="ESTADO_VUELO" Nullable="true" />
+          <Property Type="Decimal" Name="PRECIO_VUELO" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="usp_ListaVueloPorEstadoFechas_Result">
+          <Property Type="String" Name="COD_VUELO" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="DESCRIPCION_VUELO" Nullable="true" MaxLength="250" />
+          <Property Type="DateTime" Name="FECHA_DESPEQUE" Nullable="true" />
+          <Property Type="DateTime" Name="FECHA_LLEGADA" Nullable="true" />
+          <Property Type="Boolean" Name="ESTADO_VUELO" Nullable="true" />
+          <Property Type="Decimal" Name="PRECIO_VUELO" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="usp_ListaVueloPorFecha_Result">
+          <Property Type="String" Name="COD_VUELO" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="DESCRIPCION_VUELO" Nullable="true" MaxLength="250" />
+          <Property Type="DateTime" Name="FECHA_DESPEQUE" Nullable="true" />
+          <Property Type="DateTime" Name="FECHA_LLEGADA" Nullable="true" />
+          <Property Type="Boolean" Name="ESTADO_VUELO" Nullable="true" />
+          <Property Type="Decimal" Name="PRECIO_VUELO" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="usp_ListaVueloPorPrecioFechas_Result">
+          <Property Type="String" Name="COD_VUELO" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="DESCRIPCION_VUELO" Nullable="true" MaxLength="250" />
+          <Property Type="DateTime" Name="FECHA_DESPEQUE" Nullable="true" />
+          <Property Type="DateTime" Name="FECHA_LLEGADA" Nullable="true" />
+          <Property Type="Boolean" Name="ESTADO_VUELO" Nullable="true" />
+          <Property Type="Decimal" Name="PRECIO_VUELO" Nullable="true" Precision="18" Scale="0" />
+        </ComplexType>
+        <ComplexType Name="usp_ListaVuelosPorCapacidadFechas_Result">
+          <Property Type="String" Name="COD_VUELO" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="DESCRIPCION_VUELO" Nullable="true" MaxLength="250" />
+          <Property Type="DateTime" Name="FECHA_DESPEQUE" Nullable="true" />
+          <Property Type="DateTime" Name="FECHA_LLEGADA" Nullable="true" />
+          <Property Type="Boolean" Name="ESTADO_VUELO" Nullable="true" />
+          <Property Type="Decimal" Name="PRECIO_VUELO" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="Int32" Name="CAPACIDAD" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="USP_RANKING_VISITAS_Result">
+          <Property Type="Int32" Name="RANKING" Nullable="true" />
+          <Property Type="String" Name="COD_DESTINO" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="NOMBRE_LUGAR" Nullable="true" MaxLength="150" />
+          <Property Type="DateTime" Name="FECHA_LLEGADA" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_RankingDestinosPeruanosDemandaFechas_Result">
+          <Property Type="String" Name="NOMBRE_LUGAR" Nullable="true" MaxLength="150" />
+          <Property Type="Int32" Name="Demanda" Nullable="true" />
+          <Property Type="DateTime" Name="FECHA_DESPEQUE" Nullable="true" />
+          <Property Type="DateTime" Name="FECHA_LLEGADA" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_RankingPaisDemandaFechas_Result">
+          <Property Type="String" Name="DESCRIPCION_VUELO" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="Demanda" Nullable="true" />
+          <Property Type="DateTime" Name="FECHA_DESPEQUE" Nullable="true" />
+          <Property Type="DateTime" Name="FECHA_LLEGADA" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_RankingVuelosPrecioFechas_Result">
+          <Property Type="String" Name="NOM_RUTA" Nullable="true" MaxLength="200" />
+          <Property Type="Decimal" Name="PRECIO_VUELO" Nullable="true" Precision="18" Scale="0" />
+          <Property Type="DateTime" Name="FECHA_DESPEQUE" Nullable="true" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1040,6 +1212,128 @@ FROM [dbo].[VW_VISITAS] AS [VW_VISITAS]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_CantidaDeVuelosFechas" FunctionName="AerolineaModel.Store.usp_CantidaDeVuelosFechas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AerolineaModel.usp_CantidaDeVuelosFechas_Result">
+                <ScalarProperty Name="NOM_RUTA" ColumnName="NOM_RUTA" />
+                <ScalarProperty Name="CantidadDeVuelos" ColumnName="CantidadDeVuelos" />
+                <ScalarProperty Name="FECHA_DESPEQUE" ColumnName="FECHA_DESPEQUE" />
+                <ScalarProperty Name="FECHA_LLEGADA" ColumnName="FECHA_LLEGADA" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ConsultaMaximoMigrantesNacionalidad" FunctionName="AerolineaModel.Store.usp_ConsultaMaximoMigrantesNacionalidad">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AerolineaModel.usp_ConsultaMaximoMigrantesNacionalidad_Result">
+                <ScalarProperty Name="COD_PAIS_NACIMIENTO" ColumnName="COD_PAIS_NACIMIENTO" />
+                <ScalarProperty Name="COD_PAIS_DESTINO" ColumnName="COD_PAIS_DESTINO" />
+                <ScalarProperty Name="NOMBRE_PAIS_DESTINO" ColumnName="NOMBRE_PAIS_DESTINO" />
+                <ScalarProperty Name="MONEDA_PAIS_DESTINO" ColumnName="MONEDA_PAIS_DESTINO" />
+                <ScalarProperty Name="IDIOMA_PAIS_DESTINO" ColumnName="IDIOMA_PAIS_DESTINO" />
+                <ScalarProperty Name="CANTIDAD_VUELOS" ColumnName="CANTIDAD_VUELOS" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListaVueloPorDescripcion" FunctionName="AerolineaModel.Store.usp_ListaVueloPorDescripcion">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AerolineaModel.usp_ListaVueloPorDescripcion_Result">
+                <ScalarProperty Name="COD_VUELO" ColumnName="COD_VUELO" />
+                <ScalarProperty Name="DESCRIPCION_VUELO" ColumnName="DESCRIPCION_VUELO" />
+                <ScalarProperty Name="FECHA_DESPEQUE" ColumnName="FECHA_DESPEQUE" />
+                <ScalarProperty Name="FECHA_LLEGADA" ColumnName="FECHA_LLEGADA" />
+                <ScalarProperty Name="ESTADO_VUELO" ColumnName="ESTADO_VUELO" />
+                <ScalarProperty Name="PRECIO_VUELO" ColumnName="PRECIO_VUELO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListaVueloPorEstadoFechas" FunctionName="AerolineaModel.Store.usp_ListaVueloPorEstadoFechas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AerolineaModel.usp_ListaVueloPorEstadoFechas_Result">
+                <ScalarProperty Name="COD_VUELO" ColumnName="COD_VUELO" />
+                <ScalarProperty Name="DESCRIPCION_VUELO" ColumnName="DESCRIPCION_VUELO" />
+                <ScalarProperty Name="FECHA_DESPEQUE" ColumnName="FECHA_DESPEQUE" />
+                <ScalarProperty Name="FECHA_LLEGADA" ColumnName="FECHA_LLEGADA" />
+                <ScalarProperty Name="ESTADO_VUELO" ColumnName="ESTADO_VUELO" />
+                <ScalarProperty Name="PRECIO_VUELO" ColumnName="PRECIO_VUELO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListaVueloPorFecha" FunctionName="AerolineaModel.Store.usp_ListaVueloPorFecha">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AerolineaModel.usp_ListaVueloPorFecha_Result">
+                <ScalarProperty Name="COD_VUELO" ColumnName="COD_VUELO" />
+                <ScalarProperty Name="DESCRIPCION_VUELO" ColumnName="DESCRIPCION_VUELO" />
+                <ScalarProperty Name="FECHA_DESPEQUE" ColumnName="FECHA_DESPEQUE" />
+                <ScalarProperty Name="FECHA_LLEGADA" ColumnName="FECHA_LLEGADA" />
+                <ScalarProperty Name="ESTADO_VUELO" ColumnName="ESTADO_VUELO" />
+                <ScalarProperty Name="PRECIO_VUELO" ColumnName="PRECIO_VUELO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListaVueloPorPrecioFechas" FunctionName="AerolineaModel.Store.usp_ListaVueloPorPrecioFechas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AerolineaModel.usp_ListaVueloPorPrecioFechas_Result">
+                <ScalarProperty Name="COD_VUELO" ColumnName="COD_VUELO" />
+                <ScalarProperty Name="DESCRIPCION_VUELO" ColumnName="DESCRIPCION_VUELO" />
+                <ScalarProperty Name="FECHA_DESPEQUE" ColumnName="FECHA_DESPEQUE" />
+                <ScalarProperty Name="FECHA_LLEGADA" ColumnName="FECHA_LLEGADA" />
+                <ScalarProperty Name="ESTADO_VUELO" ColumnName="ESTADO_VUELO" />
+                <ScalarProperty Name="PRECIO_VUELO" ColumnName="PRECIO_VUELO" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListaVuelosPorCapacidadFechas" FunctionName="AerolineaModel.Store.usp_ListaVuelosPorCapacidadFechas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AerolineaModel.usp_ListaVuelosPorCapacidadFechas_Result">
+                <ScalarProperty Name="COD_VUELO" ColumnName="COD_VUELO" />
+                <ScalarProperty Name="DESCRIPCION_VUELO" ColumnName="DESCRIPCION_VUELO" />
+                <ScalarProperty Name="FECHA_DESPEQUE" ColumnName="FECHA_DESPEQUE" />
+                <ScalarProperty Name="FECHA_LLEGADA" ColumnName="FECHA_LLEGADA" />
+                <ScalarProperty Name="ESTADO_VUELO" ColumnName="ESTADO_VUELO" />
+                <ScalarProperty Name="PRECIO_VUELO" ColumnName="PRECIO_VUELO" />
+                <ScalarProperty Name="CAPACIDAD" ColumnName="CAPACIDAD" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="USP_RANKING_VISITAS" FunctionName="AerolineaModel.Store.USP_RANKING_VISITAS">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AerolineaModel.USP_RANKING_VISITAS_Result">
+                <ScalarProperty Name="RANKING" ColumnName="RANKING" />
+                <ScalarProperty Name="COD_DESTINO" ColumnName="COD_DESTINO" />
+                <ScalarProperty Name="NOMBRE_LUGAR" ColumnName="NOMBRE_LUGAR" />
+                <ScalarProperty Name="FECHA_LLEGADA" ColumnName="FECHA_LLEGADA" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_RankingDestinosPeruanosDemandaFechas" FunctionName="AerolineaModel.Store.usp_RankingDestinosPeruanosDemandaFechas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AerolineaModel.usp_RankingDestinosPeruanosDemandaFechas_Result">
+                <ScalarProperty Name="NOMBRE_LUGAR" ColumnName="NOMBRE_LUGAR" />
+                <ScalarProperty Name="Demanda" ColumnName="Demanda" />
+                <ScalarProperty Name="FECHA_DESPEQUE" ColumnName="FECHA_DESPEQUE" />
+                <ScalarProperty Name="FECHA_LLEGADA" ColumnName="FECHA_LLEGADA" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_RankingPaisDemandaFechas" FunctionName="AerolineaModel.Store.usp_RankingPaisDemandaFechas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AerolineaModel.usp_RankingPaisDemandaFechas_Result">
+                <ScalarProperty Name="DESCRIPCION_VUELO" ColumnName="DESCRIPCION_VUELO" />
+                <ScalarProperty Name="Demanda" ColumnName="Demanda" />
+                <ScalarProperty Name="FECHA_DESPEQUE" ColumnName="FECHA_DESPEQUE" />
+                <ScalarProperty Name="FECHA_LLEGADA" ColumnName="FECHA_LLEGADA" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_RankingVuelosPrecioFechas" FunctionName="AerolineaModel.Store.usp_RankingVuelosPrecioFechas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AerolineaModel.usp_RankingVuelosPrecioFechas_Result">
+                <ScalarProperty Name="NOM_RUTA" ColumnName="NOM_RUTA" />
+                <ScalarProperty Name="PRECIO_VUELO" ColumnName="PRECIO_VUELO" />
+                <ScalarProperty Name="FECHA_DESPEQUE" ColumnName="FECHA_DESPEQUE" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

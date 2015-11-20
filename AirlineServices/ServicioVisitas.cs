@@ -11,13 +11,11 @@ namespace AirlineServices
     public class ServicioVisitas : IServicioVisitas
     {
         
-
         public List<Visitas> GetVisitas_X_Fecha(DateTime fechaInicial, DateTime fechaFinal)
         {
             AerolineaEntities misAerolineas = new AerolineaEntities();
             List<Visitas> objListaVisitas = new List<Visitas>();
-
-
+            
             try
             {
                 // Obtenemos con LINQ el registro a consultar
@@ -25,13 +23,11 @@ namespace AirlineServices
                              let fullName = objVisitas.NOMBRE_PASAJERO + "_" + objVisitas.APELLIDO_PASAJERO
                              where objVisitas.FECHA_DESPEQUE >= fechaInicial &&
                                     objVisitas.FECHA_LLEGADA <= fechaFinal
-
-
+                                    
                              select new { fullName, objVisitas.NOM_RUTA, objVisitas.FECHA_DESPEQUE, objVisitas.FECHA_LLEGADA }).Take(100);
                 //objPasajero.NOMBRE_PASAJERO + ' ' + objPasajero.APELLIDO_PASAJERO
                 // ,objRuta.NOM_RUTA ).FirstOrDefault();
-
-
+                
                 foreach (var resultado in query)
                 {
                     Visitas objVisitasBE = new Visitas();
@@ -43,8 +39,7 @@ namespace AirlineServices
 
                     objListaVisitas.Add(objVisitasBE);
                 }
-
-
+                
             }
             catch (Exception ex)
             {
@@ -58,8 +53,7 @@ namespace AirlineServices
         {
             AerolineaEntities misAerolineas = new AerolineaEntities();
             List<Visitas> objListaVisitasDestinos = new List<Visitas>();
-
-
+            
             try
             {
                 // Obtenemos con LINQ el registro a consultar
@@ -85,13 +79,11 @@ namespace AirlineServices
                     objVisitasBE.FechaDespeque = Convert.ToDateTime(resultado.FECHA_DESPEQUE);
                     objVisitasBE.FechaLlegada = Convert.ToDateTime(resultado.FECHA_LLEGADA);
 
-
-
+                    
                     // objListaReservacion.Add(objReservacionBE);
                     objListaVisitasDestinos.Add(objVisitasBE);
                 }
-
-
+                
             }
             catch (Exception ex)
             {
@@ -105,18 +97,15 @@ namespace AirlineServices
         {
             AerolineaEntities misAerolineas = new AerolineaEntities();
             List<Visitas> objListaVisitas = new List<Visitas>();
-
-
+            
             try
             {
                 // Obtenemos con LINQ el registro a consultar
                 var query = (from objVisitas in misAerolineas.VW_VISITAS
                              let fullName = objVisitas.NOMBRE_PASAJERO + "_" + objVisitas.APELLIDO_PASAJERO
-
-
+                             
                              select new { fullName, objVisitas.NOM_RUTA }).Take(100);
-
-
+                
                 foreach (var resultado in query)
                 {
                     Visitas objVisitasBE = new Visitas();
@@ -125,22 +114,17 @@ namespace AirlineServices
 
                     objListaVisitas.Add(objVisitasBE);
                 }
-
-
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-
             return objListaVisitas;
         }
 
         public List<Visitas> RankingVisitasDestinosPeruanos(DateTime fechaLLegada)
         {
-            
             AerolineaEntities misAerolineas = new AerolineaEntities();
-           
             List<Visitas> RankingVisitasDestinosPeruanos = new List<Visitas>();
 
             /*
@@ -170,9 +154,5 @@ namespace AirlineServices
 
             return RankingVisitasDestinosPeruanos;
         }
-
-            
-        
-
     }
 }
