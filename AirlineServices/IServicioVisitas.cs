@@ -12,6 +12,7 @@ namespace AirlineServices
     public interface IServicioVisitas
     {
         [OperationContract]
+<<<<<<< HEAD
         List<Visitas> GetVisitas_X_Fecha(DateTime fechaInicial, DateTime fechaFinal);
         [OperationContract]
         List<Visitas> GetVisitas_X_LugarOrigen(string LugarOrigen, DateTime fechaInicial, DateTime fechaFinal);
@@ -94,5 +95,8 @@ namespace AirlineServices
             set { _nombreLugar = value; }
         }
 
+=======
+        void DoWork();
+>>>>>>> origin/master
     }
 }

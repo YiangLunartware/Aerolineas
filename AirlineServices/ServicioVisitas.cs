@@ -10,6 +10,7 @@ namespace AirlineServices
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "ServicioVisitas" in both code and config file together.
     public class ServicioVisitas : IServicioVisitas
     {
+<<<<<<< HEAD
         
         public List<Visitas> GetVisitas_X_Fecha(DateTime fechaInicial, DateTime fechaFinal)
         {
@@ -153,6 +154,10 @@ namespace AirlineServices
             */
 
             return RankingVisitasDestinosPeruanos;
+=======
+        public void DoWork()
+        {
+>>>>>>> origin/master
         }
     }
 }

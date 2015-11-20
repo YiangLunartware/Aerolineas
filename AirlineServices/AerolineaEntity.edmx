@@ -4,12 +4,121 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AerolineaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="AerolineaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="AerolineaModelStoreContainer">
+          <EntitySet Name="AVION" EntityType="AerolineaModel.Store.AVION" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CONTINENTE" EntityType="AerolineaModel.Store.CONTINENTE" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LUGAR" EntityType="AerolineaModel.Store.LUGAR" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MARCA" EntityType="AerolineaModel.Store.MARCA" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PAIS" EntityType="AerolineaModel.Store.PAIS" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PASAJERO" EntityType="AerolineaModel.Store.PASAJERO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PILOTO" EntityType="AerolineaModel.Store.PILOTO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RESERVACION" EntityType="AerolineaModel.Store.RESERVACION" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RUTA" EntityType="AerolineaModel.Store.RUTA" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="sysdiagrams" EntityType="AerolineaModel.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="VUELO" EntityType="AerolineaModel.Store.VUELO" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="vw_MigrantesPaisLugar" EntityType="AerolineaModel.Store.vw_MigrantesPaisLugar" store:Type="Views" store:Schema="dbo" store:Name="vw_MigrantesPaisLugar">
+            <DefiningQuery>SELECT 
+      [vw_MigrantesPaisLugar].[COD_PASAJERO] AS [COD_PASAJERO], 
+      [vw_MigrantesPaisLugar].[NOMBRE_PASAJERO] AS [NOMBRE_PASAJERO], 
+      [vw_MigrantesPaisLugar].[APELLIDO_PASAJERO] AS [APELLIDO_PASAJERO], 
+      [vw_MigrantesPaisLugar].[DNI] AS [DNI], 
+      [vw_MigrantesPaisLugar].[EMAIL] AS [EMAIL], 
+      [vw_MigrantesPaisLugar].[NUMERO_TELEFONICO] AS [NUMERO_TELEFONICO], 
+      [vw_MigrantesPaisLugar].[SEXO] AS [SEXO], 
+      [vw_MigrantesPaisLugar].[DESCRIPCION_VUELO] AS [DESCRIPCION_VUELO], 
+      [vw_MigrantesPaisLugar].[COD_PAIS_ORIGEN] AS [COD_PAIS_ORIGEN], 
+      [vw_MigrantesPaisLugar].[PAIS_ORIGEN] AS [PAIS_ORIGEN], 
+      [vw_MigrantesPaisLugar].[COD_PAIS_DESTINO] AS [COD_PAIS_DESTINO], 
+      [vw_MigrantesPaisLugar].[PAIS_DESTINO] AS [PAIS_DESTINO], 
+      [vw_MigrantesPaisLugar].[COD_ORIGEN] AS [COD_ORIGEN], 
+      [vw_MigrantesPaisLugar].[NOMBRE_ORIGEN] AS [NOMBRE_ORIGEN], 
+      [vw_MigrantesPaisLugar].[COD_DESTINO] AS [COD_DESTINO], 
+      [vw_MigrantesPaisLugar].[NOMBRE_DESTINO] AS [NOMBRE_DESTINO]
+      FROM [dbo].[vw_MigrantesPaisLugar] AS [vw_MigrantesPaisLugar]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="VW_VISITAS" EntityType="AerolineaModel.Store.VW_VISITAS" store:Type="Views" store:Schema="dbo" store:Name="VW_VISITAS">
+            <DefiningQuery>SELECT 
+      [VW_VISITAS].[COD_PASAJERO] AS [COD_PASAJERO], 
+      [VW_VISITAS].[DNI] AS [DNI], 
+      [VW_VISITAS].[NOMBRE_PASAJERO] AS [NOMBRE_PASAJERO], 
+      [VW_VISITAS].[APELLIDO_PASAJERO] AS [APELLIDO_PASAJERO], 
+      [VW_VISITAS].[SEXO] AS [SEXO], 
+      [VW_VISITAS].[NUMERO_TELEFONICO] AS [NUMERO_TELEFONICO], 
+      [VW_VISITAS].[NACIONALIDAD] AS [NACIONALIDAD], 
+      [VW_VISITAS].[EMAIL] AS [EMAIL], 
+      [VW_VISITAS].[FECHA_NACIMIENTO] AS [FECHA_NACIMIENTO], 
+      [VW_VISITAS].[COD_RESERVACION] AS [COD_RESERVACION], 
+      [VW_VISITAS].[COD_VUELO] AS [COD_VUELO], 
+      [VW_VISITAS].[FECHA_RESERVACION] AS [FECHA_RESERVACION], 
+      [VW_VISITAS].[COD_RUTA] AS [COD_RUTA], 
+      [VW_VISITAS].[ESTADO_RESERVACION] AS [ESTADO_RESERVACION], 
+      [VW_VISITAS].[TOMO_VUELO] AS [TOMO_VUELO], 
+      [VW_VISITAS].[DESCRIPCION_VUELO] AS [DESCRIPCION_VUELO], 
+      [VW_VISITAS].[COD_AVION] AS [COD_AVION], 
+      [VW_VISITAS].[FECHA_DESPEQUE] AS [FECHA_DESPEQUE], 
+      [VW_VISITAS].[FECHA_LLEGADA] AS [FECHA_LLEGADA], 
+      [VW_VISITAS].[HORA_DESPEGUE] AS [HORA_DESPEGUE], 
+      [VW_VISITAS].[HORA_LLEGADA] AS [HORA_LLEGADA], 
+      [VW_VISITAS].[ESTADO_VUELO] AS [ESTADO_VUELO], 
+      [VW_VISITAS].[PRECIO_VUELO] AS [PRECIO_VUELO], 
+      [VW_VISITAS].[COD_DESTINO] AS [COD_DESTINO], 
+      [VW_VISITAS].[COD_ORIGEN] AS [COD_ORIGEN], 
+      [VW_VISITAS].[DESCRIPCION_RUTA] AS [DESCRIPCION_RUTA], 
+      [VW_VISITAS].[NOM_RUTA] AS [NOM_RUTA], 
+      [VW_VISITAS].[TIPO_RUTA] AS [TIPO_RUTA]
+      FROM [dbo].[VW_VISITAS] AS [VW_VISITAS]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_AVION_MARCA" Association="AerolineaModel.Store.FK_AVION_MARCA">
+            <End Role="MARCA" EntitySet="MARCA" />
+            <End Role="AVION" EntitySet="AVION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AVION_PILOTO" Association="AerolineaModel.Store.FK_AVION_PILOTO">
+            <End Role="PILOTO" EntitySet="PILOTO" />
+            <End Role="AVION" EntitySet="AVION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DESTINO" Association="AerolineaModel.Store.FK_DESTINO">
+            <End Role="LUGAR" EntitySet="LUGAR" />
+            <End Role="RUTA" EntitySet="RUTA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LUGAR_PAIS" Association="AerolineaModel.Store.FK_LUGAR_PAIS">
+            <End Role="PAIS" EntitySet="PAIS" />
+            <End Role="LUGAR" EntitySet="LUGAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_NACIONALIDAD" Association="AerolineaModel.Store.FK_NACIONALIDAD">
+            <End Role="PAIS" EntitySet="PAIS" />
+            <End Role="PASAJERO" EntitySet="PASAJERO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ORIGEN" Association="AerolineaModel.Store.FK_ORIGEN">
+            <End Role="LUGAR" EntitySet="LUGAR" />
+            <End Role="RUTA" EntitySet="RUTA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PAIS_CONTINENTE" Association="AerolineaModel.Store.FK_PAIS_CONTINENTE">
+            <End Role="CONTINENTE" EntitySet="CONTINENTE" />
+            <End Role="PAIS" EntitySet="PAIS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RESERVACION_PASAJERO" Association="AerolineaModel.Store.FK_RESERVACION_PASAJERO">
+            <End Role="PASAJERO" EntitySet="PASAJERO" />
+            <End Role="RESERVACION" EntitySet="RESERVACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RESERVACION_VUELO" Association="AerolineaModel.Store.FK_RESERVACION_VUELO">
+            <End Role="VUELO" EntitySet="VUELO" />
+            <End Role="RESERVACION" EntitySet="RESERVACION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VUELO_AVION" Association="AerolineaModel.Store.FK_VUELO_AVION">
+            <End Role="AVION" EntitySet="AVION" />
+            <End Role="VUELO" EntitySet="VUELO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VUELO_RUTA" Association="AerolineaModel.Store.FK_VUELO_RUTA">
+            <End Role="RUTA" EntitySet="RUTA" />
+            <End Role="VUELO" EntitySet="VUELO" />
+          </AssociationSet>
+        </EntityContainer>
         <EntityType Name="AVION">
           <Key>
             <PropertyRef Name="COD_AVION" />
           </Key>
-          <Property Name="COD_AVION" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="COD_AVION" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="MATRICULA" Type="varchar" MaxLength="50" />
           <Property Name="CAPACIDAD" Type="int" />
           <Property Name="COD_MARCA" Type="varchar" MaxLength="10" />
@@ -19,14 +128,14 @@
           <Key>
             <PropertyRef Name="COD_CONTINENTE" />
           </Key>
-          <Property Name="COD_CONTINENTE" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="COD_CONTINENTE" Type="varchar" Nullable="false" MaxLength="6" />
           <Property Name="NOM_CONTINENTE" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="LUGAR">
           <Key>
             <PropertyRef Name="COD_LUGAR" />
           </Key>
-          <Property Name="COD_LUGAR" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="COD_LUGAR" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="NOMBRE_LUGAR" Type="varchar" MaxLength="150" />
           <Property Name="LATITUD" Type="float" />
           <Property Name="LONGITUD" Type="float" />
@@ -37,7 +146,7 @@
           <Key>
             <PropertyRef Name="COD_MARCA" />
           </Key>
-          <Property Name="COD_MARCA" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="COD_MARCA" Type="varchar" Nullable="false" MaxLength="10" />
           <Property Name="NOM_MARCA" Type="varchar" MaxLength="100" />
           <Property Name="DESC_MARCA" Type="varchar" MaxLength="200" />
         </EntityType>
@@ -45,17 +154,17 @@
           <Key>
             <PropertyRef Name="COD_PAIS" />
           </Key>
-          <Property Name="COD_PAIS" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="COD_PAIS" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="NOMBRE_PAIS" Type="varchar" MaxLength="150" />
           <Property Name="MONEDA" Type="varchar" MaxLength="50" />
           <Property Name="IDIOMA" Type="varchar" MaxLength="50" />
-          <Property Name="COD_CONTINENTE" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="COD_CONTINENTE" Type="varchar" Nullable="false" MaxLength="6" />
         </EntityType>
         <EntityType Name="PASAJERO">
           <Key>
             <PropertyRef Name="COD_PASAJERO" />
           </Key>
-          <Property Name="COD_PASAJERO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="COD_PASAJERO" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="DNI" Type="varchar" MaxLength="150" />
           <Property Name="NOMBRE_PASAJERO" Type="varchar" MaxLength="250" />
           <Property Name="APELLIDO_PASAJERO" Type="varchar" MaxLength="250" />
@@ -70,7 +179,7 @@
           <Key>
             <PropertyRef Name="COD_PILOTO" />
           </Key>
-          <Property Name="COD_PILOTO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="COD_PILOTO" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="NOMBRE_PILOTO" Type="varchar" MaxLength="150" />
           <Property Name="DNI" Type="varchar" MaxLength="150" />
         </EntityType>
@@ -78,7 +187,7 @@
           <Key>
             <PropertyRef Name="COD_RESERVACION" />
           </Key>
-          <Property Name="COD_RESERVACION" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="COD_RESERVACION" Type="varchar" Nullable="false" MaxLength="150" />
           <Property Name="FECHA_RESERVACION" Type="datetime" />
           <Property Name="ESTADO_RESERVACION" Type="char" MaxLength="10" />
           <Property Name="TOMO_VUELO" Type="bit" />
@@ -89,53 +198,46 @@
           <Key>
             <PropertyRef Name="COD_RUTA" />
           </Key>
-          <Property Name="COD_RUTA" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="COD_RUTA" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="NOM_RUTA" Type="varchar" MaxLength="200" />
           <Property Name="DESCRIPCION_RUTA" Type="varchar" MaxLength="200" />
           <Property Name="TIPO_RUTA" Type="varchar" MaxLength="150" />
           <Property Name="COD_ORIGEN" Type="varchar" MaxLength="100" />
           <Property Name="COD_DESTINO" Type="varchar" MaxLength="100" />
         </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="VUELO">
           <Key>
             <PropertyRef Name="COD_VUELO" />
           </Key>
-          <Property Name="COD_VUELO" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="COD_VUELO" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="DESCRIPCION_VUELO" Type="varchar" MaxLength="250" />
           <Property Name="FECHA_DESPEQUE" Type="date" />
           <Property Name="FECHA_LLEGADA" Type="date" />
-          <Property Name="HORA_DESPEGUE" Type="time" Precision="7" />
-          <Property Name="HORA_LLEGADA" Type="time" Precision="7" />
+          <Property Name="HORA_DESPEGUE" Type="time" />
+          <Property Name="HORA_LLEGADA" Type="time" />
           <Property Name="ESTADO_VUELO" Type="bit" />
-          <Property Name="PRECIO_VUELO" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="PRECIO_VUELO" Type="decimal" />
           <Property Name="COD_AVION" Type="varchar" MaxLength="50" />
           <Property Name="COD_RUTA" Type="varchar" MaxLength="100" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'Aerolinea.dbo.vw_MigrantesNacionPaisFechas' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="vw_MigrantesNacionPaisFechas">
-          <Property Name="COD_PASAJERO" Type="varchar" MaxLength="50" />
-          <Property Name="NOMBRE_PASAJERO" Type="varchar" MaxLength="250" />
-          <Property Name="APELLIDO_PASAJERO" Type="varchar" MaxLength="250" />
-          <Property Name="DNI" Type="varchar" MaxLength="150" />
-          <Property Name="EMAIL" Type="varchar" MaxLength="250" />
-          <Property Name="NUMERO_TELEFONICO" Type="varchar" MaxLength="50" />
-          <Property Name="SEXO" Type="char" MaxLength="1" />
-          <Property Name="COD_PAIS_NACIMIENTO" Type="varchar" MaxLength="50" />
-          <Property Name="PAIS_NACIMIENTO" Type="varchar" MaxLength="150" />
-          <Property Name="COD_PAIS_DESTINO" Type="varchar" MaxLength="50" />
-          <Property Name="PAIS_DESTINO" Type="varchar" MaxLength="150" />
-          <Property Name="NOMBRE_LUGAR" Type="varchar" MaxLength="150" />
-          <Property Name="FECHA_DESPEQUE" Type="date" />
-          <Property Name="FECHA_LLEGADA" Type="date" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'Aerolinea.dbo.vw_MigrantesPaisLugar' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'Aerolinea.dbo.vw_MigrantesPaisLugar' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
         <EntityType Name="vw_MigrantesPaisLugar">
           <Key>
             <PropertyRef Name="COD_PASAJERO" />
           </Key>
-          <Property Name="COD_PASAJERO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="COD_PASAJERO" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="NOMBRE_PASAJERO" Type="varchar" MaxLength="250" />
           <Property Name="APELLIDO_PASAJERO" Type="varchar" MaxLength="250" />
           <Property Name="DNI" Type="varchar" MaxLength="150" />
@@ -152,39 +254,9 @@ warning 6002: The table/view 'Aerolinea.dbo.vw_MigrantesPaisLugar' does not have
           <Property Name="COD_DESTINO" Type="varchar" MaxLength="100" />
           <Property Name="NOMBRE_DESTINO" Type="varchar" MaxLength="150" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'Aerolinea.dbo.VW_RANKING_VISITAS' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="VW_RANKING_VISITAS">
-          <Property Name="RANKING" Type="int" />
-          <Property Name="COD_DESTINO" Type="varchar" MaxLength="100" />
-          <Property Name="NOMBRE_LUGAR" Type="varchar" MaxLength="150" />
-          <Property Name="FECHA_LLEGADA" Type="date" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'Aerolinea.dbo.vw_RankingDestinosPeruanosDemanda' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="vw_RankingDestinosPeruanosDemanda">
-          <Property Name="NOMBRE_LUGAR" Type="varchar" MaxLength="150" />
-          <Property Name="Demanda" Type="int" />
-          <Property Name="FECHA_DESPEQUE" Type="date" />
-          <Property Name="FECHA_LLEGADA" Type="date" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'Aerolinea.dbo.vw_RankingPaisDemanda' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="vw_RankingPaisDemanda">
-          <Property Name="DESCRIPCION_VUELO" Type="varchar" MaxLength="250" />
-          <Property Name="Demanda" Type="int" />
-          <Property Name="FECHA_DESPEQUE" Type="date" />
-          <Property Name="FECHA_LLEGADA" Type="date" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'Aerolinea.dbo.vw_RankingVuelosPrecio' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="vw_RankingVuelosPrecio">
-          <Property Name="NOM_RUTA" Type="varchar" MaxLength="200" />
-          <Property Name="PRECIO_VUELO" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="FECHA_DESPEQUE" Type="date" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'Aerolinea.dbo.VW_VISITAS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'Aerolinea.dbo.VW_VISITAS' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
         <EntityType Name="VW_VISITAS">
           <Key>
             <PropertyRef Name="COD_PASAJERO" />
@@ -192,7 +264,7 @@ warning 6002: The table/view 'Aerolinea.dbo.VW_VISITAS' does not have a primary 
             <PropertyRef Name="COD_VUELO" />
             <PropertyRef Name="COD_RUTA" />
           </Key>
-          <Property Name="COD_PASAJERO" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="COD_PASAJERO" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="DNI" Type="varchar" MaxLength="150" />
           <Property Name="NOMBRE_PASAJERO" Type="varchar" MaxLength="250" />
           <Property Name="APELLIDO_PASAJERO" Type="varchar" MaxLength="250" />
@@ -201,50 +273,29 @@ warning 6002: The table/view 'Aerolinea.dbo.VW_VISITAS' does not have a primary 
           <Property Name="NACIONALIDAD" Type="varchar" MaxLength="200" />
           <Property Name="EMAIL" Type="varchar" MaxLength="250" />
           <Property Name="FECHA_NACIMIENTO" Type="datetime" />
-          <Property Name="COD_RESERVACION" Type="varchar" MaxLength="150" Nullable="false" />
-          <Property Name="COD_VUELO" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="COD_RESERVACION" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="COD_VUELO" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="FECHA_RESERVACION" Type="datetime" />
-          <Property Name="COD_RUTA" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="COD_RUTA" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="ESTADO_RESERVACION" Type="char" MaxLength="10" />
           <Property Name="TOMO_VUELO" Type="bit" />
           <Property Name="DESCRIPCION_VUELO" Type="varchar" MaxLength="250" />
           <Property Name="COD_AVION" Type="varchar" MaxLength="50" />
           <Property Name="FECHA_DESPEQUE" Type="date" />
           <Property Name="FECHA_LLEGADA" Type="date" />
-          <Property Name="HORA_DESPEGUE" Type="time" Precision="7" />
-          <Property Name="HORA_LLEGADA" Type="time" Precision="7" />
+          <Property Name="HORA_DESPEGUE" Type="time" />
+          <Property Name="HORA_LLEGADA" Type="time" />
           <Property Name="ESTADO_VUELO" Type="bit" />
-          <Property Name="PRECIO_VUELO" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="PRECIO_VUELO" Type="decimal" />
           <Property Name="COD_DESTINO" Type="varchar" MaxLength="100" />
           <Property Name="COD_ORIGEN" Type="varchar" MaxLength="100" />
           <Property Name="DESCRIPCION_RUTA" Type="varchar" MaxLength="200" />
           <Property Name="NOM_RUTA" Type="varchar" MaxLength="200" />
           <Property Name="TIPO_RUTA" Type="varchar" MaxLength="150" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'Aerolinea.dbo.vw_VuelosPaisFechas' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="vw_VuelosPaisFechas">
-          <Property Name="COD_VUELO" Type="varchar" MaxLength="100" />
-          <Property Name="COD_PAIS_ORIGEN" Type="varchar" MaxLength="50" />
-          <Property Name="NOMBRE_PAIS_ORIGEN" Type="varchar" MaxLength="150" />
-          <Property Name="MONEDA_PAIS_ORIGEN" Type="varchar" MaxLength="50" />
-          <Property Name="IDIOMA_PAIS_ORIGEN" Type="varchar" MaxLength="50" />
-          <Property Name="COD_PAIS_DESTINO" Type="varchar" MaxLength="50" />
-          <Property Name="NOMBRE_PAIS_DESTINO" Type="varchar" MaxLength="150" />
-          <Property Name="MONEDA_PAIS_DESTINO" Type="varchar" MaxLength="50" />
-          <Property Name="IDIOMA_PAIS_DESTINO" Type="varchar" MaxLength="50" />
-          <Property Name="COD_ORIGEN" Type="varchar" MaxLength="100" />
-          <Property Name="NOMBRE_ORIGEN" Type="varchar" MaxLength="150" />
-          <Property Name="COD_DESTINO" Type="varchar" MaxLength="100" />
-          <Property Name="NOMBRE_DESTINO" Type="varchar" MaxLength="150" />
-          <Property Name="NOM_RUTA" Type="varchar" MaxLength="200" />
-          <Property Name="TIPO_RUTA" Type="varchar" MaxLength="150" />
-          <Property Name="FECHA_DESPEQUE" Type="date" />
-          <Property Name="FECHA_LLEGADA" Type="date" />
-        </EntityType>-->
         <Association Name="FK_AVION_MARCA">
-          <End Role="MARCA" Type="Self.MARCA" Multiplicity="0..1" />
-          <End Role="AVION" Type="Self.AVION" Multiplicity="*" />
+          <End Role="MARCA" Type="AerolineaModel.Store.MARCA" Multiplicity="0..1" />
+          <End Role="AVION" Type="AerolineaModel.Store.AVION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="MARCA">
               <PropertyRef Name="COD_MARCA" />
@@ -255,8 +306,8 @@ warning 6013: The table/view 'Aerolinea.dbo.vw_VuelosPaisFechas' does not have a
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_AVION_PILOTO">
-          <End Role="PILOTO" Type="Self.PILOTO" Multiplicity="0..1" />
-          <End Role="AVION" Type="Self.AVION" Multiplicity="*" />
+          <End Role="PILOTO" Type="AerolineaModel.Store.PILOTO" Multiplicity="0..1" />
+          <End Role="AVION" Type="AerolineaModel.Store.AVION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PILOTO">
               <PropertyRef Name="COD_PILOTO" />
@@ -267,8 +318,8 @@ warning 6013: The table/view 'Aerolinea.dbo.vw_VuelosPaisFechas' does not have a
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_DESTINO">
-          <End Role="LUGAR" Type="Self.LUGAR" Multiplicity="0..1" />
-          <End Role="RUTA" Type="Self.RUTA" Multiplicity="*" />
+          <End Role="LUGAR" Type="AerolineaModel.Store.LUGAR" Multiplicity="0..1" />
+          <End Role="RUTA" Type="AerolineaModel.Store.RUTA" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LUGAR">
               <PropertyRef Name="COD_LUGAR" />
@@ -279,8 +330,8 @@ warning 6013: The table/view 'Aerolinea.dbo.vw_VuelosPaisFechas' does not have a
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_LUGAR_PAIS">
-          <End Role="PAIS" Type="Self.PAIS" Multiplicity="0..1" />
-          <End Role="LUGAR" Type="Self.LUGAR" Multiplicity="*" />
+          <End Role="PAIS" Type="AerolineaModel.Store.PAIS" Multiplicity="0..1" />
+          <End Role="LUGAR" Type="AerolineaModel.Store.LUGAR" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PAIS">
               <PropertyRef Name="COD_PAIS" />
@@ -291,8 +342,8 @@ warning 6013: The table/view 'Aerolinea.dbo.vw_VuelosPaisFechas' does not have a
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_NACIONALIDAD">
-          <End Role="PAIS" Type="Self.PAIS" Multiplicity="0..1" />
-          <End Role="PASAJERO" Type="Self.PASAJERO" Multiplicity="*" />
+          <End Role="PAIS" Type="AerolineaModel.Store.PAIS" Multiplicity="0..1" />
+          <End Role="PASAJERO" Type="AerolineaModel.Store.PASAJERO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PAIS">
               <PropertyRef Name="COD_PAIS" />
@@ -303,8 +354,8 @@ warning 6013: The table/view 'Aerolinea.dbo.vw_VuelosPaisFechas' does not have a
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ORIGEN">
-          <End Role="LUGAR" Type="Self.LUGAR" Multiplicity="0..1" />
-          <End Role="RUTA" Type="Self.RUTA" Multiplicity="*" />
+          <End Role="LUGAR" Type="AerolineaModel.Store.LUGAR" Multiplicity="0..1" />
+          <End Role="RUTA" Type="AerolineaModel.Store.RUTA" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="LUGAR">
               <PropertyRef Name="COD_LUGAR" />
@@ -315,8 +366,8 @@ warning 6013: The table/view 'Aerolinea.dbo.vw_VuelosPaisFechas' does not have a
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PAIS_CONTINENTE">
-          <End Role="CONTINENTE" Type="Self.CONTINENTE" Multiplicity="1" />
-          <End Role="PAIS" Type="Self.PAIS" Multiplicity="*" />
+          <End Role="CONTINENTE" Type="AerolineaModel.Store.CONTINENTE" Multiplicity="1" />
+          <End Role="PAIS" Type="AerolineaModel.Store.PAIS" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CONTINENTE">
               <PropertyRef Name="COD_CONTINENTE" />
@@ -327,8 +378,8 @@ warning 6013: The table/view 'Aerolinea.dbo.vw_VuelosPaisFechas' does not have a
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_RESERVACION_PASAJERO">
-          <End Role="PASAJERO" Type="Self.PASAJERO" Multiplicity="0..1" />
-          <End Role="RESERVACION" Type="Self.RESERVACION" Multiplicity="*" />
+          <End Role="PASAJERO" Type="AerolineaModel.Store.PASAJERO" Multiplicity="0..1" />
+          <End Role="RESERVACION" Type="AerolineaModel.Store.RESERVACION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PASAJERO">
               <PropertyRef Name="COD_PASAJERO" />
@@ -339,8 +390,8 @@ warning 6013: The table/view 'Aerolinea.dbo.vw_VuelosPaisFechas' does not have a
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_RESERVACION_VUELO">
-          <End Role="VUELO" Type="Self.VUELO" Multiplicity="0..1" />
-          <End Role="RESERVACION" Type="Self.RESERVACION" Multiplicity="*" />
+          <End Role="VUELO" Type="AerolineaModel.Store.VUELO" Multiplicity="0..1" />
+          <End Role="RESERVACION" Type="AerolineaModel.Store.RESERVACION" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="VUELO">
               <PropertyRef Name="COD_VUELO" />
@@ -351,8 +402,8 @@ warning 6013: The table/view 'Aerolinea.dbo.vw_VuelosPaisFechas' does not have a
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_VUELO_AVION">
-          <End Role="AVION" Type="Self.AVION" Multiplicity="0..1" />
-          <End Role="VUELO" Type="Self.VUELO" Multiplicity="*" />
+          <End Role="AVION" Type="AerolineaModel.Store.AVION" Multiplicity="0..1" />
+          <End Role="VUELO" Type="AerolineaModel.Store.VUELO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="AVION">
               <PropertyRef Name="COD_AVION" />
@@ -363,8 +414,8 @@ warning 6013: The table/view 'Aerolinea.dbo.vw_VuelosPaisFechas' does not have a
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_VUELO_RUTA">
-          <End Role="RUTA" Type="Self.RUTA" Multiplicity="0..1" />
-          <End Role="VUELO" Type="Self.VUELO" Multiplicity="*" />
+          <End Role="RUTA" Type="AerolineaModel.Store.RUTA" Multiplicity="0..1" />
+          <End Role="VUELO" Type="AerolineaModel.Store.VUELO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="RUTA">
               <PropertyRef Name="COD_RUTA" />
@@ -374,6 +425,46 @@ warning 6013: The table/view 'Aerolinea.dbo.vw_VuelosPaisFechas' does not have a
             </Dependent>
           </ReferentialConstraint>
         </Association>
+<<<<<<< HEAD
+=======
+        <Function Name="AllVisitas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="fn_diagramobjects" ReturnType="int" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetVisitas_X_LugarOrigen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="LUGAR_ORIGEN" Type="varchar" Mode="In" />
+          <Parameter Name="FECHA_INICIAL" Type="datetime" Mode="In" />
+          <Parameter Name="FECHA_FINAL" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+>>>>>>> origin/master
         <Function Name="usp_CantidaDeVuelosFechas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="fecini" Type="date" Mode="In" />
           <Parameter Name="fecfin" Type="date" Mode="In" />
@@ -381,6 +472,14 @@ warning 6013: The table/view 'Aerolinea.dbo.vw_VuelosPaisFechas' does not have a
         <Function Name="usp_ConsultaMaximoMigrantesNacionalidad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="paisNacimiento" Type="varchar" Mode="In" />
         </Function>
+<<<<<<< HEAD
+=======
+        <Function Name="USP_GetVisitas_X_Fecha" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FECHA_INICIAL" Type="datetime" Mode="In" />
+          <Parameter Name="FECHA_FINAL" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="usp_ListaAvionCapacidad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+>>>>>>> origin/master
         <Function Name="usp_ListaVueloPorDescripcion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="descrip" Type="varchar" Mode="In" />
         </Function>
@@ -398,11 +497,23 @@ warning 6013: The table/view 'Aerolinea.dbo.vw_VuelosPaisFechas' does not have a
           <Parameter Name="fecini" Type="date" Mode="In" />
           <Parameter Name="fecfin" Type="date" Mode="In" />
         </Function>
+<<<<<<< HEAD
+=======
+        <Function Name="usp_ListaVueloPrecios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+>>>>>>> origin/master
         <Function Name="usp_ListaVuelosPorCapacidadFechas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="capacidad" Type="int" Mode="In" />
           <Parameter Name="fecini" Type="date" Mode="In" />
           <Parameter Name="fecfin" Type="date" Mode="In" />
         </Function>
+<<<<<<< HEAD
+=======
+        <Function Name="usp_ListaVueloXDescripcion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="USP_NOMBRE_RUTA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="USP_RANKING_VISITA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FECHA_LLEGADA" Type="varchar" Mode="In" />
+        </Function>
+>>>>>>> origin/master
         <Function Name="USP_RANKING_VISITAS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="FECHA_LLEGADA" Type="datetime" Mode="In" />
         </Function>
@@ -421,6 +532,7 @@ warning 6013: The table/view 'Aerolinea.dbo.vw_VuelosPaisFechas' does not have a
           <Parameter Name="fecini" Type="smalldatetime" Mode="In" />
           <Parameter Name="fecfin" Type="smalldatetime" Mode="In" />
         </Function>
+<<<<<<< HEAD
         <EntityContainer Name="AerolineaModelStoreContainer">
           <EntitySet Name="AVION" EntityType="Self.AVION" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CONTINENTE" EntityType="Self.CONTINENTE" Schema="dbo" store:Type="Tables" />
@@ -531,6 +643,96 @@ FROM [dbo].[VW_VISITAS] AS [VW_VISITAS]</DefiningQuery>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
+=======
+        <!--Se encontraron errores durante la generación:
+      advertencia 6013: La tabla o vista 'Aerolinea.dbo.vw_MigrantesNacionPaisFechas' no tiene una clave principal definida y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+      
+      <EntityType Name="vw_MigrantesNacionPaisFechas">
+        <Property Name="COD_PASAJERO" Type="varchar" MaxLength="50" />
+        <Property Name="NOMBRE_PASAJERO" Type="varchar" MaxLength="250" />
+        <Property Name="APELLIDO_PASAJERO" Type="varchar" MaxLength="250" />
+        <Property Name="DNI" Type="varchar" MaxLength="150" />
+        <Property Name="EMAIL" Type="varchar" MaxLength="250" />
+        <Property Name="NUMERO_TELEFONICO" Type="varchar" MaxLength="50" />
+        <Property Name="SEXO" Type="char" MaxLength="1" />
+        <Property Name="COD_PAIS_NACIMIENTO" Type="varchar" MaxLength="50" />
+        <Property Name="PAIS_NACIMIENTO" Type="varchar" MaxLength="150" />
+        <Property Name="COD_PAIS_DESTINO" Type="varchar" MaxLength="50" />
+        <Property Name="PAIS_DESTINO" Type="varchar" MaxLength="150" />
+        <Property Name="NOMBRE_LUGAR" Type="varchar" MaxLength="150" />
+        <Property Name="FECHA_DESPEQUE" Type="date" />
+        <Property Name="FECHA_LLEGADA" Type="date" />
+      </EntityType>
+      Se encontraron errores durante la generación:
+      advertencia 6013: La tabla o vista 'Aerolinea.dbo.VW_RANKING_VISITAS' no tiene una clave principal definida y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+      
+      <EntityType Name="VW_RANKING_VISITAS">
+        <Property Name="RANKING" Type="int" />
+        <Property Name="COD_DESTINO" Type="varchar" MaxLength="100" />
+        <Property Name="NOMBRE_LUGAR" Type="varchar" MaxLength="150" />
+        <Property Name="FECHA_LLEGADA" Type="date" />
+      </EntityType>
+      Se encontraron errores durante la generación:
+      advertencia 6013: La tabla o vista 'Aerolinea.dbo.vw_RankingDestinosPeruanosDemanda' no tiene una clave principal definida y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+      
+      <EntityType Name="vw_RankingDestinosPeruanosDemanda">
+        <Property Name="NOMBRE_LUGAR" Type="varchar" MaxLength="150" />
+        <Property Name="Demanda" Type="int" />
+        <Property Name="FECHA_DESPEQUE" Type="date" />
+        <Property Name="FECHA_LLEGADA" Type="date" />
+      </EntityType>
+      Se encontraron errores durante la generación:
+      advertencia 6013: La tabla o vista 'Aerolinea.dbo.vw_RankingPaisDemanda' no tiene una clave principal definida y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+      
+      <EntityType Name="vw_RankingPaisDemanda">
+        <Property Name="DESCRIPCION_VUELO" Type="varchar" MaxLength="250" />
+        <Property Name="Demanda" Type="int" />
+        <Property Name="FECHA_DESPEQUE" Type="date" />
+        <Property Name="FECHA_LLEGADA" Type="date" />
+      </EntityType>
+      Se encontraron errores durante la generación:
+      advertencia 6013: La tabla o vista 'Aerolinea.dbo.vw_RankingVuelosPrecio' no tiene una clave principal definida y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+      
+      <EntityType Name="vw_RankingVuelosPrecio">
+        <Property Name="NOM_RUTA" Type="varchar" MaxLength="200" />
+        <Property Name="PRECIO_VUELO" Type="decimal" />
+        <Property Name="FECHA_DESPEQUE" Type="date" />
+      </EntityType>
+      Se encontraron errores durante la generación:
+      advertencia 6013: La tabla o vista 'Aerolinea.dbo.VW_VISITA' no tiene una clave principal definida y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+      
+      <EntityType Name="VW_VISITA">
+        <Property Name="NOMBRE_PASAJERO" Type="varchar" MaxLength="250" />
+        <Property Name="APELLIDO_PASAJERO" Type="varchar" MaxLength="250" />
+        <Property Name="FECHA_DESPEQUE" Type="date" />
+        <Property Name="FECHA_LLEGADA" Type="date" />
+        <Property Name="COD_DESTINO" Type="varchar" MaxLength="100" />
+        <Property Name="NOM_RUTA" Type="varchar" MaxLength="200" />
+      </EntityType>
+      Se encontraron errores durante la generación:
+      advertencia 6013: La tabla o vista 'Aerolinea.dbo.vw_VuelosPaisFechas' no tiene una clave principal definida y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
+      
+      <EntityType Name="vw_VuelosPaisFechas">
+        <Property Name="COD_VUELO" Type="varchar" MaxLength="100" />
+        <Property Name="COD_PAIS_ORIGEN" Type="varchar" MaxLength="50" />
+        <Property Name="NOMBRE_PAIS_ORIGEN" Type="varchar" MaxLength="150" />
+        <Property Name="MONEDA_PAIS_ORIGEN" Type="varchar" MaxLength="50" />
+        <Property Name="IDIOMA_PAIS_ORIGEN" Type="varchar" MaxLength="50" />
+        <Property Name="COD_PAIS_DESTINO" Type="varchar" MaxLength="50" />
+        <Property Name="NOMBRE_PAIS_DESTINO" Type="varchar" MaxLength="150" />
+        <Property Name="MONEDA_PAIS_DESTINO" Type="varchar" MaxLength="50" />
+        <Property Name="IDIOMA_PAIS_DESTINO" Type="varchar" MaxLength="50" />
+        <Property Name="COD_ORIGEN" Type="varchar" MaxLength="100" />
+        <Property Name="NOMBRE_ORIGEN" Type="varchar" MaxLength="150" />
+        <Property Name="COD_DESTINO" Type="varchar" MaxLength="100" />
+        <Property Name="NOMBRE_DESTINO" Type="varchar" MaxLength="150" />
+        <Property Name="NOM_RUTA" Type="varchar" MaxLength="200" />
+        <Property Name="TIPO_RUTA" Type="varchar" MaxLength="150" />
+        <Property Name="FECHA_DESPEQUE" Type="date" />
+        <Property Name="FECHA_LLEGADA" Type="date" />
+      </EntityType>-->
+      </Schema></edmx:StorageModels>
+>>>>>>> origin/master
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AerolineaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -908,6 +1110,46 @@ FROM [dbo].[VW_VISITAS] AS [VW_VISITAS]</DefiningQuery>
             <End Role="RUTA" EntitySet="RUTA" />
             <End Role="VUELO" EntitySet="VUELO" />
           </AssociationSet>
+<<<<<<< HEAD
+=======
+          <EntitySet Name="sysdiagrams" EntityType="AerolineaModel.sysdiagrams" />
+          <FunctionImport Name="AllVisitas" ReturnType="Collection(AerolineaModel.AllVisitas_Result)" />
+          <FunctionImport Name="GetVisitas_X_LugarOrigen" ReturnType="Collection(AerolineaModel.GetVisitas_X_LugarOrigen_Result)">
+            <Parameter Name="LUGAR_ORIGEN" Mode="In" Type="String" />
+            <Parameter Name="FECHA_INICIAL" Mode="In" Type="DateTime" />
+            <Parameter Name="FECHA_FINAL" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+>>>>>>> origin/master
           <FunctionImport Name="usp_CantidaDeVuelosFechas" ReturnType="Collection(AerolineaModel.usp_CantidaDeVuelosFechas_Result)">
             <Parameter Name="fecini" Mode="In" Type="DateTime" />
             <Parameter Name="fecfin" Mode="In" Type="DateTime" />
@@ -915,6 +1157,14 @@ FROM [dbo].[VW_VISITAS] AS [VW_VISITAS]</DefiningQuery>
           <FunctionImport Name="usp_ConsultaMaximoMigrantesNacionalidad" ReturnType="Collection(AerolineaModel.usp_ConsultaMaximoMigrantesNacionalidad_Result)">
             <Parameter Name="paisNacimiento" Mode="In" Type="String" />
           </FunctionImport>
+<<<<<<< HEAD
+=======
+          <FunctionImport Name="USP_GetVisitas_X_Fecha" ReturnType="Collection(AerolineaModel.USP_GetVisitas_X_Fecha_Result)">
+            <Parameter Name="FECHA_INICIAL" Mode="In" Type="DateTime" />
+            <Parameter Name="FECHA_FINAL" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ListaAvionCapacidad" ReturnType="Collection(Int32)" />
+>>>>>>> origin/master
           <FunctionImport Name="usp_ListaVueloPorDescripcion" ReturnType="Collection(AerolineaModel.usp_ListaVueloPorDescripcion_Result)">
             <Parameter Name="descrip" Mode="In" Type="String" />
           </FunctionImport>
@@ -932,11 +1182,23 @@ FROM [dbo].[VW_VISITAS] AS [VW_VISITAS]</DefiningQuery>
             <Parameter Name="fecini" Mode="In" Type="DateTime" />
             <Parameter Name="fecfin" Mode="In" Type="DateTime" />
           </FunctionImport>
+<<<<<<< HEAD
+=======
+          <FunctionImport Name="usp_ListaVueloPrecios" ReturnType="Collection(Decimal)" />
+>>>>>>> origin/master
           <FunctionImport Name="usp_ListaVuelosPorCapacidadFechas" ReturnType="Collection(AerolineaModel.usp_ListaVuelosPorCapacidadFechas_Result)">
             <Parameter Name="capacidad" Mode="In" Type="Int32" />
             <Parameter Name="fecini" Mode="In" Type="DateTime" />
             <Parameter Name="fecfin" Mode="In" Type="DateTime" />
           </FunctionImport>
+<<<<<<< HEAD
+=======
+          <FunctionImport Name="usp_ListaVueloXDescripcion" ReturnType="Collection(String)" />
+          <FunctionImport Name="USP_NOMBRE_RUTA" ReturnType="Collection(String)" />
+          <FunctionImport Name="USP_RANKING_VISITA">
+            <Parameter Name="FECHA_LLEGADA" Mode="In" Type="String" />
+          </FunctionImport>
+>>>>>>> origin/master
           <FunctionImport Name="USP_RANKING_VISITAS" ReturnType="Collection(AerolineaModel.USP_RANKING_VISITAS_Result)">
             <Parameter Name="FECHA_LLEGADA" Mode="In" Type="DateTime" />
           </FunctionImport>
@@ -956,6 +1218,29 @@ FROM [dbo].[VW_VISITAS] AS [VW_VISITAS]</DefiningQuery>
             <Parameter Name="fecfin" Mode="In" Type="DateTime" />
           </FunctionImport>
         </EntityContainer>
+<<<<<<< HEAD
+=======
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Type="String" Name="name" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="principal_id" Nullable="false" />
+          <Property Type="Int32" Name="diagram_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="version" />
+          <Property Type="Binary" Name="definition" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <ComplexType Name="AllVisitas_Result">
+          <Property Type="String" Name="NOMBRES_Y_APELLIDOS" Nullable="true" MaxLength="501" />
+          <Property Type="String" Name="NOM_RUTA" Nullable="true" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="GetVisitas_X_LugarOrigen_Result">
+          <Property Type="String" Name="NOMBRES_Y_APELLIDOS" Nullable="true" MaxLength="501" />
+          <Property Type="String" Name="NOM_RUTA" Nullable="true" MaxLength="200" />
+          <Property Type="DateTime" Name="FECHA_DESPEQUE" Nullable="true" />
+          <Property Type="DateTime" Name="FECHA_LLEGADA" Nullable="true" />
+        </ComplexType>
+>>>>>>> origin/master
         <ComplexType Name="usp_CantidaDeVuelosFechas_Result">
           <Property Type="String" Name="NOM_RUTA" Nullable="true" MaxLength="200" />
           <Property Type="Int32" Name="CantidadDeVuelos" Nullable="true" />
@@ -970,6 +1255,15 @@ FROM [dbo].[VW_VISITAS] AS [VW_VISITAS]</DefiningQuery>
           <Property Type="String" Name="IDIOMA_PAIS_DESTINO" Nullable="true" MaxLength="50" />
           <Property Type="Int32" Name="CANTIDAD_VUELOS" Nullable="true" />
         </ComplexType>
+<<<<<<< HEAD
+=======
+        <ComplexType Name="USP_GetVisitas_X_Fecha_Result">
+          <Property Type="String" Name="NOMBRES_Y_APELLIDOS" Nullable="true" MaxLength="501" />
+          <Property Type="String" Name="NOM_RUTA" Nullable="true" MaxLength="200" />
+          <Property Type="DateTime" Name="FECHA_DESPEQUE" Nullable="true" />
+          <Property Type="DateTime" Name="FECHA_LLEGADA" Nullable="true" />
+        </ComplexType>
+>>>>>>> origin/master
         <ComplexType Name="usp_ListaVueloPorDescripcion_Result">
           <Property Type="String" Name="COD_VUELO" Nullable="false" MaxLength="100" />
           <Property Type="String" Name="DESCRIPCION_VUELO" Nullable="true" MaxLength="250" />
@@ -1212,6 +1506,45 @@ FROM [dbo].[VW_VISITAS] AS [VW_VISITAS]</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+<<<<<<< HEAD
+=======
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="AerolineaModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="AllVisitas" FunctionName="AerolineaModel.Store.AllVisitas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AerolineaModel.AllVisitas_Result">
+                <ScalarProperty Name="NOMBRES_Y_APELLIDOS" ColumnName="NOMBRES Y APELLIDOS" />
+                <ScalarProperty Name="NOM_RUTA" ColumnName="NOM_RUTA" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetVisitas_X_LugarOrigen" FunctionName="AerolineaModel.Store.GetVisitas_X_LugarOrigen">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AerolineaModel.GetVisitas_X_LugarOrigen_Result">
+                <ScalarProperty Name="NOMBRES_Y_APELLIDOS" ColumnName="NOMBRES Y APELLIDOS" />
+                <ScalarProperty Name="NOM_RUTA" ColumnName="NOM_RUTA" />
+                <ScalarProperty Name="FECHA_DESPEQUE" ColumnName="FECHA_DESPEQUE" />
+                <ScalarProperty Name="FECHA_LLEGADA" ColumnName="FECHA_LLEGADA" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="AerolineaModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="AerolineaModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="AerolineaModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="AerolineaModel.Store.sp_helpdiagramdefinition" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="AerolineaModel.Store.sp_helpdiagrams" />
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="AerolineaModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="AerolineaModel.Store.sp_upgraddiagrams" />
+>>>>>>> origin/master
           <FunctionImportMapping FunctionImportName="usp_CantidaDeVuelosFechas" FunctionName="AerolineaModel.Store.usp_CantidaDeVuelosFechas">
             <ResultMapping>
               <ComplexTypeMapping TypeName="AerolineaModel.usp_CantidaDeVuelosFechas_Result">
@@ -1234,6 +1567,20 @@ FROM [dbo].[VW_VISITAS] AS [VW_VISITAS]</DefiningQuery>
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+<<<<<<< HEAD
+=======
+          <FunctionImportMapping FunctionImportName="USP_GetVisitas_X_Fecha" FunctionName="AerolineaModel.Store.USP_GetVisitas_X_Fecha">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="AerolineaModel.USP_GetVisitas_X_Fecha_Result">
+                <ScalarProperty Name="NOMBRES_Y_APELLIDOS" ColumnName="NOMBRES Y APELLIDOS" />
+                <ScalarProperty Name="NOM_RUTA" ColumnName="NOM_RUTA" />
+                <ScalarProperty Name="FECHA_DESPEQUE" ColumnName="FECHA_DESPEQUE" />
+                <ScalarProperty Name="FECHA_LLEGADA" ColumnName="FECHA_LLEGADA" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ListaAvionCapacidad" FunctionName="AerolineaModel.Store.usp_ListaAvionCapacidad" />
+>>>>>>> origin/master
           <FunctionImportMapping FunctionImportName="usp_ListaVueloPorDescripcion" FunctionName="AerolineaModel.Store.usp_ListaVueloPorDescripcion">
             <ResultMapping>
               <ComplexTypeMapping TypeName="AerolineaModel.usp_ListaVueloPorDescripcion_Result">
@@ -1282,6 +1629,10 @@ FROM [dbo].[VW_VISITAS] AS [VW_VISITAS]</DefiningQuery>
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+<<<<<<< HEAD
+=======
+          <FunctionImportMapping FunctionImportName="usp_ListaVueloPrecios" FunctionName="AerolineaModel.Store.usp_ListaVueloPrecios" />
+>>>>>>> origin/master
           <FunctionImportMapping FunctionImportName="usp_ListaVuelosPorCapacidadFechas" FunctionName="AerolineaModel.Store.usp_ListaVuelosPorCapacidadFechas">
             <ResultMapping>
               <ComplexTypeMapping TypeName="AerolineaModel.usp_ListaVuelosPorCapacidadFechas_Result">
@@ -1295,6 +1646,12 @@ FROM [dbo].[VW_VISITAS] AS [VW_VISITAS]</DefiningQuery>
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+<<<<<<< HEAD
+=======
+          <FunctionImportMapping FunctionImportName="usp_ListaVueloXDescripcion" FunctionName="AerolineaModel.Store.usp_ListaVueloXDescripcion" />
+          <FunctionImportMapping FunctionImportName="USP_NOMBRE_RUTA" FunctionName="AerolineaModel.Store.USP_NOMBRE_RUTA" />
+          <FunctionImportMapping FunctionImportName="USP_RANKING_VISITA" FunctionName="AerolineaModel.Store.USP_RANKING_VISITA" />
+>>>>>>> origin/master
           <FunctionImportMapping FunctionImportName="USP_RANKING_VISITAS" FunctionName="AerolineaModel.Store.USP_RANKING_VISITAS">
             <ResultMapping>
               <ComplexTypeMapping TypeName="AerolineaModel.USP_RANKING_VISITAS_Result">

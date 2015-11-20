@@ -67,10 +67,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AerolineaEntity.edmx</DependentUpon>
     </Compile>
+    <Compile Include="AllVisitas_Result.cs">
+      <DependentUpon>AerolineaEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="AVION.cs">
       <DependentUpon>AerolineaEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="CONTINENTE.cs">
+      <DependentUpon>AerolineaEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetVisitas_X_LugarOrigen_Result.cs">
       <DependentUpon>AerolineaEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="IServicioHistorialPasajero.cs" />
@@ -103,12 +109,24 @@
     <Compile Include="ServicioMigrantes.cs" />
     <Compile Include="ServicioVisitas.cs" />
     <Compile Include="ServicioVuelos.cs" />
+<<<<<<< HEAD
+=======
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>AerolineaEntity.tt</DependentUpon>
+    </Compile>
+>>>>>>> origin/master
     <Compile Include="usp_CantidaDeVuelosFechas_Result.cs">
       <DependentUpon>AerolineaEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="usp_ConsultaMaximoMigrantesNacionalidad_Result.cs">
       <DependentUpon>AerolineaEntity.tt</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+=======
+    <Compile Include="USP_GetVisitas_X_Fecha_Result.cs">
+      <DependentUpon>AerolineaEntity.tt</DependentUpon>
+    </Compile>
+>>>>>>> origin/master
     <Compile Include="usp_ListaVueloPorDescripcion_Result.cs">
       <DependentUpon>AerolineaEntity.tt</DependentUpon>
     </Compile>
