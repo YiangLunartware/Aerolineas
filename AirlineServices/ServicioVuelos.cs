@@ -20,22 +20,19 @@ namespace AirlineServices
             {
 
                 var query = MisVuelos.usp_ListaVueloPorDescripcion(descripcion).FirstOrDefault();
-
-
+                
                 objVuelosBE.CodVuelo = query.COD_VUELO;
                 objVuelosBE.DescVuelo = query.DESCRIPCION_VUELO;
                 objVuelosBE.FecDespegue = Convert.ToDateTime(query.FECHA_DESPEQUE);
                 objVuelosBE.FecLlegada = Convert.ToDateTime(query.FECHA_LLEGADA);
                 objVuelosBE.EstadoVuelo = Convert.ToBoolean(query.ESTADO_VUELO);
                 objVuelosBE.PrecioVuelo = Convert.ToDecimal(query.PRECIO_VUELO);
-
             }
             catch (Exception ex)
             {
                 throw ex;
             }
             return objVuelosBE;
-
         }
 
         public List<Vuelos> ListaVueloPorEstado(Boolean estado, DateTime fecini, DateTime fecfin)
@@ -58,8 +55,8 @@ namespace AirlineServices
                     objVuelosBE.FecLlegada = Convert.ToDateTime(resultado.FECHA_LLEGADA);
                     objVuelosBE.EstadoVuelo = Convert.ToBoolean(resultado.ESTADO_VUELO);
                     objVuelosBE.PrecioVuelo = Convert.ToDecimal(resultado.PRECIO_VUELO);
-                    objListaVuelos.Add(objVuelosBE);
 
+                    objListaVuelos.Add(objVuelosBE);
                 }
             }
             catch (Exception ex)
@@ -68,7 +65,6 @@ namespace AirlineServices
             }
 
             return objListaVuelos;
-
         }
 
 
@@ -79,20 +75,19 @@ namespace AirlineServices
 
             try
             {
-
                 var query = MisVuelos.usp_ListaVueloPorFecha(fecini, fecfin).Take(100);
 
                 foreach (var resultado in query)
                 {
                     Vuelos objVuelosBE = new Vuelos();
-
-
+                    
                     objVuelosBE.CodVuelo = resultado.COD_VUELO;
                     objVuelosBE.DescVuelo = resultado.DESCRIPCION_VUELO;
                     objVuelosBE.FecDespegue = Convert.ToDateTime(resultado.FECHA_DESPEQUE);
                     objVuelosBE.FecLlegada = Convert.ToDateTime(resultado.FECHA_LLEGADA);
                     objVuelosBE.EstadoVuelo = Convert.ToBoolean(resultado.ESTADO_VUELO);
                     objVuelosBE.PrecioVuelo = Convert.ToDecimal(resultado.PRECIO_VUELO);
+
                     objListaVuelos.Add(objVuelosBE);
                 }
             }
@@ -102,7 +97,6 @@ namespace AirlineServices
             }
 
             return objListaVuelos;
-
         }
 
         public List<Vuelos> ListaVueloPorPrecio(decimal precio, DateTime fecini, DateTime fecfin)
@@ -112,22 +106,19 @@ namespace AirlineServices
 
             try
             {
-
                 var query = MisVuelos.usp_ListaVueloPorPrecioFechas(precio, fecini, fecfin).Take(100);
 
                 foreach (var resultado in query)
                 {
                     Vuelos objVuelosBE = new Vuelos();
-
-
                     objVuelosBE.CodVuelo = resultado.COD_VUELO;
                     objVuelosBE.DescVuelo = resultado.DESCRIPCION_VUELO;
                     objVuelosBE.FecDespegue = Convert.ToDateTime(resultado.FECHA_DESPEQUE);
                     objVuelosBE.FecLlegada = Convert.ToDateTime(resultado.FECHA_LLEGADA);
                     objVuelosBE.EstadoVuelo = Convert.ToBoolean(resultado.ESTADO_VUELO);
                     objVuelosBE.PrecioVuelo = Convert.ToDecimal(resultado.PRECIO_VUELO);
-                    objListaVuelos.Add(objVuelosBE);
 
+                    objListaVuelos.Add(objVuelosBE);
                 }
             }
             catch (Exception ex)
@@ -175,7 +166,7 @@ namespace AirlineServices
             List<Vuelos> objListaVuelos = new List<Vuelos>();
             try
             {
-                var query = MisVuelos.usp_ListaVueloXDescripcion().Take(100);
+                /*var query = MisVuelos.usp_ListaVueloXDescripcion().Take(100);
 
                 foreach (var resultado in query)
                 {
@@ -183,8 +174,7 @@ namespace AirlineServices
                     objVuelosBE.DescVuelo = resultado;
 
                     objListaVuelos.Add(objVuelosBE);
-                }
-
+                }*/
             }
             catch (EntityException ex)
             {
@@ -200,7 +190,7 @@ namespace AirlineServices
             List<Vuelos> objListaVuelos = new List<Vuelos>();
             try
             {
-                var query = MisVuelos.usp_ListaVueloPrecios();
+                /*var query = MisVuelos.usp_ListaVueloPrecios();
 
                 foreach (var resultado in query)
                 {
@@ -208,8 +198,7 @@ namespace AirlineServices
                     objVuelosBE.PrecioVuelo = Convert.ToDecimal(resultado);
 
                     objListaVuelos.Add(objVuelosBE);
-                }
-
+                }*/
             }
             catch (EntityException ex)
             {
@@ -225,7 +214,7 @@ namespace AirlineServices
             List<Vuelos> objListaVuelos = new List<Vuelos>();
             try
             {
-                var query = MisVuelos.usp_ListaAvionCapacidad();
+                /*var query = MisVuelos.usp_ListaAvionCapacidad();
 
                 foreach (var resultado in query)
                 {
@@ -233,8 +222,7 @@ namespace AirlineServices
                     objVuelosBE.Capacidad = Convert.ToInt32(resultado);
 
                     objListaVuelos.Add(objVuelosBE);
-                }
-
+                }*/
             }
             catch (EntityException ex)
             {

@@ -10,13 +10,11 @@ namespace AirlineServices
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "ServicioVisitas" in both code and config file together.
     public class ServicioVisitas : IServicioVisitas
     {
-<<<<<<< HEAD
-        
         public List<Visitas> GetVisitas_X_Fecha(DateTime fechaInicial, DateTime fechaFinal)
         {
             AerolineaEntities misAerolineas = new AerolineaEntities();
             List<Visitas> objListaVisitas = new List<Visitas>();
-            
+
             try
             {
                 // Obtenemos con LINQ el registro a consultar
@@ -24,11 +22,11 @@ namespace AirlineServices
                              let fullName = objVisitas.NOMBRE_PASAJERO + "_" + objVisitas.APELLIDO_PASAJERO
                              where objVisitas.FECHA_DESPEQUE >= fechaInicial &&
                                     objVisitas.FECHA_LLEGADA <= fechaFinal
-                                    
+
                              select new { fullName, objVisitas.NOM_RUTA, objVisitas.FECHA_DESPEQUE, objVisitas.FECHA_LLEGADA }).Take(100);
                 //objPasajero.NOMBRE_PASAJERO + ' ' + objPasajero.APELLIDO_PASAJERO
                 // ,objRuta.NOM_RUTA ).FirstOrDefault();
-                
+
                 foreach (var resultado in query)
                 {
                     Visitas objVisitasBE = new Visitas();
@@ -40,7 +38,7 @@ namespace AirlineServices
 
                     objListaVisitas.Add(objVisitasBE);
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -54,7 +52,7 @@ namespace AirlineServices
         {
             AerolineaEntities misAerolineas = new AerolineaEntities();
             List<Visitas> objListaVisitasDestinos = new List<Visitas>();
-            
+
             try
             {
                 // Obtenemos con LINQ el registro a consultar
@@ -80,11 +78,11 @@ namespace AirlineServices
                     objVisitasBE.FechaDespeque = Convert.ToDateTime(resultado.FECHA_DESPEQUE);
                     objVisitasBE.FechaLlegada = Convert.ToDateTime(resultado.FECHA_LLEGADA);
 
-                    
+
                     // objListaReservacion.Add(objReservacionBE);
                     objListaVisitasDestinos.Add(objVisitasBE);
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -98,15 +96,15 @@ namespace AirlineServices
         {
             AerolineaEntities misAerolineas = new AerolineaEntities();
             List<Visitas> objListaVisitas = new List<Visitas>();
-            
+
             try
             {
                 // Obtenemos con LINQ el registro a consultar
                 var query = (from objVisitas in misAerolineas.VW_VISITAS
                              let fullName = objVisitas.NOMBRE_PASAJERO + "_" + objVisitas.APELLIDO_PASAJERO
-                             
+
                              select new { fullName, objVisitas.NOM_RUTA }).Take(100);
-                
+
                 foreach (var resultado in query)
                 {
                     Visitas objVisitasBE = new Visitas();
@@ -133,17 +131,13 @@ namespace AirlineServices
             {
                 
                 var query = misAerolineas.(fechaLLegada).Take(100);
-
-
                 foreach (var resultado in query)
                 {
-
                     
                     Visitas objVisitasBE = new Visitas();
                     objVisitasBE.RankingVisitasDestinosPeruanos = Convert.ToInt32(resultado.RANKING);
                     objVisitasBE.NombreLugar = resultado.NOMBRE_LUGAR;
                     objVisitasBE.CodigoDestino = resultado.COD_DESTINO;
-
                     RankingVisitasDestinosPeruanos.Add(objVisitasBE);
                 }
             }
@@ -154,10 +148,6 @@ namespace AirlineServices
             */
 
             return RankingVisitasDestinosPeruanos;
-=======
-        public void DoWork()
-        {
->>>>>>> origin/master
         }
     }
 }

@@ -12,7 +12,6 @@ namespace AirlineServices
     public interface IServicioVisitas
     {
         [OperationContract]
-<<<<<<< HEAD
         List<Visitas> GetVisitas_X_Fecha(DateTime fechaInicial, DateTime fechaFinal);
         [OperationContract]
         List<Visitas> GetVisitas_X_LugarOrigen(string LugarOrigen, DateTime fechaInicial, DateTime fechaFinal);
@@ -40,42 +39,42 @@ namespace AirlineServices
             get { return _nombrePasajero; }
             set { _nombrePasajero = value; }
         }
-        
+
         [DataMember]
         public DateTime ApellidoPasajero
         {
             get { return _ApellidoPasajero; }
             set { _ApellidoPasajero = value; }
         }
-        
+
         [DataMember]
         public DateTime FechaDespeque
         {
             get { return _fechaDespeque; }
             set { _fechaDespeque = value; }
         }
-        
+
         [DataMember]
         public DateTime FechaLlegada
         {
             get { return _fechaLlegada; }
             set { _fechaLlegada = value; }
         }
-        
+
         [DataMember]
         public String NomRuta
         {
             get { return _nomRuta; }
             set { _nomRuta = value; }
         }
-        
+
         [DataMember]
         public String CodigoDestino
         {
             get { return _codigoDestino; }
             set { _codigoDestino = value; }
         }
-        
+
         // Cada propiedad es un DataMember de la Data Contractual
 
         private int _rankingVisitasDestinosPeruanos;
@@ -87,16 +86,12 @@ namespace AirlineServices
             get { return _rankingVisitasDestinosPeruanos; }
             set { _rankingVisitasDestinosPeruanos = value; }
         }
-        
+
         [DataMember]
         public string NombreLugar
         {
             get { return _nombreLugar; }
             set { _nombreLugar = value; }
         }
-
-=======
-        void DoWork();
->>>>>>> origin/master
     }
 }
