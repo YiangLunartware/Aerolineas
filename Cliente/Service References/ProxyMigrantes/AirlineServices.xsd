@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/AirlineServices" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/AirlineServices" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfPaisBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PaisBE" nillable="true" type="tns:PaisBE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPaisBE" nillable="true" type="tns:ArrayOfPaisBE" />
+  <xs:complexType name="PaisBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CantVuelos" type="xs:int" />
+      <xs:element minOccurs="0" name="CodPais" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Idioma" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Moneda" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NomPais" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PaisBE" nillable="true" type="tns:PaisBE" />
+  <xs:complexType name="ArrayOfMigranteBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MigranteBE" nillable="true" type="tns:MigranteBE" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMigranteBE" nillable="true" type="tns:ArrayOfMigranteBE" />
+  <xs:complexType name="MigranteBE">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ApeMigrante" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodMigrante" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodPaisNacion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Dni" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FecNac" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Genero" type="ser:char" />
+      <xs:element minOccurs="0" name="LugarDestino" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NomMigrante" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumTelefono" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PaisDestino" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MigranteBE" nillable="true" type="tns:MigranteBE" />
+</xs:schema>

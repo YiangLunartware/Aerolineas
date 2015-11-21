@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/AirlineServices" />
+  <xs:element name="ListaPaises">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListaPaisesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/AirlineServices" minOccurs="0" name="ListaPaisesResult" nillable="true" type="q1:ArrayOfPaisBE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultaMaximoMigrantesNacionalidad">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codPaisNacimiento" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultaMaximoMigrantesNacionalidadResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/AirlineServices" minOccurs="0" name="ConsultaMaximoMigrantesNacionalidadResult" nillable="true" type="q2:PaisBE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListaMigrantesInternacionales">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codPaisNacimiento" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fecIni" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="fecFin" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListaMigrantesInternacionalesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/AirlineServices" minOccurs="0" name="ListaMigrantesInternacionalesResult" nillable="true" type="q3:ArrayOfMigranteBE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListaMigrantesNacionales">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codPaisNacimiento" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fecIni" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="fecFin" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListaMigrantesNacionalesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/AirlineServices" minOccurs="0" name="ListaMigrantesNacionalesResult" nillable="true" type="q4:ArrayOfMigranteBE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListaMigrantesPaisesFechas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codPaisOrigen" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="codPaisDestino" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fecIni" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="fecFin" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListaMigrantesPaisesFechasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/AirlineServices" minOccurs="0" name="ListaMigrantesPaisesFechasResult" nillable="true" type="q5:ArrayOfMigranteBE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListaPaisesMigrantes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codPais" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fecIni" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="fecFin" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListaPaisesMigrantesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/AirlineServices" minOccurs="0" name="ListaPaisesMigrantesResult" nillable="true" type="q6:ArrayOfPaisBE" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

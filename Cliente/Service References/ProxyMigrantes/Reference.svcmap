@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="af512986-d495-45d5-81d5-00c0c87cf08c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="Antlr3.Runtime" />
+      <ReferencedAssembly AssemblyName="EntityFramework" />
+      <ReferencedAssembly AssemblyName="System.Data" />
+      <ReferencedAssembly AssemblyName="System.Xml.Linq" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/AirlineServices/ServicioMigrantes/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="b70e8fbb-8b36-42c5-9f55-fe4af2991832" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/AirlineServices/ServicioMigrantes/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="0658ce7b-2c74-4faa-892f-eb4c650a60af" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/AirlineServices/ServicioMigrantes/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="f84baddb-95c7-4aaf-aabb-70624fb0d4c2" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/AirlineServices/ServicioMigrantes/mex" />
+    <MetadataFile FileName="AirlineServices.xsd" MetadataType="Schema" ID="d9964ee1-21f8-4016-9112-f0b67760b0fc" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/AirlineServices/ServicioMigrantes/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
