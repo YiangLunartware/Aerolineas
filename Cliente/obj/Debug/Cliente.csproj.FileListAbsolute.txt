@@ -139,3 +139,9 @@ C:\Users\irene\Documents\GitHub\Aerolineas\Cliente\bin\Microsoft.Owin.Security.M
 C:\Users\irene\Documents\GitHub\Aerolineas\Cliente\obj\Debug\Cliente.csprojResolveAssemblyReference.cache
 C:\Users\irene\Documents\GitHub\Aerolineas\Cliente\obj\Debug\Cliente.dll
 C:\Users\irene\Documents\GitHub\Aerolineas\Cliente\obj\Debug\Cliente.pdb
+C:\ANTO\Tareas\Software3\ProyectoFinal\Aerolineas\Cliente\bin\Content\images\aerolinea_logo.png
+C:\ANTO\Tareas\Software3\ProyectoFinal\Aerolineas\Cliente\bin\Content\images\aerolinea_logo_invertido.png
+C:\ANTO\Tareas\Software3\ProyectoFinal\Aerolineas\Cliente\bin\Content\images\aerolinea_logo_white_small.png
+C:\ANTO\Tareas\Software3\ProyectoFinal\Aerolineas\Cliente\bin\Content\images\airplane.png
+C:\ANTO\Tareas\Software3\ProyectoFinal\Aerolineas\Cliente\bin\Content\images\nube_07.png
+C:\ANTO\Tareas\Software3\ProyectoFinal\Aerolineas\Cliente\obj\Debug\Cliente.csprojResolveAssemblyReference.cache

@@ -17,16 +17,14 @@ namespace AirlineServices
 
             try
             {
-                var query = from objPais in MiAerolinea.PAIS
-                            orderby objPais.NOMBRE_PAIS
-                            select new { Codigo = objPais.COD_PAIS, Nombre = objPais.NOMBRE_PAIS };
+                var query = MiAerolinea.PAIS.ToList();
 
                 foreach (var resultado in query)
                 {
                     PaisBE objPaisBE = new PaisBE();
 
-                    objPaisBE.CodPais = resultado.Codigo;
-                    objPaisBE.NomPais = resultado.Nombre;
+                    objPaisBE.CodPais = resultado.COD_PAIS;
+                    objPaisBE.NomPais = resultado.NOMBRE_PAIS;
 
                     objListaPais.Add(objPaisBE);
                 }
@@ -47,13 +45,45 @@ namespace AirlineServices
 
             try
             {
-                var query = MiAerolinea.usp_ConsultaMaximoMigrantesNacionalidad(codPaisNacimiento).FirstOrDefault();
+                var lCodsPasajeros = MiAerolinea.PASAJERO
+                    .Where(x => x.COD_PAIS == codPaisNacimiento)
+                    .Select(x=>x.COD_PASAJERO)
+                    .ToList();
+                var lCodVuelos = MiAerolinea.RESERVACION
+                    .Where(x => lCodsPasajeros.Contains(x.COD_PASAJERO))
+                    .Where(y => y.TOMO_VUELO == true)
+                    .Select(m => m.COD_VUELO)
+                    .ToList();
+                var lCodPaisCant = MiAerolinea.VUELO
+                    .Where(x => lCodVuelos.Contains(x.COD_VUELO))
+                    .Where(y => y.RUTA.TIPO_RUTA == "INTERNACIONAL")
+                    .GroupBy(m => m.RUTA.LUGAR.COD_PAIS)
+                    .Select(g => new
+                    {
+                        CodPais = g.Key,
+                        Cantidad = g.Count()
+                    })
+                    .ToList()
+                    .OrderByDescending(n => n.Cantidad)
+                    .First();
 
-                objPaisBE.CodPais = query.COD_PAIS_DESTINO;
-                objPaisBE.NomPais = query.NOMBRE_PAIS_DESTINO;
-                objPaisBE.Idioma = query.IDIOMA_PAIS_DESTINO;
-                objPaisBE.Moneda = query.MONEDA_PAIS_DESTINO;
-                objPaisBE.CantVuelos = Convert.ToInt32(query.CANTIDAD_VUELOS);
+                var pais = MiAerolinea.PAIS
+                    .Where(x => x.COD_PAIS == lCodPaisCant.CodPais)
+                    .Select(p => new
+                    {
+                        CodPais = p.COD_PAIS,
+                        NomPais = p.NOMBRE_PAIS,
+                        Idioma = p.IDIOMA,
+                        Moneda = p.MONEDA,
+                        CantVuelos = lCodPaisCant.Cantidad
+                    })
+                    .First();
+
+                objPaisBE.CodPais = pais.CodPais;
+                objPaisBE.NomPais = pais.NomPais;
+                objPaisBE.Idioma = pais.Idioma;
+                objPaisBE.Moneda = pais.Moneda;
+                objPaisBE.CantVuelos = pais.CantVuelos;
             }
 
             catch (Exception ex)
@@ -63,15 +93,12 @@ namespace AirlineServices
             return objPaisBE;
         }
 
-
-
         public List<MigranteBE> ListaMigrantesInternacionales(string codPaisNacimiento, System.DateTime fecIni, System.DateTime fecFin)
         {
             AerolineaEntities MiAerolinea = new AerolineaEntities();
             List<MigranteBE> objListaBE = new List<MigranteBE>();
 
             //SI es internacional devuelve datos con paises
-            //SI es nacional devuelve datos con lugares
 
             try
             {
@@ -132,6 +159,8 @@ namespace AirlineServices
             AerolineaEntities MiAerolinea = new AerolineaEntities();
             List<MigranteBE> objListaBE = new List<MigranteBE>();
 
+            //SI es nacional devuelve datos con lugares
+
             try
             {
                 var query = (from tbPasajero in MiAerolinea.PASAJERO
@@ -191,10 +220,6 @@ namespace AirlineServices
 
             try
             {
-                var codLOrigen = from tbLugar in MiAerolinea.LUGAR
-                                 where tbLugar.COD_PAIS == codPaisOrigen
-                                 select tbLugar.COD_LUGAR;
-
                 var codLDestino = from tbLugar in MiAerolinea.LUGAR
                                   where tbLugar.COD_PAIS == codPaisDestino
                                   select tbLugar.COD_LUGAR;
@@ -208,7 +233,7 @@ namespace AirlineServices
                                         on tbVuelo.COD_RUTA equals tbRuta.COD_RUTA
                              where tbVuelo.FECHA_LLEGADA >= fecIni &&
                                    tbVuelo.FECHA_LLEGADA <= fecFin &&
-                                   codLOrigen.Contains(tbRuta.COD_ORIGEN) &&
+                                   tbPasajero.COD_PAIS == codPaisOrigen &&
                                    codLDestino.Contains(tbRuta.COD_DESTINO)
 
                              select new
@@ -234,6 +259,7 @@ namespace AirlineServices
                     objMigranteBE.NumTelefono = resultado.NumTel;
                     objMigranteBE.Email = resultado.Email;
                     objMigranteBE.FecNac = Convert.ToDateTime(resultado.FecNac);
+
                     objListaBE.Add(objMigranteBE);
                 }
             }
@@ -244,29 +270,29 @@ namespace AirlineServices
             return objListaBE;
         }
 
-        public List<PaisBE> PaisMaximoMigrantes(string codPais, DateTime fecIni, DateTime fecFin)
+        public List<PaisBE> ListaPaisesMigrantes(string codPais, DateTime fecIni, DateTime fecFin)
         {
             AerolineaEntities MiAerolinea = new AerolineaEntities();
             List<PaisBE> paises = new List<PaisBE>();
 
             try
             {
-                var codLOrigen = from tbLugar in MiAerolinea.LUGAR
-                                 where tbLugar.COD_PAIS == codPais
-                                 select tbLugar.COD_LUGAR;
-
                 var codLPDestino = from tbLugar in MiAerolinea.LUGAR
-                                   where !codLOrigen.Contains(tbLugar.COD_LUGAR)
+                                   where tbLugar.COD_PAIS != codPais
                                    select tbLugar.COD_LUGAR;
 
                 var query = ((from tbVuelo in MiAerolinea.VUELO
+                              join tbReservacion in MiAerolinea.RESERVACION
+                              on tbVuelo.COD_VUELO equals tbReservacion.COD_VUELO
+                              join tbPasajero in MiAerolinea.PASAJERO
+                              on tbReservacion.COD_PASAJERO equals tbPasajero.COD_PASAJERO
                               join tbRuta in MiAerolinea.RUTA
                               on tbVuelo.COD_RUTA equals tbRuta.COD_RUTA
                               join tbLugar in MiAerolinea.LUGAR
                               on tbRuta.COD_DESTINO equals tbLugar.COD_LUGAR
                               join tbPais in MiAerolinea.PAIS
                               on tbLugar.COD_PAIS equals tbPais.COD_PAIS
-                              where codLOrigen.Contains(tbRuta.COD_ORIGEN)
+                              where tbPasajero.COD_PAIS == codPais
                               && codLPDestino.Contains(tbRuta.COD_DESTINO)
                               && tbVuelo.FECHA_LLEGADA > fecIni
                               && tbVuelo.FECHA_LLEGADA < fecFin

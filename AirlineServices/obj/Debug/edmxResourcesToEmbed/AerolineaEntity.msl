@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AerolineaModelStoreContainer" CdmEntityContainer="AerolineaEntities">
+    <EntitySetMapping Name="AVION">
+      <EntityTypeMapping TypeName="AerolineaModel.AVION">
+        <MappingFragment StoreEntitySet="AVION">
+          <ScalarProperty Name="COD_AVION" ColumnName="COD_AVION" />
+          <ScalarProperty Name="MATRICULA" ColumnName="MATRICULA" />
+          <ScalarProperty Name="CAPACIDAD" ColumnName="CAPACIDAD" />
+          <ScalarProperty Name="COD_MARCA" ColumnName="COD_MARCA" />
+          <ScalarProperty Name="COD_PILOTO" ColumnName="COD_PILOTO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CONTINENTE">
+      <EntityTypeMapping TypeName="AerolineaModel.CONTINENTE">
+        <MappingFragment StoreEntitySet="CONTINENTE">
+          <ScalarProperty Name="COD_CONTINENTE" ColumnName="COD_CONTINENTE" />
+          <ScalarProperty Name="NOM_CONTINENTE" ColumnName="NOM_CONTINENTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LUGAR">
+      <EntityTypeMapping TypeName="AerolineaModel.LUGAR">
+        <MappingFragment StoreEntitySet="LUGAR">
+          <ScalarProperty Name="COD_LUGAR" ColumnName="COD_LUGAR" />
+          <ScalarProperty Name="NOMBRE_LUGAR" ColumnName="NOMBRE_LUGAR" />
+          <ScalarProperty Name="LATITUD" ColumnName="LATITUD" />
+          <ScalarProperty Name="LONGITUD" ColumnName="LONGITUD" />
+          <ScalarProperty Name="NOM_AEROPUERTO" ColumnName="NOM_AEROPUERTO" />
+          <ScalarProperty Name="COD_PAIS" ColumnName="COD_PAIS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MARCA">
+      <EntityTypeMapping TypeName="AerolineaModel.MARCA">
+        <MappingFragment StoreEntitySet="MARCA">
+          <ScalarProperty Name="COD_MARCA" ColumnName="COD_MARCA" />
+          <ScalarProperty Name="NOM_MARCA" ColumnName="NOM_MARCA" />
+          <ScalarProperty Name="DESC_MARCA" ColumnName="DESC_MARCA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAIS">
+      <EntityTypeMapping TypeName="AerolineaModel.PAIS">
+        <MappingFragment StoreEntitySet="PAIS">
+          <ScalarProperty Name="COD_PAIS" ColumnName="COD_PAIS" />
+          <ScalarProperty Name="NOMBRE_PAIS" ColumnName="NOMBRE_PAIS" />
+          <ScalarProperty Name="MONEDA" ColumnName="MONEDA" />
+          <ScalarProperty Name="IDIOMA" ColumnName="IDIOMA" />
+          <ScalarProperty Name="COD_CONTINENTE" ColumnName="COD_CONTINENTE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PASAJERO">
+      <EntityTypeMapping TypeName="AerolineaModel.PASAJERO">
+        <MappingFragment StoreEntitySet="PASAJERO">
+          <ScalarProperty Name="COD_PASAJERO" ColumnName="COD_PASAJERO" />
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+          <ScalarProperty Name="NOMBRE_PASAJERO" ColumnName="NOMBRE_PASAJERO" />
+          <ScalarProperty Name="APELLIDO_PASAJERO" ColumnName="APELLIDO_PASAJERO" />
+          <ScalarProperty Name="SEXO" ColumnName="SEXO" />
+          <ScalarProperty Name="NUMERO_TELEFONICO" ColumnName="NUMERO_TELEFONICO" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="FECHA_NACIMIENTO" ColumnName="FECHA_NACIMIENTO" />
+          <ScalarProperty Name="COD_PAIS" ColumnName="COD_PAIS" />
+          <ScalarProperty Name="NACIONALIDAD" ColumnName="NACIONALIDAD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PILOTO">
+      <EntityTypeMapping TypeName="AerolineaModel.PILOTO">
+        <MappingFragment StoreEntitySet="PILOTO">
+          <ScalarProperty Name="COD_PILOTO" ColumnName="COD_PILOTO" />
+          <ScalarProperty Name="NOMBRE_PILOTO" ColumnName="NOMBRE_PILOTO" />
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RESERVACION">
+      <EntityTypeMapping TypeName="AerolineaModel.RESERVACION">
+        <MappingFragment StoreEntitySet="RESERVACION">
+          <ScalarProperty Name="COD_RESERVACION" ColumnName="COD_RESERVACION" />
+          <ScalarProperty Name="FECHA_RESERVACION" ColumnName="FECHA_RESERVACION" />
+          <ScalarProperty Name="ESTADO_RESERVACION" ColumnName="ESTADO_RESERVACION" />
+          <ScalarProperty Name="TOMO_VUELO" ColumnName="TOMO_VUELO" />
+          <ScalarProperty Name="COD_VUELO" ColumnName="COD_VUELO" />
+          <ScalarProperty Name="COD_PASAJERO" ColumnName="COD_PASAJERO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RUTA">
+      <EntityTypeMapping TypeName="AerolineaModel.RUTA">
+        <MappingFragment StoreEntitySet="RUTA">
+          <ScalarProperty Name="COD_RUTA" ColumnName="COD_RUTA" />
+          <ScalarProperty Name="NOM_RUTA" ColumnName="NOM_RUTA" />
+          <ScalarProperty Name="DESCRIPCION_RUTA" ColumnName="DESCRIPCION_RUTA" />
+          <ScalarProperty Name="TIPO_RUTA" ColumnName="TIPO_RUTA" />
+          <ScalarProperty Name="COD_ORIGEN" ColumnName="COD_ORIGEN" />
+          <ScalarProperty Name="COD_DESTINO" ColumnName="COD_DESTINO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VUELO">
+      <EntityTypeMapping TypeName="AerolineaModel.VUELO">
+        <MappingFragment StoreEntitySet="VUELO">
+          <ScalarProperty Name="COD_VUELO" ColumnName="COD_VUELO" />
+          <ScalarProperty Name="DESCRIPCION_VUELO" ColumnName="DESCRIPCION_VUELO" />
+          <ScalarProperty Name="FECHA_DESPEQUE" ColumnName="FECHA_DESPEQUE" />
+          <ScalarProperty Name="FECHA_LLEGADA" ColumnName="FECHA_LLEGADA" />
+          <ScalarProperty Name="HORA_DESPEGUE" ColumnName="HORA_DESPEGUE" />
+          <ScalarProperty Name="HORA_LLEGADA" ColumnName="HORA_LLEGADA" />
+          <ScalarProperty Name="ESTADO_VUELO" ColumnName="ESTADO_VUELO" />
+          <ScalarProperty Name="PRECIO_VUELO" ColumnName="PRECIO_VUELO" />
+          <ScalarProperty Name="COD_AVION" ColumnName="COD_AVION" />
+          <ScalarProperty Name="COD_RUTA" ColumnName="COD_RUTA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vw_MigrantesPaisLugar">
+      <EntityTypeMapping TypeName="AerolineaModel.vw_MigrantesPaisLugar">
+        <MappingFragment StoreEntitySet="vw_MigrantesPaisLugar">
+          <ScalarProperty Name="COD_PASAJERO" ColumnName="COD_PASAJERO" />
+          <ScalarProperty Name="NOMBRE_PASAJERO" ColumnName="NOMBRE_PASAJERO" />
+          <ScalarProperty Name="APELLIDO_PASAJERO" ColumnName="APELLIDO_PASAJERO" />
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="NUMERO_TELEFONICO" ColumnName="NUMERO_TELEFONICO" />
+          <ScalarProperty Name="SEXO" ColumnName="SEXO" />
+          <ScalarProperty Name="DESCRIPCION_VUELO" ColumnName="DESCRIPCION_VUELO" />
+          <ScalarProperty Name="COD_PAIS_ORIGEN" ColumnName="COD_PAIS_ORIGEN" />
+          <ScalarProperty Name="PAIS_ORIGEN" ColumnName="PAIS_ORIGEN" />
+          <ScalarProperty Name="COD_PAIS_DESTINO" ColumnName="COD_PAIS_DESTINO" />
+          <ScalarProperty Name="PAIS_DESTINO" ColumnName="PAIS_DESTINO" />
+          <ScalarProperty Name="COD_ORIGEN" ColumnName="COD_ORIGEN" />
+          <ScalarProperty Name="NOMBRE_ORIGEN" ColumnName="NOMBRE_ORIGEN" />
+          <ScalarProperty Name="COD_DESTINO" ColumnName="COD_DESTINO" />
+          <ScalarProperty Name="NOMBRE_DESTINO" ColumnName="NOMBRE_DESTINO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VW_VISITAS">
+      <EntityTypeMapping TypeName="AerolineaModel.VW_VISITAS">
+        <MappingFragment StoreEntitySet="VW_VISITAS">
+          <ScalarProperty Name="COD_PASAJERO" ColumnName="COD_PASAJERO" />
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+          <ScalarProperty Name="NOMBRE_PASAJERO" ColumnName="NOMBRE_PASAJERO" />
+          <ScalarProperty Name="APELLIDO_PASAJERO" ColumnName="APELLIDO_PASAJERO" />
+          <ScalarProperty Name="SEXO" ColumnName="SEXO" />
+          <ScalarProperty Name="NUMERO_TELEFONICO" ColumnName="NUMERO_TELEFONICO" />
+          <ScalarProperty Name="NACIONALIDAD" ColumnName="NACIONALIDAD" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="FECHA_NACIMIENTO" ColumnName="FECHA_NACIMIENTO" />
+          <ScalarProperty Name="COD_RESERVACION" ColumnName="COD_RESERVACION" />
+          <ScalarProperty Name="COD_VUELO" ColumnName="COD_VUELO" />
+          <ScalarProperty Name="FECHA_RESERVACION" ColumnName="FECHA_RESERVACION" />
+          <ScalarProperty Name="COD_RUTA" ColumnName="COD_RUTA" />
+          <ScalarProperty Name="ESTADO_RESERVACION" ColumnName="ESTADO_RESERVACION" />
+          <ScalarProperty Name="TOMO_VUELO" ColumnName="TOMO_VUELO" />
+          <ScalarProperty Name="DESCRIPCION_VUELO" ColumnName="DESCRIPCION_VUELO" />
+          <ScalarProperty Name="COD_AVION" ColumnName="COD_AVION" />
+          <ScalarProperty Name="FECHA_DESPEQUE" ColumnName="FECHA_DESPEQUE" />
+          <ScalarProperty Name="FECHA_LLEGADA" ColumnName="FECHA_LLEGADA" />
+          <ScalarProperty Name="HORA_DESPEGUE" ColumnName="HORA_DESPEGUE" />
+          <ScalarProperty Name="HORA_LLEGADA" ColumnName="HORA_LLEGADA" />
+          <ScalarProperty Name="ESTADO_VUELO" ColumnName="ESTADO_VUELO" />
+          <ScalarProperty Name="PRECIO_VUELO" ColumnName="PRECIO_VUELO" />
+          <ScalarProperty Name="COD_DESTINO" ColumnName="COD_DESTINO" />
+          <ScalarProperty Name="COD_ORIGEN" ColumnName="COD_ORIGEN" />
+          <ScalarProperty Name="DESCRIPCION_RUTA" ColumnName="DESCRIPCION_RUTA" />
+          <ScalarProperty Name="NOM_RUTA" ColumnName="NOM_RUTA" />
+          <ScalarProperty Name="TIPO_RUTA" ColumnName="TIPO_RUTA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_CantidaDeVuelosFechas" FunctionName="AerolineaModel.Store.usp_CantidaDeVuelosFechas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AerolineaModel.usp_CantidaDeVuelosFechas_Result">
+          <ScalarProperty Name="NOM_RUTA" ColumnName="NOM_RUTA" />
+          <ScalarProperty Name="CantidadDeVuelos" ColumnName="CantidadDeVuelos" />
+          <ScalarProperty Name="FECHA_DESPEQUE" ColumnName="FECHA_DESPEQUE" />
+          <ScalarProperty Name="FECHA_LLEGADA" ColumnName="FECHA_LLEGADA" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ConsultaMaximoMigrantesNacionalidad" FunctionName="AerolineaModel.Store.usp_ConsultaMaximoMigrantesNacionalidad">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AerolineaModel.usp_ConsultaMaximoMigrantesNacionalidad_Result">
+          <ScalarProperty Name="COD_PAIS_NACIMIENTO" ColumnName="COD_PAIS_NACIMIENTO" />
+          <ScalarProperty Name="COD_PAIS_DESTINO" ColumnName="COD_PAIS_DESTINO" />
+          <ScalarProperty Name="NOMBRE_PAIS_DESTINO" ColumnName="NOMBRE_PAIS_DESTINO" />
+          <ScalarProperty Name="MONEDA_PAIS_DESTINO" ColumnName="MONEDA_PAIS_DESTINO" />
+          <ScalarProperty Name="IDIOMA_PAIS_DESTINO" ColumnName="IDIOMA_PAIS_DESTINO" />
+          <ScalarProperty Name="CANTIDAD_VUELOS" ColumnName="CANTIDAD_VUELOS" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListaVueloPorDescripcion" FunctionName="AerolineaModel.Store.usp_ListaVueloPorDescripcion">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AerolineaModel.usp_ListaVueloPorDescripcion_Result">
+          <ScalarProperty Name="COD_VUELO" ColumnName="COD_VUELO" />
+          <ScalarProperty Name="DESCRIPCION_VUELO" ColumnName="DESCRIPCION_VUELO" />
+          <ScalarProperty Name="FECHA_DESPEQUE" ColumnName="FECHA_DESPEQUE" />
+          <ScalarProperty Name="FECHA_LLEGADA" ColumnName="FECHA_LLEGADA" />
+          <ScalarProperty Name="ESTADO_VUELO" ColumnName="ESTADO_VUELO" />
+          <ScalarProperty Name="PRECIO_VUELO" ColumnName="PRECIO_VUELO" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListaVueloPorEstadoFechas" FunctionName="AerolineaModel.Store.usp_ListaVueloPorEstadoFechas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AerolineaModel.usp_ListaVueloPorEstadoFechas_Result">
+          <ScalarProperty Name="COD_VUELO" ColumnName="COD_VUELO" />
+          <ScalarProperty Name="DESCRIPCION_VUELO" ColumnName="DESCRIPCION_VUELO" />
+          <ScalarProperty Name="FECHA_DESPEQUE" ColumnName="FECHA_DESPEQUE" />
+          <ScalarProperty Name="FECHA_LLEGADA" ColumnName="FECHA_LLEGADA" />
+          <ScalarProperty Name="ESTADO_VUELO" ColumnName="ESTADO_VUELO" />
+          <ScalarProperty Name="PRECIO_VUELO" ColumnName="PRECIO_VUELO" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListaVueloPorFecha" FunctionName="AerolineaModel.Store.usp_ListaVueloPorFecha">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AerolineaModel.usp_ListaVueloPorFecha_Result">
+          <ScalarProperty Name="COD_VUELO" ColumnName="COD_VUELO" />
+          <ScalarProperty Name="DESCRIPCION_VUELO" ColumnName="DESCRIPCION_VUELO" />
+          <ScalarProperty Name="FECHA_DESPEQUE" ColumnName="FECHA_DESPEQUE" />
+          <ScalarProperty Name="FECHA_LLEGADA" ColumnName="FECHA_LLEGADA" />
+          <ScalarProperty Name="ESTADO_VUELO" ColumnName="ESTADO_VUELO" />
+          <ScalarProperty Name="PRECIO_VUELO" ColumnName="PRECIO_VUELO" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListaVueloPorPrecioFechas" FunctionName="AerolineaModel.Store.usp_ListaVueloPorPrecioFechas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AerolineaModel.usp_ListaVueloPorPrecioFechas_Result">
+          <ScalarProperty Name="COD_VUELO" ColumnName="COD_VUELO" />
+          <ScalarProperty Name="DESCRIPCION_VUELO" ColumnName="DESCRIPCION_VUELO" />
+          <ScalarProperty Name="FECHA_DESPEQUE" ColumnName="FECHA_DESPEQUE" />
+          <ScalarProperty Name="FECHA_LLEGADA" ColumnName="FECHA_LLEGADA" />
+          <ScalarProperty Name="ESTADO_VUELO" ColumnName="ESTADO_VUELO" />
+          <ScalarProperty Name="PRECIO_VUELO" ColumnName="PRECIO_VUELO" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListaVuelosPorCapacidadFechas" FunctionName="AerolineaModel.Store.usp_ListaVuelosPorCapacidadFechas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AerolineaModel.usp_ListaVuelosPorCapacidadFechas_Result">
+          <ScalarProperty Name="COD_VUELO" ColumnName="COD_VUELO" />
+          <ScalarProperty Name="DESCRIPCION_VUELO" ColumnName="DESCRIPCION_VUELO" />
+          <ScalarProperty Name="FECHA_DESPEQUE" ColumnName="FECHA_DESPEQUE" />
+          <ScalarProperty Name="FECHA_LLEGADA" ColumnName="FECHA_LLEGADA" />
+          <ScalarProperty Name="ESTADO_VUELO" ColumnName="ESTADO_VUELO" />
+          <ScalarProperty Name="PRECIO_VUELO" ColumnName="PRECIO_VUELO" />
+          <ScalarProperty Name="CAPACIDAD" ColumnName="CAPACIDAD" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_RANKING_VISITAS" FunctionName="AerolineaModel.Store.USP_RANKING_VISITAS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AerolineaModel.USP_RANKING_VISITAS_Result">
+          <ScalarProperty Name="RANKING" ColumnName="RANKING" />
+          <ScalarProperty Name="COD_DESTINO" ColumnName="COD_DESTINO" />
+          <ScalarProperty Name="NOMBRE_LUGAR" ColumnName="NOMBRE_LUGAR" />
+          <ScalarProperty Name="FECHA_LLEGADA" ColumnName="FECHA_LLEGADA" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_RankingDestinosPeruanosDemandaFechas" FunctionName="AerolineaModel.Store.usp_RankingDestinosPeruanosDemandaFechas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AerolineaModel.usp_RankingDestinosPeruanosDemandaFechas_Result">
+          <ScalarProperty Name="NOMBRE_LUGAR" ColumnName="NOMBRE_LUGAR" />
+          <ScalarProperty Name="Demanda" ColumnName="Demanda" />
+          <ScalarProperty Name="FECHA_DESPEQUE" ColumnName="FECHA_DESPEQUE" />
+          <ScalarProperty Name="FECHA_LLEGADA" ColumnName="FECHA_LLEGADA" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_RankingPaisDemandaFechas" FunctionName="AerolineaModel.Store.usp_RankingPaisDemandaFechas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AerolineaModel.usp_RankingPaisDemandaFechas_Result">
+          <ScalarProperty Name="DESCRIPCION_VUELO" ColumnName="DESCRIPCION_VUELO" />
+          <ScalarProperty Name="Demanda" ColumnName="Demanda" />
+          <ScalarProperty Name="FECHA_DESPEQUE" ColumnName="FECHA_DESPEQUE" />
+          <ScalarProperty Name="FECHA_LLEGADA" ColumnName="FECHA_LLEGADA" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_RankingVuelosPrecioFechas" FunctionName="AerolineaModel.Store.usp_RankingVuelosPrecioFechas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AerolineaModel.usp_RankingVuelosPrecioFechas_Result">
+          <ScalarProperty Name="NOM_RUTA" ColumnName="NOM_RUTA" />
+          <ScalarProperty Name="PRECIO_VUELO" ColumnName="PRECIO_VUELO" />
+          <ScalarProperty Name="FECHA_DESPEQUE" ColumnName="FECHA_DESPEQUE" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

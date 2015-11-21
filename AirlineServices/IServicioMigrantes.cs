@@ -26,7 +26,7 @@ namespace AirlineServices
         List<MigranteBE> ListaMigrantesPaisesFechas(string codPaisOrigen, string codPaisDestino, System.DateTime fecIni, System.DateTime fecFin);
 
         [OperationContract]
-        List<PaisBE> PaisMaximoMigrantes(string codPais, System.DateTime fecIni, System.DateTime fecFin);
+        List<PaisBE> ListaPaisesMigrantes(string codPais, System.DateTime fecIni, System.DateTime fecFin);
     }
 
     [DataContract]
@@ -238,4 +238,5 @@ namespace AirlineServices
             set { _cantVuelos = value; }
         }
     }
+    
 }
