@@ -29,8 +29,8 @@ namespace ClienteWeb
                 lblError.Text = "Error...." + ex.Message;
             }
         }
-
-        protected void btnConsultar_Click(object sender, EventArgs e)
+        
+        protected void cboDescripcion_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {

@@ -67,10 +67,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AerolineaEntity.edmx</DependentUpon>
     </Compile>
+    <Compile Include="AllVisitas_Result.cs">
+      <DependentUpon>AerolineaEntity.tt</DependentUpon>
+    </Compile>
     <Compile Include="AVION.cs">
       <DependentUpon>AerolineaEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="CONTINENTE.cs">
+      <DependentUpon>AerolineaEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetVisitas_X_LugarOrigen_Result.cs">
       <DependentUpon>AerolineaEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="IServicioHistorialPasajero.cs" />
@@ -107,6 +113,9 @@
       <DependentUpon>AerolineaEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="usp_ConsultaMaximoMigrantesNacionalidad_Result.cs">
+      <DependentUpon>AerolineaEntity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="USP_GetVisitas_X_Fecha_Result.cs">
       <DependentUpon>AerolineaEntity.tt</DependentUpon>
     </Compile>
     <Compile Include="usp_ListaVueloPorDescripcion_Result.cs">
@@ -158,6 +167,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="AerolineaEntity.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>AerolineaEntity.edmx</DependentUpon>
@@ -168,9 +180,6 @@
       <DependentUpon>AerolineaEntity.edmx</DependentUpon>
       <LastGenOutput>AerolineaEntity.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

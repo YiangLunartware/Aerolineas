@@ -10,7 +10,7 @@
 namespace ClienteWeb {
     
     
-    public partial class Consulta {
+    public partial class ConsultaMaximoMigrantes {
         
         /// <summary>
         /// ScriptManager1 control.

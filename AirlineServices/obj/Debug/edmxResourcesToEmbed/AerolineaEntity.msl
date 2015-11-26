@@ -173,6 +173,24 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="AllVisitas" FunctionName="AerolineaModel.Store.AllVisitas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AerolineaModel.AllVisitas_Result">
+          <ScalarProperty Name="NOMBRES_Y_APELLIDOS" ColumnName="NOMBRES Y APELLIDOS" />
+          <ScalarProperty Name="NOM_RUTA" ColumnName="NOM_RUTA" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetVisitas_X_LugarOrigen" FunctionName="AerolineaModel.Store.GetVisitas_X_LugarOrigen">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AerolineaModel.GetVisitas_X_LugarOrigen_Result">
+          <ScalarProperty Name="NOMBRES_Y_APELLIDOS" ColumnName="NOMBRES Y APELLIDOS" />
+          <ScalarProperty Name="NOM_RUTA" ColumnName="NOM_RUTA" />
+          <ScalarProperty Name="FECHA_DESPEQUE" ColumnName="FECHA_DESPEQUE" />
+          <ScalarProperty Name="FECHA_LLEGADA" ColumnName="FECHA_LLEGADA" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="usp_CantidaDeVuelosFechas" FunctionName="AerolineaModel.Store.usp_CantidaDeVuelosFechas">
       <ResultMapping>
         <ComplexTypeMapping TypeName="AerolineaModel.usp_CantidaDeVuelosFechas_Result">
@@ -195,6 +213,17 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="USP_GetVisitas_X_Fecha" FunctionName="AerolineaModel.Store.USP_GetVisitas_X_Fecha">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AerolineaModel.USP_GetVisitas_X_Fecha_Result">
+          <ScalarProperty Name="NOMBRES_Y_APELLIDOS" ColumnName="NOMBRES Y APELLIDOS" />
+          <ScalarProperty Name="NOM_RUTA" ColumnName="NOM_RUTA" />
+          <ScalarProperty Name="FECHA_DESPEQUE" ColumnName="FECHA_DESPEQUE" />
+          <ScalarProperty Name="FECHA_LLEGADA" ColumnName="FECHA_LLEGADA" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListaAvionCapacidad" FunctionName="AerolineaModel.Store.usp_ListaAvionCapacidad" />
     <FunctionImportMapping FunctionImportName="usp_ListaVueloPorDescripcion" FunctionName="AerolineaModel.Store.usp_ListaVueloPorDescripcion">
       <ResultMapping>
         <ComplexTypeMapping TypeName="AerolineaModel.usp_ListaVueloPorDescripcion_Result">
@@ -243,6 +272,7 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListaVueloPrecios" FunctionName="AerolineaModel.Store.usp_ListaVueloPrecios" />
     <FunctionImportMapping FunctionImportName="usp_ListaVuelosPorCapacidadFechas" FunctionName="AerolineaModel.Store.usp_ListaVuelosPorCapacidadFechas">
       <ResultMapping>
         <ComplexTypeMapping TypeName="AerolineaModel.usp_ListaVuelosPorCapacidadFechas_Result">
@@ -256,6 +286,9 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="usp_ListaVueloXDescripcion" FunctionName="AerolineaModel.Store.usp_ListaVueloXDescripcion" />
+    <FunctionImportMapping FunctionImportName="USP_NOMBRE_RUTA" FunctionName="AerolineaModel.Store.USP_NOMBRE_RUTA" />
+    <FunctionImportMapping FunctionImportName="USP_RANKING_VISITA" FunctionName="AerolineaModel.Store.USP_RANKING_VISITA" />
     <FunctionImportMapping FunctionImportName="USP_RANKING_VISITAS" FunctionName="AerolineaModel.Store.USP_RANKING_VISITAS">
       <ResultMapping>
         <ComplexTypeMapping TypeName="AerolineaModel.USP_RANKING_VISITAS_Result">

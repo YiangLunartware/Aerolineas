@@ -22,6 +22,8 @@ namespace ClienteWeb
                     cboPais.DataTextField = "NomPais";
                     cboPais.DataValueField = "CodPais";
                     cboPais.DataBind();
+
+                    txtFecFin.Text = System.DateTime.Now.ToShortDateString().ToString();
                 }
             }
             catch (Exception ex)
@@ -50,6 +52,12 @@ namespace ClienteWeb
 
                 chtPaisesOrigen.Series[0].Points.DataBindXY(x, y);
                 chtPaisesOrigen.DataBind();
+
+                if (lista.Count == 0)
+                {
+                    lblError.Text = "No hay elementos";
+                    lblError.ForeColor = System.Drawing.Color.Red;
+                }
 
                 UpdatePanel1.Update();
             }

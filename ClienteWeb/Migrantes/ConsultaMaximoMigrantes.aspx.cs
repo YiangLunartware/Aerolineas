@@ -8,7 +8,7 @@ using ClienteWeb.ProxyMigrantes;
 
 namespace ClienteWeb
 {
-    public partial class Consulta : System.Web.UI.Page
+    public partial class ConsultaMaximoMigrantes : System.Web.UI.Page
     {
         ServicioMigrantesClient objServicioMigrantes = new ServicioMigrantesClient();
 
@@ -22,6 +22,8 @@ namespace ClienteWeb
                     cboPais.DataTextField = "NomPais";
                     cboPais.DataValueField = "CodPais";
                     cboPais.DataBind();
+
+                    this.cboPais_SelectedIndexChanged(sender, e);
                 }
             }
             catch (Exception ex)
@@ -41,6 +43,12 @@ namespace ClienteWeb
 
                 dtvPais.DataSource = lista;
                 dtvPais.DataBind();
+
+                if (lista.Count == 0)
+                {
+                    lblError.Text = "No hay elementos";
+                    lblError.ForeColor = System.Drawing.Color.Red;
+                }
             }
             catch (Exception ex)
             {

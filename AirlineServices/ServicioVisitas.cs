@@ -125,12 +125,10 @@ namespace AirlineServices
         {
             AerolineaEntities misAerolineas = new AerolineaEntities();
             List<Visitas> RankingVisitasDestinosPeruanos = new List<Visitas>();
-
-            /*
+                        
             try
             {
-                
-                var query = misAerolineas.(fechaLLegada).Take(100);
+                var query = misAerolineas.USP_RANKING_VISITAS(fechaLLegada).Take(100);
                 foreach (var resultado in query)
                 {
                     
@@ -145,7 +143,6 @@ namespace AirlineServices
             {
                 throw ex;
             }
-            */
 
             return RankingVisitasDestinosPeruanos;
         }

@@ -195,7 +195,7 @@ namespace AirlineServices
             List<Vuelos> objListaVuelos = new List<Vuelos>();
             try
             {
-                /*var query = MisVuelos.usp_ListaVueloPorDescripcion().Take(100);
+                var query = MisVuelos.usp_ListaVueloXDescripcion().Take(100);
 
                 foreach (var resultado in query)
                 {
@@ -203,7 +203,7 @@ namespace AirlineServices
                     objVuelosBE.DescVuelo = resultado;
 
                     objListaVuelos.Add(objVuelosBE);
-                }*/
+                }
 
             }
             catch (EntityException ex)
@@ -220,7 +220,7 @@ namespace AirlineServices
             List<Vuelos> objListaVuelos = new List<Vuelos>();
             try
             {
-                /*var query = MisVuelos.usp_ListaVueloPrecios();
+                var query = MisVuelos.usp_ListaVueloPrecios();
 
                 foreach (var resultado in query)
                 {
@@ -228,7 +228,7 @@ namespace AirlineServices
                     objVuelosBE.PrecioVuelo = Convert.ToDecimal(resultado);
 
                     objListaVuelos.Add(objVuelosBE);
-                }*/
+                }
 
             }
             catch (EntityException ex)
@@ -245,7 +245,7 @@ namespace AirlineServices
             List<Vuelos> objListaVuelos = new List<Vuelos>();
             try
             {
-                /*var query = MisVuelos.usp_ListaAvionCapacidad();
+                var query = MisVuelos.usp_ListaAvionCapacidad();
 
                 foreach (var resultado in query)
                 {
@@ -253,7 +253,7 @@ namespace AirlineServices
                     objVuelosBE.Capacidad = Convert.ToInt32(resultado);
 
                     objListaVuelos.Add(objVuelosBE);
-                }*/
+                }
 
             }
             catch (EntityException ex)

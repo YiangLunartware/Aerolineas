@@ -179,6 +179,16 @@ warning 6013: The table/view 'Aerolinea.dbo.vw_RankingVuelosPrecio' does not hav
           <Property Name="FECHA_DESPEQUE" Type="date" />
         </EntityType>-->
   <!--Errors Found During Generation:
+warning 6013: The table/view 'Aerolinea.dbo.VW_VISITA' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="VW_VISITA">
+          <Property Name="NOMBRE_PASAJERO" Type="varchar" MaxLength="250" />
+          <Property Name="APELLIDO_PASAJERO" Type="varchar" MaxLength="250" />
+          <Property Name="FECHA_DESPEQUE" Type="date" />
+          <Property Name="FECHA_LLEGADA" Type="date" />
+          <Property Name="COD_DESTINO" Type="varchar" MaxLength="100" />
+          <Property Name="NOM_RUTA" Type="varchar" MaxLength="200" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
 warning 6002: The table/view 'Aerolinea.dbo.VW_VISITAS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="VW_VISITAS">
     <Key>
@@ -369,6 +379,12 @@ warning 6013: The table/view 'Aerolinea.dbo.vw_VuelosPaisFechas' does not have a
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="AllVisitas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetVisitas_X_LugarOrigen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="LUGAR_ORIGEN" Type="varchar" Mode="In" />
+    <Parameter Name="FECHA_INICIAL" Type="datetime" Mode="In" />
+    <Parameter Name="FECHA_FINAL" Type="datetime" Mode="In" />
+  </Function>
   <Function Name="usp_CantidaDeVuelosFechas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="fecini" Type="date" Mode="In" />
     <Parameter Name="fecfin" Type="date" Mode="In" />
@@ -376,6 +392,11 @@ warning 6013: The table/view 'Aerolinea.dbo.vw_VuelosPaisFechas' does not have a
   <Function Name="usp_ConsultaMaximoMigrantesNacionalidad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="paisNacimiento" Type="varchar" Mode="In" />
   </Function>
+  <Function Name="USP_GetVisitas_X_Fecha" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FECHA_INICIAL" Type="datetime" Mode="In" />
+    <Parameter Name="FECHA_FINAL" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_ListaAvionCapacidad" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="usp_ListaVueloPorDescripcion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="descrip" Type="varchar" Mode="In" />
   </Function>
@@ -393,10 +414,16 @@ warning 6013: The table/view 'Aerolinea.dbo.vw_VuelosPaisFechas' does not have a
     <Parameter Name="fecini" Type="date" Mode="In" />
     <Parameter Name="fecfin" Type="date" Mode="In" />
   </Function>
+  <Function Name="usp_ListaVueloPrecios" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <Function Name="usp_ListaVuelosPorCapacidadFechas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="capacidad" Type="int" Mode="In" />
     <Parameter Name="fecini" Type="date" Mode="In" />
     <Parameter Name="fecfin" Type="date" Mode="In" />
+  </Function>
+  <Function Name="usp_ListaVueloXDescripcion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USP_NOMBRE_RUTA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="USP_RANKING_VISITA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FECHA_LLEGADA" Type="varchar" Mode="In" />
   </Function>
   <Function Name="USP_RANKING_VISITAS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="FECHA_LLEGADA" Type="datetime" Mode="In" />

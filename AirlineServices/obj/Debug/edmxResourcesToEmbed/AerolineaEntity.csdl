@@ -374,6 +374,12 @@
       <End Role="RUTA" EntitySet="RUTA" />
       <End Role="VUELO" EntitySet="VUELO" />
     </AssociationSet>
+    <FunctionImport Name="AllVisitas" ReturnType="Collection(AerolineaModel.AllVisitas_Result)" />
+    <FunctionImport Name="GetVisitas_X_LugarOrigen" ReturnType="Collection(AerolineaModel.GetVisitas_X_LugarOrigen_Result)">
+      <Parameter Name="LUGAR_ORIGEN" Mode="In" Type="String" />
+      <Parameter Name="FECHA_INICIAL" Mode="In" Type="DateTime" />
+      <Parameter Name="FECHA_FINAL" Mode="In" Type="DateTime" />
+    </FunctionImport>
     <FunctionImport Name="usp_CantidaDeVuelosFechas" ReturnType="Collection(AerolineaModel.usp_CantidaDeVuelosFechas_Result)">
       <Parameter Name="fecini" Mode="In" Type="DateTime" />
       <Parameter Name="fecfin" Mode="In" Type="DateTime" />
@@ -381,6 +387,11 @@
     <FunctionImport Name="usp_ConsultaMaximoMigrantesNacionalidad" ReturnType="Collection(AerolineaModel.usp_ConsultaMaximoMigrantesNacionalidad_Result)">
       <Parameter Name="paisNacimiento" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="USP_GetVisitas_X_Fecha" ReturnType="Collection(AerolineaModel.USP_GetVisitas_X_Fecha_Result)">
+      <Parameter Name="FECHA_INICIAL" Mode="In" Type="DateTime" />
+      <Parameter Name="FECHA_FINAL" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="usp_ListaAvionCapacidad" ReturnType="Collection(Int32)" />
     <FunctionImport Name="usp_ListaVueloPorDescripcion" ReturnType="Collection(AerolineaModel.usp_ListaVueloPorDescripcion_Result)">
       <Parameter Name="descrip" Mode="In" Type="String" />
     </FunctionImport>
@@ -398,10 +409,16 @@
       <Parameter Name="fecini" Mode="In" Type="DateTime" />
       <Parameter Name="fecfin" Mode="In" Type="DateTime" />
     </FunctionImport>
+    <FunctionImport Name="usp_ListaVueloPrecios" ReturnType="Collection(Decimal)" />
     <FunctionImport Name="usp_ListaVuelosPorCapacidadFechas" ReturnType="Collection(AerolineaModel.usp_ListaVuelosPorCapacidadFechas_Result)">
       <Parameter Name="capacidad" Mode="In" Type="Int32" />
       <Parameter Name="fecini" Mode="In" Type="DateTime" />
       <Parameter Name="fecfin" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="usp_ListaVueloXDescripcion" ReturnType="Collection(String)" />
+    <FunctionImport Name="USP_NOMBRE_RUTA" ReturnType="Collection(String)" />
+    <FunctionImport Name="USP_RANKING_VISITA">
+      <Parameter Name="FECHA_LLEGADA" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="USP_RANKING_VISITAS" ReturnType="Collection(AerolineaModel.USP_RANKING_VISITAS_Result)">
       <Parameter Name="FECHA_LLEGADA" Mode="In" Type="DateTime" />
@@ -422,6 +439,16 @@
       <Parameter Name="fecfin" Mode="In" Type="DateTime" />
     </FunctionImport>
   </EntityContainer>
+  <ComplexType Name="AllVisitas_Result">
+    <Property Type="String" Name="NOMBRES_Y_APELLIDOS" Nullable="true" MaxLength="501" />
+    <Property Type="String" Name="NOM_RUTA" Nullable="true" MaxLength="200" />
+  </ComplexType>
+  <ComplexType Name="GetVisitas_X_LugarOrigen_Result">
+    <Property Type="String" Name="NOMBRES_Y_APELLIDOS" Nullable="true" MaxLength="501" />
+    <Property Type="String" Name="NOM_RUTA" Nullable="true" MaxLength="200" />
+    <Property Type="DateTime" Name="FECHA_DESPEQUE" Nullable="true" />
+    <Property Type="DateTime" Name="FECHA_LLEGADA" Nullable="true" />
+  </ComplexType>
   <ComplexType Name="usp_CantidaDeVuelosFechas_Result">
     <Property Type="String" Name="NOM_RUTA" Nullable="true" MaxLength="200" />
     <Property Type="Int32" Name="CantidadDeVuelos" Nullable="true" />
@@ -435,6 +462,12 @@
     <Property Type="String" Name="MONEDA_PAIS_DESTINO" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="IDIOMA_PAIS_DESTINO" Nullable="true" MaxLength="50" />
     <Property Type="Int32" Name="CANTIDAD_VUELOS" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="USP_GetVisitas_X_Fecha_Result">
+    <Property Type="String" Name="NOMBRES_Y_APELLIDOS" Nullable="true" MaxLength="501" />
+    <Property Type="String" Name="NOM_RUTA" Nullable="true" MaxLength="200" />
+    <Property Type="DateTime" Name="FECHA_DESPEQUE" Nullable="true" />
+    <Property Type="DateTime" Name="FECHA_LLEGADA" Nullable="true" />
   </ComplexType>
   <ComplexType Name="usp_ListaVueloPorDescripcion_Result">
     <Property Type="String" Name="COD_VUELO" Nullable="false" MaxLength="100" />

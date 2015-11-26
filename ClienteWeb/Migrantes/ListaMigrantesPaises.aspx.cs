@@ -35,16 +35,26 @@ namespace ClienteWeb
             }
         }
 
-        protected void btnConsultar_Click(object sender, EventArgs e)
+        private void Consulta()
         {
+            lblError.Text = "";
+
             try
             {
                 string codPaisOrigen = cboPaisOrigen.SelectedValue;
                 string codPaisDestino = cboPaisDestino.SelectedValue;
                 System.DateTime fi = Convert.ToDateTime(txtFecIni.Text);
                 System.DateTime ff = Convert.ToDateTime(txtFecFin.Text);
-                dgvMigrantes.DataSource = objServicioMigrantes.ListaMigrantesPaisesFechas(codPaisOrigen,codPaisDestino, fi, ff);
+
+                List<MigranteBE> lista = objServicioMigrantes.ListaMigrantesPaisesFechas(codPaisOrigen, codPaisDestino, fi, ff).ToList();
+                dgvMigrantes.DataSource = lista;
                 dgvMigrantes.DataBind();
+
+                if (lista.Count == 0)
+                {
+                    lblError.Text = "No hay elementos";
+                    lblError.ForeColor = System.Drawing.Color.Red;
+                }
 
                 UpdatePanel1.Update();
             }
@@ -56,11 +66,15 @@ namespace ClienteWeb
             UpdatePanel1.Update();
         }
 
-        protected void dgvMigrantes_RowDataBound(object sender, GridViewRowEventArgs e)
+        protected void btnConsultar_Click(object sender, EventArgs e)
         {
-            e.Row.Cells[2].Visible = false;
-            e.Row.Cells[7].Visible = false;
-            e.Row.Cells[10].Visible = false;
+            Consulta();
+        }
+
+        protected void dgvMigrantes_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            dgvMigrantes.PageIndex = e.NewPageIndex;
+            Consulta();
         }
     }
 }

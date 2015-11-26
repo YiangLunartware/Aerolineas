@@ -35,6 +35,9 @@
             background: linear-gradient(to bottom, #00BCD4 0%,#53cbf1 60%,#87e0fd 100%); /* W3C */
             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00BCD4', endColorstr='#87e0fd',GradientType=0 ); /* IE6-9 */
         }
+        ul, li {
+            list-style: none;
+        }
 
         .aerolinea-bg {
             background: url('../images/nube_07.png') center / cover;
@@ -87,7 +90,14 @@ color: #00BCD4;            //primary
             padding: 1.5em 0px 0px 0px;
         }
 
+        th, td {
+            padding: 0.25em 0.5em;
+            vertical-align: middle !important;
+        }
 
+        .mdl-data-table th {
+            text-align: center !important;
+        }
         .mdl-data-table td {
             text-align: left !important;
         }
@@ -190,7 +200,7 @@ color: #00BCD4;            //primary
                         <li><asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Visitas/ListaVisitas.aspx" CssClass="mdl-menu__item" >Lista visitas</asp:HyperLink></li>
                         <li><asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/Visitas/ListaVisitasPorFecha.aspx" CssClass="mdl-menu__item" >Lista visitas por fecha</asp:HyperLink></li>
                         <li><asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/Visitas/ListaVisitasPorLugar.aspx" CssClass="mdl-menu__item" >Lista visitas por lugar</asp:HyperLink></li>
-                        <li><asp:HyperLink ID="HyperLink29" runat="server" NavigateUrl="~/Visitas/RankingVisitasDestinosPeruanos.aspx" CssClass="mdl-menu__item" >ranking visitas destinos peruanos</asp:HyperLink></li>
+                        <li><asp:HyperLink ID="HyperLink29" runat="server" NavigateUrl="~/Visitas/RankingVisitasDestinosPeruanos.aspx" CssClass="mdl-menu__item" >Ranking visitas destinos peruanos</asp:HyperLink></li>
                     </ul>
 
                     <a class="mdl-navigation__link" id="s3-dropdown">Vuelos
@@ -267,11 +277,14 @@ color: #00BCD4;            //primary
                     <div class="mdl-typography--body-1 mdl-typography--text-justify">
                         <asp:ContentPlaceHolder ID="Parrafo" runat="server">
                         </asp:ContentPlaceHolder>
+                        <br />
                     </div>
                     <div class="mdl-grid">
                         <form runat="server">
+                            <br />
                             <asp:ContentPlaceHolder ID="Contenido" runat="server">
                             </asp:ContentPlaceHolder>
+                            <br />
                         </form>
                     </div>
                 </div>

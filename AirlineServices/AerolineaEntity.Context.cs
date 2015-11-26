@@ -41,6 +41,28 @@ namespace AirlineServices
         public DbSet<vw_MigrantesPaisLugar> vw_MigrantesPaisLugar { get; set; }
         public DbSet<VW_VISITAS> VW_VISITAS { get; set; }
     
+        public virtual ObjectResult<AllVisitas_Result> AllVisitas()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<AllVisitas_Result>("AllVisitas");
+        }
+    
+        public virtual ObjectResult<GetVisitas_X_LugarOrigen_Result> GetVisitas_X_LugarOrigen(string lUGAR_ORIGEN, Nullable<System.DateTime> fECHA_INICIAL, Nullable<System.DateTime> fECHA_FINAL)
+        {
+            var lUGAR_ORIGENParameter = lUGAR_ORIGEN != null ?
+                new ObjectParameter("LUGAR_ORIGEN", lUGAR_ORIGEN) :
+                new ObjectParameter("LUGAR_ORIGEN", typeof(string));
+    
+            var fECHA_INICIALParameter = fECHA_INICIAL.HasValue ?
+                new ObjectParameter("FECHA_INICIAL", fECHA_INICIAL) :
+                new ObjectParameter("FECHA_INICIAL", typeof(System.DateTime));
+    
+            var fECHA_FINALParameter = fECHA_FINAL.HasValue ?
+                new ObjectParameter("FECHA_FINAL", fECHA_FINAL) :
+                new ObjectParameter("FECHA_FINAL", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetVisitas_X_LugarOrigen_Result>("GetVisitas_X_LugarOrigen", lUGAR_ORIGENParameter, fECHA_INICIALParameter, fECHA_FINALParameter);
+        }
+    
         public virtual ObjectResult<usp_CantidaDeVuelosFechas_Result> usp_CantidaDeVuelosFechas(Nullable<System.DateTime> fecini, Nullable<System.DateTime> fecfin)
         {
             var feciniParameter = fecini.HasValue ?
@@ -61,6 +83,24 @@ namespace AirlineServices
                 new ObjectParameter("paisNacimiento", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ConsultaMaximoMigrantesNacionalidad_Result>("usp_ConsultaMaximoMigrantesNacionalidad", paisNacimientoParameter);
+        }
+    
+        public virtual ObjectResult<USP_GetVisitas_X_Fecha_Result> USP_GetVisitas_X_Fecha(Nullable<System.DateTime> fECHA_INICIAL, Nullable<System.DateTime> fECHA_FINAL)
+        {
+            var fECHA_INICIALParameter = fECHA_INICIAL.HasValue ?
+                new ObjectParameter("FECHA_INICIAL", fECHA_INICIAL) :
+                new ObjectParameter("FECHA_INICIAL", typeof(System.DateTime));
+    
+            var fECHA_FINALParameter = fECHA_FINAL.HasValue ?
+                new ObjectParameter("FECHA_FINAL", fECHA_FINAL) :
+                new ObjectParameter("FECHA_FINAL", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<USP_GetVisitas_X_Fecha_Result>("USP_GetVisitas_X_Fecha", fECHA_INICIALParameter, fECHA_FINALParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> usp_ListaAvionCapacidad()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("usp_ListaAvionCapacidad");
         }
     
         public virtual ObjectResult<usp_ListaVueloPorDescripcion_Result> usp_ListaVueloPorDescripcion(string descrip)
@@ -119,6 +159,11 @@ namespace AirlineServices
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ListaVueloPorPrecioFechas_Result>("usp_ListaVueloPorPrecioFechas", precioParameter, feciniParameter, fecfinParameter);
         }
     
+        public virtual ObjectResult<Nullable<decimal>> usp_ListaVueloPrecios()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<decimal>>("usp_ListaVueloPrecios");
+        }
+    
         public virtual ObjectResult<usp_ListaVuelosPorCapacidadFechas_Result> usp_ListaVuelosPorCapacidadFechas(Nullable<int> capacidad, Nullable<System.DateTime> fecini, Nullable<System.DateTime> fecfin)
         {
             var capacidadParameter = capacidad.HasValue ?
@@ -134,6 +179,25 @@ namespace AirlineServices
                 new ObjectParameter("fecfin", typeof(System.DateTime));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<usp_ListaVuelosPorCapacidadFechas_Result>("usp_ListaVuelosPorCapacidadFechas", capacidadParameter, feciniParameter, fecfinParameter);
+        }
+    
+        public virtual ObjectResult<string> usp_ListaVueloXDescripcion()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("usp_ListaVueloXDescripcion");
+        }
+    
+        public virtual ObjectResult<string> USP_NOMBRE_RUTA()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("USP_NOMBRE_RUTA");
+        }
+    
+        public virtual int USP_RANKING_VISITA(string fECHA_LLEGADA)
+        {
+            var fECHA_LLEGADAParameter = fECHA_LLEGADA != null ?
+                new ObjectParameter("FECHA_LLEGADA", fECHA_LLEGADA) :
+                new ObjectParameter("FECHA_LLEGADA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("USP_RANKING_VISITA", fECHA_LLEGADAParameter);
         }
     
         public virtual ObjectResult<USP_RANKING_VISITAS_Result> USP_RANKING_VISITAS(Nullable<System.DateTime> fECHA_LLEGADA)

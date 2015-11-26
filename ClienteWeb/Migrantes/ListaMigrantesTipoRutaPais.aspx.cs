@@ -31,24 +31,39 @@ namespace ClienteWeb
             }
         }
 
-        protected void btnConsultar_Click(object sender, EventArgs e)
+        private void Consulta()
         {
+            lblError.Text = "";
+            dgvMigrantesInternac.DataSource = null;
+            dgvMigrantesNacionales.DataSource = null;
+            dgvMigrantesInternac.DataBind();
+            dgvMigrantesNacionales.DataBind();
+
             try
             {
                 string codPais = cboPais.SelectedValue;
                 string tipoRuta = rbnTipoRuta.SelectedValue;
                 System.DateTime fi = Convert.ToDateTime(txtFecIni.Text);
                 System.DateTime ff = Convert.ToDateTime(txtFecFin.Text);
+                List<MigranteBE> lista = new List<MigranteBE>();
 
                 if (tipoRuta.Equals("NACIONAL"))
                 {
-                    dgvMigrantes.DataSource = objServicioMigrantes.ListaMigrantesNacionales(codPais, fi, ff);
-                    dgvMigrantes.DataBind();
+                    lista = objServicioMigrantes.ListaMigrantesNacionales(codPais, fi, ff).ToList();
+                    dgvMigrantesNacionales.DataSource = lista;
+                    dgvMigrantesNacionales.DataBind();
                 }
                 else if (tipoRuta.Equals("INTERNACIONAL"))
                 {
-                    dgvMigrantes.DataSource = objServicioMigrantes.ListaMigrantesInternacionales(codPais, fi, ff);
-                    dgvMigrantes.DataBind();
+                    lista = objServicioMigrantes.ListaMigrantesInternacionales(codPais, fi, ff).ToList();
+                    dgvMigrantesInternac.DataSource = lista;
+                    dgvMigrantesInternac.DataBind();
+                }
+
+                if (lista.Count == 0)
+                {
+                    lblError.Text = "No hay elementos";
+                    lblError.ForeColor = System.Drawing.Color.Red;
                 }
 
                 UpdatePanel1.Update();
@@ -59,16 +74,21 @@ namespace ClienteWeb
             }
         }
 
-        protected void dgvMigrantes_RowDataBound(object sender, GridViewRowEventArgs e)
+        protected void btnConsultar_Click(object sender, EventArgs e)
         {
-            string tipoRuta = rbnTipoRuta.SelectedValue;
+            Consulta();
+        }
 
-            e.Row.Cells[2].Visible = false;
+        protected void dgvMigrantesNacionales_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            dgvMigrantesNacionales.PageIndex = e.NewPageIndex;
+            Consulta();
+        }
 
-            if (tipoRuta.Equals("NACIONAL"))
-                e.Row.Cells[10].Visible = false;
-            else if (tipoRuta.Equals("INTERNACIONAL"))
-                e.Row.Cells[7].Visible = false;
+        protected void dgvMigrantesInternac_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            dgvMigrantesInternac.PageIndex = e.NewPageIndex;
+            Consulta();
         }
     }
 }
