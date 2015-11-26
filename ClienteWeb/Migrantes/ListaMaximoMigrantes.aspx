@@ -10,7 +10,6 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="Parrafo" runat="server">
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="Contenido" runat="server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
             <table>
