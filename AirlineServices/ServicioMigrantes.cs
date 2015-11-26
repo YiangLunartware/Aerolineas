@@ -277,35 +277,23 @@ namespace AirlineServices
 
             try
             {
-                var codLPDestino = from tbLugar in MiAerolinea.LUGAR
-                                   where tbLugar.COD_PAIS != codPais
-                                   select tbLugar.COD_LUGAR;
-
-                var query = ((from tbVuelo in MiAerolinea.VUELO
-                              join tbReservacion in MiAerolinea.RESERVACION
-                              on tbVuelo.COD_VUELO equals tbReservacion.COD_VUELO
-                              join tbPasajero in MiAerolinea.PASAJERO
-                              on tbReservacion.COD_PASAJERO equals tbPasajero.COD_PASAJERO
-                              join tbRuta in MiAerolinea.RUTA
-                              on tbVuelo.COD_RUTA equals tbRuta.COD_RUTA
-                              join tbLugar in MiAerolinea.LUGAR
-                              on tbRuta.COD_DESTINO equals tbLugar.COD_LUGAR
-                              join tbPais in MiAerolinea.PAIS
-                              on tbLugar.COD_PAIS equals tbPais.COD_PAIS
-                              where tbPasajero.COD_PAIS == codPais
-                              && codLPDestino.Contains(tbRuta.COD_DESTINO)
-                              && tbVuelo.FECHA_LLEGADA > fecIni
-                              && tbVuelo.FECHA_LLEGADA < fecFin
-                              select tbPais
-                             ).GroupBy(x => x).Select(g => new
-                             {
-                                 CodPais = g.Key.COD_PAIS,
-                                 NomPais = g.Key.NOMBRE_PAIS,
-                                 Idioma = g.Key.IDIOMA,
-                                 Moneda = g.Key.MONEDA,
-                                 CantidadVuelos = g.Count()
-                             })).OrderByDescending(x => x.CantidadVuelos);
-
+                var query = MiAerolinea.RESERVACION
+                    .Where(x =>
+                    x.PASAJERO.COD_PAIS == codPais &&
+                    x.VUELO.RUTA.LUGAR.COD_PAIS != codPais &&
+                    x.VUELO.FECHA_LLEGADA > fecIni &&
+                    x.VUELO.FECHA_LLEGADA < fecFin)
+                    .Select(y => y.VUELO.RUTA.LUGAR.PAIS)
+                    .GroupBy(z => z)
+                    .Select(g => new
+                    {
+                        CodPais = g.Key.COD_PAIS,
+                        NomPais = g.Key.NOMBRE_PAIS,
+                        Idioma = g.Key.IDIOMA,
+                        Moneda = g.Key.MONEDA,
+                        CantidadVuelos = g.Count()
+                    })
+                    .OrderByDescending(h => h.CantidadVuelos);
 
                 foreach (var item in query)
                 {
@@ -318,7 +306,6 @@ namespace AirlineServices
 
                     paises.Add(objBE);
                 }
-
             }
             catch (Exception ex)
             {

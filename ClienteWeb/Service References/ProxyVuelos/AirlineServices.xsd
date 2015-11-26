@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/AirlineServices" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/AirlineServices" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfVuelos">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Vuelos" nillable="true" type="tns:Vuelos" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVuelos" nillable="true" type="tns:ArrayOfVuelos" />
+  <xs:complexType name="Vuelos">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Capacidad" type="xs:int" />
+      <xs:element minOccurs="0" name="CodAvion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodRuta" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodVuelo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Demanda" type="xs:int" />
+      <xs:element minOccurs="0" name="DescVuelo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EstadoVuelo" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FecDespegue" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FecLlegada" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="HoraDespegue" type="ser:duration" />
+      <xs:element minOccurs="0" name="HoraLlegada" type="ser:duration" />
+      <xs:element minOccurs="0" name="NomRuta" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PrecioVuelo" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Vuelos" nillable="true" type="tns:Vuelos" />
+</xs:schema>

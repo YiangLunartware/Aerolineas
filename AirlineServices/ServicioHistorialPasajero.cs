@@ -10,8 +10,232 @@ namespace AirlineServices
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "ServicioHistorialPasajero" in both code and config file together.
     public class ServicioHistorialPasajero : IServicioHistorialPasajero
     {
-        public void DoWork()
+        public List<Pasajero> GetAllHistorialPasajero()
         {
+            List<Pasajero> lista = new List<Pasajero>();
+
+            try
+            {
+                AerolineaEntities miAerolinea = new AerolineaEntities();
+
+                var query = miAerolinea.RESERVACION.ToList()
+                    .Where(y => y.TOMO_VUELO == true)
+                    .Select(x => new
+                    {
+                        CodPasajero = x.COD_PASAJERO,
+                        NomCompletoPasajero = x.PASAJERO.APELLIDO_PASAJERO + ", " + x.PASAJERO.NOMBRE_PASAJERO,
+                        LugarOrigen = x.VUELO.RUTA.LUGAR1.NOMBRE_LUGAR,
+                        LugarDestino = x.VUELO.RUTA.LUGAR.NOMBRE_LUGAR,
+                        FechaDespeque = x.VUELO.FECHA_DESPEQUE,
+                        FechaLlegada = x.VUELO.FECHA_LLEGADA,
+                        DNI = x.PASAJERO.DNI,
+                        Email = x.PASAJERO.EMAIL,
+                        Telefono = x.PASAJERO.NUMERO_TELEFONICO,
+                        Nacionalidad = x.PASAJERO.NACIONALIDAD,
+                        Genero = x.PASAJERO.SEXO
+                    })
+                    .Take(100);
+
+                foreach (var item in query)
+                {
+                    Pasajero objPasajero = new Pasajero();
+                    objPasajero.CodPasajero = item.CodPasajero;
+                    objPasajero.NomPasajero = item.NomCompletoPasajero;
+                    objPasajero.LugarOrigen = item.LugarOrigen;
+                    objPasajero.LugarDestino = item.LugarDestino;
+                    objPasajero.FechaDespeque = Convert.ToDateTime(item.FechaDespeque);
+                    objPasajero.FechaLlegada = Convert.ToDateTime(item.FechaLlegada);
+                    objPasajero.DNI = item.DNI;
+                    objPasajero.Email = item.Email;
+                    objPasajero.NumTelefono = item.Telefono;
+                    objPasajero.Nacionalidad = item.Nacionalidad;
+                    objPasajero.Genero = item.Genero;
+
+                    lista.Add(objPasajero);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return lista;
+        }
+
+        public List<Pasajero> GetHistorialPasajeroXNombrePasajero(string nomPasajero, DateTime fecIni, DateTime fecFin)
+        {
+            List<Pasajero> lista = new List<Pasajero>();
+
+            try
+            {
+                AerolineaEntities miAerolinea = new AerolineaEntities();
+
+                var query = miAerolinea.RESERVACION.ToList()
+                    .Where(y => y.TOMO_VUELO == true)
+                    .Where(m => m.PASAJERO.NOMBRE_PASAJERO.Contains(nomPasajero))
+                    .Where(n => n.VUELO.FECHA_DESPEQUE >= fecIni)
+                    .Where(q => q.VUELO.FECHA_LLEGADA <= fecFin)
+                    .Select(x => new
+                    {
+                        CodPasajero = x.COD_PASAJERO,
+                        NomCompletoPasajero = x.PASAJERO.APELLIDO_PASAJERO + ", " + x.PASAJERO.NOMBRE_PASAJERO,
+                        LugarOrigen = x.VUELO.RUTA.LUGAR1.NOMBRE_LUGAR,
+                        LugarDestino = x.VUELO.RUTA.LUGAR.NOMBRE_LUGAR,
+                        FechaDespeque = x.VUELO.FECHA_DESPEQUE,
+                        FechaLlegada = x.VUELO.FECHA_LLEGADA,
+                        DNI = x.PASAJERO.DNI,
+                        Email = x.PASAJERO.EMAIL,
+                        Telefono = x.PASAJERO.NUMERO_TELEFONICO,
+                        Nacionalidad = x.PASAJERO.NACIONALIDAD,
+                        Genero = x.PASAJERO.SEXO
+                    });
+
+                foreach (var item in query)
+                {
+                    Pasajero objPasajero = new Pasajero();
+                    objPasajero.CodPasajero = item.CodPasajero;
+                    objPasajero.NomPasajero = item.NomCompletoPasajero;
+                    objPasajero.LugarOrigen = item.LugarOrigen;
+                    objPasajero.LugarDestino = item.LugarDestino;
+                    objPasajero.FechaDespeque = Convert.ToDateTime(item.FechaDespeque);
+                    objPasajero.FechaLlegada = Convert.ToDateTime(item.FechaLlegada);
+                    objPasajero.DNI = item.DNI;
+                    objPasajero.Email = item.Email;
+                    objPasajero.NumTelefono = item.Telefono;
+                    objPasajero.Nacionalidad = item.Nacionalidad;
+                    objPasajero.Genero = item.Genero;
+
+                    lista.Add(objPasajero);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return lista;
+        }
+
+        public List<Pasajero> GetHistorialPasajeroXDNI(string dni, DateTime fecIni, DateTime fecFin)
+        {
+            List<Pasajero> lista = new List<Pasajero>();
+
+            try
+            {
+                AerolineaEntities miAerolinea = new AerolineaEntities();
+
+                var query = miAerolinea.RESERVACION.ToList()
+                    .Where(y => y.TOMO_VUELO == true)
+                    .Where(m => m.PASAJERO.DNI == dni)
+                    .Where(n => n.VUELO.FECHA_DESPEQUE >= fecIni)
+                    .Where(q => q.VUELO.FECHA_LLEGADA <= fecFin)
+                    .Select(x => new
+                    {
+                        CodPasajero = x.COD_PASAJERO,
+                        NomCompletoPasajero = x.PASAJERO.APELLIDO_PASAJERO + ", " + x.PASAJERO.NOMBRE_PASAJERO,
+                        LugarOrigen = x.VUELO.RUTA.LUGAR1.NOMBRE_LUGAR,
+                        LugarDestino = x.VUELO.RUTA.LUGAR.NOMBRE_LUGAR,
+                        FechaDespeque = x.VUELO.FECHA_DESPEQUE,
+                        FechaLlegada = x.VUELO.FECHA_LLEGADA,
+                        DNI = x.PASAJERO.DNI,
+                        Email = x.PASAJERO.EMAIL,
+                        Telefono = x.PASAJERO.NUMERO_TELEFONICO,
+                        Nacionalidad = x.PASAJERO.NACIONALIDAD,
+                        Genero = x.PASAJERO.SEXO
+                    });
+
+                foreach (var item in query)
+                {
+                    Pasajero objPasajero = new Pasajero();
+                    objPasajero.CodPasajero = item.CodPasajero;
+                    objPasajero.NomPasajero = item.NomCompletoPasajero;
+                    objPasajero.LugarOrigen = item.LugarOrigen;
+                    objPasajero.LugarDestino = item.LugarDestino;
+                    objPasajero.FechaDespeque = Convert.ToDateTime(item.FechaDespeque);
+                    objPasajero.FechaLlegada = Convert.ToDateTime(item.FechaLlegada);
+                    objPasajero.DNI = item.DNI;
+                    objPasajero.Email = item.Email;
+                    objPasajero.NumTelefono = item.Telefono;
+                    objPasajero.Nacionalidad = item.Nacionalidad;
+                    objPasajero.Genero = item.Genero;
+
+                    lista.Add(objPasajero);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return lista;
+        }
+
+        public List<Pasajero> GetCantidadVuelosXPasajero(string codPasajero, DateTime fecIni, DateTime fecFin)
+        {
+            List<Pasajero> lista = new List<Pasajero>();
+
+            try
+            {
+                AerolineaEntities miAerolinea = new AerolineaEntities();
+
+                var query = miAerolinea.RESERVACION.ToList()
+                    .Where(y => y.TOMO_VUELO == true)
+                    .Where(m => m.PASAJERO.COD_PASAJERO == codPasajero)
+                    .Where(n => n.VUELO.FECHA_DESPEQUE >= fecIni)
+                    .Where(q => q.VUELO.FECHA_LLEGADA <= fecFin)
+                    .Select( x => new
+                    {
+                        CodPasajero = x.COD_PASAJERO,
+                        NomCompletoPasajero = x.PASAJERO.APELLIDO_PASAJERO + ", " + x.PASAJERO.NOMBRE_PASAJERO,
+                        LugarOrigen = x.VUELO.RUTA.LUGAR1.NOMBRE_LUGAR,
+                        LugarDestino = x.VUELO.RUTA.LUGAR.NOMBRE_LUGAR,
+                        FechaDespeque = x.VUELO.FECHA_DESPEQUE,
+                        FechaLlegada = x.VUELO.FECHA_LLEGADA,
+                        DNI = x.PASAJERO.DNI,
+                        Email = x.PASAJERO.EMAIL,
+                        Telefono = x.PASAJERO.NUMERO_TELEFONICO,
+                        Nacionalidad = x.PASAJERO.NACIONALIDAD,
+                        Genero = x.PASAJERO.SEXO
+                    })
+                    .GroupBy(z => z)
+                    .Select(g => new
+                    {
+                        CodPasajero = g.Key.CodPasajero,
+                        NomCompletoPasajero = g.Key.NomCompletoPasajero,
+                        LugarOrigen = g.Key.LugarOrigen,
+                        LugarDestino = g.Key.LugarDestino,
+                        FechaDespeque = g.Key.FechaDespeque,
+                        FechaLlegada = g.Key.FechaLlegada,
+                        DNI = g.Key.DNI,
+                        Email = g.Key.Email,
+                        Telefono = g.Key.Telefono,
+                        Nacionalidad = g.Key.Nacionalidad,
+                        Genero = g.Key.Genero,
+                        Cantidad = g.Count()
+                    });
+
+                foreach (var item in query)
+                {
+                    Pasajero objPasajero = new Pasajero();
+
+                    objPasajero.CodPasajero = item.CodPasajero;
+                    objPasajero.NomPasajero = item.NomCompletoPasajero;
+                    objPasajero.LugarOrigen = item.LugarOrigen;
+                    objPasajero.LugarDestino = item.LugarDestino;
+                    objPasajero.FechaDespeque = Convert.ToDateTime(item.FechaDespeque);
+                    objPasajero.FechaLlegada = Convert.ToDateTime(item.FechaLlegada);
+                    objPasajero.DNI = item.DNI;
+                    objPasajero.Email = item.Email;
+                    objPasajero.NumTelefono = item.Telefono;
+                    objPasajero.Nacionalidad = item.Nacionalidad;
+                    objPasajero.Genero = item.Genero;
+                    objPasajero.CantVuelos = item.Cantidad;
+
+                    lista.Add(objPasajero);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return lista;
         }
     }
 }

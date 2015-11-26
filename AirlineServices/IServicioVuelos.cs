@@ -21,7 +21,7 @@ namespace AirlineServices
         List<Vuelos> ListaAvionCapacidad();
 
         [OperationContract]
-        Vuelos ListaVueloPorDescripcion(String descripcion);
+        List<Vuelos> ListaVueloPorDescripcion(String descripcion);
 
         [OperationContract]
         List<Vuelos> ListaVueloPorEstado(Boolean estado, DateTime fecini, DateTime fecfin);
@@ -34,12 +34,16 @@ namespace AirlineServices
 
         [OperationContract]
         List<Vuelos> ListaVuelosPorCapacidad(int capacidad, DateTime fecini, DateTime fecfin);
+
+        [OperationContract]
+        List<Vuelos> ListaCantidadVuelosFechas(DateTime fecini, DateTime fecfin);
     }
 
     [DataContract]
     [Serializable]
-    public class Vuelos
+    public class Vuelos  // definimos la clase Vendedor como Data Contractual
     {
+        //Miembros privados
         private String _codVuelo;
         private String _descVuelo;
         private System.DateTime _fecDespegue;
@@ -50,7 +54,6 @@ namespace AirlineServices
         private Decimal _precioVuelo;
         private String _codAvion;
         private String _codRuta;
-
         private int _capacidad;
         private String _nomRuta;
         private int _demanda;
@@ -124,7 +127,7 @@ namespace AirlineServices
             get { return this._precioVuelo; }
             set { this._precioVuelo = value; }
         }
-
+        
         [DataMember]
         public int Capacidad
         {
@@ -145,12 +148,11 @@ namespace AirlineServices
             get { return this._demanda; }
             set { this._demanda = value; }
         }
-
     }
 
     [DataContract]
     [Serializable]
-    public class Avion
+    public class Avion  // definimos la clase Vendedor como Data Contractual
     {
         private int capacidad;
 

@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServicioVuelos" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/AirlineServices" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServicioVuelos_ListaVueloXDescipcion_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaVueloXDescipcion" />
+  </wsdl:message>
+  <wsdl:message name="IServicioVuelos_ListaVueloXDescipcion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaVueloXDescipcionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioVuelos_ListaPrecios_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaPrecios" />
+  </wsdl:message>
+  <wsdl:message name="IServicioVuelos_ListaPrecios_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaPreciosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioVuelos_ListaAvionCapacidad_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaAvionCapacidad" />
+  </wsdl:message>
+  <wsdl:message name="IServicioVuelos_ListaAvionCapacidad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaAvionCapacidadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioVuelos_ListaVueloPorDescripcion_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaVueloPorDescripcion" />
+  </wsdl:message>
+  <wsdl:message name="IServicioVuelos_ListaVueloPorDescripcion_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaVueloPorDescripcionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioVuelos_ListaVueloPorEstado_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaVueloPorEstado" />
+  </wsdl:message>
+  <wsdl:message name="IServicioVuelos_ListaVueloPorEstado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaVueloPorEstadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioVuelos_ListaVueloPorFecha_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaVueloPorFecha" />
+  </wsdl:message>
+  <wsdl:message name="IServicioVuelos_ListaVueloPorFecha_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaVueloPorFechaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioVuelos_ListaVueloPorPrecio_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaVueloPorPrecio" />
+  </wsdl:message>
+  <wsdl:message name="IServicioVuelos_ListaVueloPorPrecio_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaVueloPorPrecioResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioVuelos_ListaVuelosPorCapacidad_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaVuelosPorCapacidad" />
+  </wsdl:message>
+  <wsdl:message name="IServicioVuelos_ListaVuelosPorCapacidad_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaVuelosPorCapacidadResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServicioVuelos_ListaCantidadVuelosFechas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListaCantidadVuelosFechas" />
+  </wsdl:message>
+  <wsdl:message name="IServicioVuelos_ListaCantidadVuelosFechas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListaCantidadVuelosFechasResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServicioVuelos">
+    <wsdl:operation name="ListaVueloXDescipcion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioVuelos/ListaVueloXDescipcion" message="tns:IServicioVuelos_ListaVueloXDescipcion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioVuelos/ListaVueloXDescipcionResponse" message="tns:IServicioVuelos_ListaVueloXDescipcion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaPrecios">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioVuelos/ListaPrecios" message="tns:IServicioVuelos_ListaPrecios_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioVuelos/ListaPreciosResponse" message="tns:IServicioVuelos_ListaPrecios_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaAvionCapacidad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioVuelos/ListaAvionCapacidad" message="tns:IServicioVuelos_ListaAvionCapacidad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioVuelos/ListaAvionCapacidadResponse" message="tns:IServicioVuelos_ListaAvionCapacidad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaVueloPorDescripcion">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioVuelos/ListaVueloPorDescripcion" message="tns:IServicioVuelos_ListaVueloPorDescripcion_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioVuelos/ListaVueloPorDescripcionResponse" message="tns:IServicioVuelos_ListaVueloPorDescripcion_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaVueloPorEstado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioVuelos/ListaVueloPorEstado" message="tns:IServicioVuelos_ListaVueloPorEstado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioVuelos/ListaVueloPorEstadoResponse" message="tns:IServicioVuelos_ListaVueloPorEstado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaVueloPorFecha">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioVuelos/ListaVueloPorFecha" message="tns:IServicioVuelos_ListaVueloPorFecha_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioVuelos/ListaVueloPorFechaResponse" message="tns:IServicioVuelos_ListaVueloPorFecha_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaVueloPorPrecio">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioVuelos/ListaVueloPorPrecio" message="tns:IServicioVuelos_ListaVueloPorPrecio_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioVuelos/ListaVueloPorPrecioResponse" message="tns:IServicioVuelos_ListaVueloPorPrecio_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaVuelosPorCapacidad">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioVuelos/ListaVuelosPorCapacidad" message="tns:IServicioVuelos_ListaVuelosPorCapacidad_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioVuelos/ListaVuelosPorCapacidadResponse" message="tns:IServicioVuelos_ListaVuelosPorCapacidad_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListaCantidadVuelosFechas">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioVuelos/ListaCantidadVuelosFechas" message="tns:IServicioVuelos_ListaCantidadVuelosFechas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioVuelos/ListaCantidadVuelosFechasResponse" message="tns:IServicioVuelos_ListaCantidadVuelosFechas_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServicioVuelos" type="tns:IServicioVuelos">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ListaVueloXDescipcion">
+      <soap:operation soapAction="http://tempuri.org/IServicioVuelos/ListaVueloXDescipcion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaPrecios">
+      <soap:operation soapAction="http://tempuri.org/IServicioVuelos/ListaPrecios" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaAvionCapacidad">
+      <soap:operation soapAction="http://tempuri.org/IServicioVuelos/ListaAvionCapacidad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaVueloPorDescripcion">
+      <soap:operation soapAction="http://tempuri.org/IServicioVuelos/ListaVueloPorDescripcion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaVueloPorEstado">
+      <soap:operation soapAction="http://tempuri.org/IServicioVuelos/ListaVueloPorEstado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaVueloPorFecha">
+      <soap:operation soapAction="http://tempuri.org/IServicioVuelos/ListaVueloPorFecha" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaVueloPorPrecio">
+      <soap:operation soapAction="http://tempuri.org/IServicioVuelos/ListaVueloPorPrecio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaVuelosPorCapacidad">
+      <soap:operation soapAction="http://tempuri.org/IServicioVuelos/ListaVuelosPorCapacidad" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaCantidadVuelosFechas">
+      <soap:operation soapAction="http://tempuri.org/IServicioVuelos/ListaCantidadVuelosFechas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServicioVuelos">
+    <wsdl:port name="BasicHttpBinding_IServicioVuelos" binding="tns:BasicHttpBinding_IServicioVuelos">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/AirlineServices/ServicioVuelos/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

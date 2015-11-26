@@ -11,28 +11,34 @@ namespace AirlineServices
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "ServicioVuelos" in both code and config file together.
     public class ServicioVuelos : IServicioVuelos
     {
-        public Vuelos ListaVueloPorDescripcion(String descripcion)
+        public List<Vuelos> ListaVueloPorDescripcion(String descripcion)
         {
             AerolineaEntities MisVuelos = new AerolineaEntities();
-            Vuelos objVuelosBE = new Vuelos();
+            List<Vuelos> objListaVuelos = new List<Vuelos>();
 
             try
             {
 
-                var query = MisVuelos.usp_ListaVueloPorDescripcion(descripcion).FirstOrDefault();
+                var query = MisVuelos.usp_ListaVueloPorDescripcion(descripcion).Take(100);
 
-                objVuelosBE.CodVuelo = query.COD_VUELO;
-                objVuelosBE.DescVuelo = query.DESCRIPCION_VUELO;
-                objVuelosBE.FecDespegue = Convert.ToDateTime(query.FECHA_DESPEQUE);
-                objVuelosBE.FecLlegada = Convert.ToDateTime(query.FECHA_LLEGADA);
-                objVuelosBE.EstadoVuelo = Convert.ToBoolean(query.ESTADO_VUELO);
-                objVuelosBE.PrecioVuelo = Convert.ToDecimal(query.PRECIO_VUELO);
+                foreach (var resultado in query)
+                {
+                    Vuelos objVuelosBE = new Vuelos();
+
+                    objVuelosBE.CodVuelo = resultado.COD_VUELO;
+                    objVuelosBE.DescVuelo = resultado.DESCRIPCION_VUELO;
+                    objVuelosBE.FecDespegue = Convert.ToDateTime(resultado.FECHA_DESPEQUE);
+                    objVuelosBE.FecLlegada = Convert.ToDateTime(resultado.FECHA_LLEGADA);
+                    objVuelosBE.PrecioVuelo = Convert.ToDecimal(resultado.PRECIO_VUELO);
+
+                    objListaVuelos.Add(objVuelosBE);
+                }
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            return objVuelosBE;
+            return objListaVuelos;
         }
 
         public List<Vuelos> ListaVueloPorEstado(Boolean estado, DateTime fecini, DateTime fecfin)
@@ -42,7 +48,6 @@ namespace AirlineServices
 
             try
             {
-
                 var query = MisVuelos.usp_ListaVueloPorEstadoFechas(estado, fecini, fecfin).Take(100);
 
                 foreach (var resultado in query)
@@ -63,11 +68,9 @@ namespace AirlineServices
             {
                 throw ex;
             }
-
             return objListaVuelos;
         }
-
-
+        
         public List<Vuelos> ListaVueloPorFecha(DateTime fecini, DateTime fecfin)
         {
             AerolineaEntities MisVuelos = new AerolineaEntities();
@@ -80,7 +83,7 @@ namespace AirlineServices
                 foreach (var resultado in query)
                 {
                     Vuelos objVuelosBE = new Vuelos();
-
+                    
                     objVuelosBE.CodVuelo = resultado.COD_VUELO;
                     objVuelosBE.DescVuelo = resultado.DESCRIPCION_VUELO;
                     objVuelosBE.FecDespegue = Convert.ToDateTime(resultado.FECHA_DESPEQUE);
@@ -95,7 +98,6 @@ namespace AirlineServices
             {
                 throw ex;
             }
-
             return objListaVuelos;
         }
 
@@ -111,6 +113,7 @@ namespace AirlineServices
                 foreach (var resultado in query)
                 {
                     Vuelos objVuelosBE = new Vuelos();
+                    
                     objVuelosBE.CodVuelo = resultado.COD_VUELO;
                     objVuelosBE.DescVuelo = resultado.DESCRIPCION_VUELO;
                     objVuelosBE.FecDespegue = Convert.ToDateTime(resultado.FECHA_DESPEQUE);
@@ -125,9 +128,7 @@ namespace AirlineServices
             {
                 throw ex;
             }
-
             return objListaVuelos;
-
         }
 
         public List<Vuelos> ListaVuelosPorCapacidad(int capacidad, DateTime fecini, DateTime fecfin)
@@ -159,6 +160,34 @@ namespace AirlineServices
             }
             return objListaVuelos;
         }
+        
+        public List<Vuelos> ListaCantidadVuelosFechas(DateTime fecini, DateTime fecfin)
+        {
+            AerolineaEntities MisVuelos = new AerolineaEntities();
+            List<Vuelos> objListaVuelos = new List<Vuelos>();
+            try
+            {
+
+                var query = MisVuelos.usp_CantidaDeVuelosFechas(fecini, fecfin).Take(100);
+
+                foreach (var resultado in query)
+                {
+                    Vuelos objVuelosBE = new Vuelos();
+                    objVuelosBE.NomRuta = resultado.NOM_RUTA;
+                    objVuelosBE.FecDespegue = Convert.ToDateTime(resultado.FECHA_DESPEQUE);
+                    objVuelosBE.FecLlegada = Convert.ToDateTime(resultado.FECHA_LLEGADA);
+                    objVuelosBE.Demanda = Convert.ToInt32(resultado.CantidadDeVuelos);
+
+                    objListaVuelos.Add(objVuelosBE);
+                }
+
+            }
+            catch (EntityException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return objListaVuelos;
+        }
 
         public List<Vuelos> ListaVueloXDescipcion()
         {
@@ -166,7 +195,7 @@ namespace AirlineServices
             List<Vuelos> objListaVuelos = new List<Vuelos>();
             try
             {
-                /*var query = MisVuelos.usp_ListaVueloXDescripcion().Take(100);
+                /*var query = MisVuelos.usp_ListaVueloPorDescripcion().Take(100);
 
                 foreach (var resultado in query)
                 {
@@ -175,6 +204,7 @@ namespace AirlineServices
 
                     objListaVuelos.Add(objVuelosBE);
                 }*/
+
             }
             catch (EntityException ex)
             {
@@ -199,6 +229,7 @@ namespace AirlineServices
 
                     objListaVuelos.Add(objVuelosBE);
                 }*/
+
             }
             catch (EntityException ex)
             {
@@ -223,6 +254,7 @@ namespace AirlineServices
 
                     objListaVuelos.Add(objVuelosBE);
                 }*/
+
             }
             catch (EntityException ex)
             {

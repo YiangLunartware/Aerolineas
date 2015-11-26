@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/AirlineServices" />
+  <xs:element name="ListaVueloXDescipcion">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListaVueloXDescipcionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/AirlineServices" minOccurs="0" name="ListaVueloXDescipcionResult" nillable="true" type="q1:ArrayOfVuelos" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListaPrecios">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListaPreciosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/AirlineServices" minOccurs="0" name="ListaPreciosResult" nillable="true" type="q2:ArrayOfVuelos" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListaAvionCapacidad">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListaAvionCapacidadResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/AirlineServices" minOccurs="0" name="ListaAvionCapacidadResult" nillable="true" type="q3:ArrayOfVuelos" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListaVueloPorDescripcion">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="descripcion" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListaVueloPorDescripcionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/AirlineServices" minOccurs="0" name="ListaVueloPorDescripcionResult" nillable="true" type="q4:ArrayOfVuelos" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListaVueloPorEstado">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="estado" type="xs:boolean" />
+        <xs:element minOccurs="0" name="fecini" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="fecfin" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListaVueloPorEstadoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/AirlineServices" minOccurs="0" name="ListaVueloPorEstadoResult" nillable="true" type="q5:ArrayOfVuelos" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListaVueloPorFecha">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="fecini" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="fecfin" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListaVueloPorFechaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/AirlineServices" minOccurs="0" name="ListaVueloPorFechaResult" nillable="true" type="q6:ArrayOfVuelos" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListaVueloPorPrecio">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="precio" type="xs:decimal" />
+        <xs:element minOccurs="0" name="fecini" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="fecfin" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListaVueloPorPrecioResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/AirlineServices" minOccurs="0" name="ListaVueloPorPrecioResult" nillable="true" type="q7:ArrayOfVuelos" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListaVuelosPorCapacidad">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="capacidad" type="xs:int" />
+        <xs:element minOccurs="0" name="fecini" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="fecfin" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListaVuelosPorCapacidadResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/AirlineServices" minOccurs="0" name="ListaVuelosPorCapacidadResult" nillable="true" type="q8:ArrayOfVuelos" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListaCantidadVuelosFechas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="fecini" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="fecfin" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListaCantidadVuelosFechasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/AirlineServices" minOccurs="0" name="ListaCantidadVuelosFechasResult" nillable="true" type="q9:ArrayOfVuelos" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

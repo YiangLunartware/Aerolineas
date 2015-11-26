@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="6bbca1e3-e2f4-40b8-92d7-473fbd0a0bf4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/AirlineServices/ServicioMigrantes/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="2f92e35b-9537-4764-8162-458677826f44" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/AirlineServices/ServicioMigrantes/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="fe315ca3-8ac5-46fe-801e-14d2aee79276" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/AirlineServices/ServicioMigrantes/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="2b0c6899-95fb-4dcd-9b9b-419f5383acca" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/AirlineServices/ServicioMigrantes/mex" />
+    <MetadataFile FileName="AirlineServices.xsd" MetadataType="Schema" ID="77268843-18b3-4cb8-8de9-3aec20fe7d20" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/AirlineServices/ServicioMigrantes/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

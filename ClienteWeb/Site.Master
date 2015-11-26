@@ -1,0 +1,296 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Cliente.Site" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>Aerolinea</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+
+    <!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css"/>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script-->
+
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.light_blue-red.min.css" />
+    <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+
+    <!--link rel="stylesheet" href="~/custom/mdl/material.cyan-red.min.css" />
+    <script src="~/custom/mdl/material.min.js"></script-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css" />
+
+    <!--link rel="stylesheet" href="custom/styles.css" /-->
+
+    <style type="text/css">
+        body {
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#05abe0+0,53cbf1+60,87e0fd+100 */
+            background: #009688; /* Old browsers */
+            background: -moz-linear-gradient(top, #00BCD4 0%, #53cbf1 60%, #87e0fd 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#00BCD4), color-stop(60%,#53cbf1), color-stop(100%,#87e0fd))009688hrome,Safari4+ */ background: -webkit-linear-gradient(top, #00BCD4 0%,#53cbf1 60%,#87e0fd 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top, #00BCD4 0%,#53cbf1 60%,#87e0fd 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top, #00BCD4 0%,#53cbf1 60%,#87e0fd 100%); /* IE10+ */
+            background: linear-gradient(to bottom, #00BCD4 0%,#53cbf1 60%,#87e0fd 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00BCD4', endColorstr='#87e0fd',GradientType=0 ); /* IE6-9 */
+        }
+
+        .aerolinea-bg {
+            background: url('../images/nube_07.png') center / cover;
+        }
+
+            .aerolinea-bg .mdl-layout__header,
+            .aerolinea-bg .mdl-layout__drawer-button,
+            header .mdl-navigation__link {
+                /* This background is dark, so we set text to white. Use 87% black instead if
+       your background is light. */
+                color: white !important;
+            }
+
+        .mdl-layout__content {
+            background: rgba(255,255,255,0.9);
+        }
+
+
+        /*
+color: rgb(255,82,82); //accent
+color: #00BCD4;            //primary
+*/
+
+
+        ::selection {
+            background-color: #00BCD4;
+            color: #fff;
+        }
+
+
+
+        .mdl-layout__header {
+            padding-top: 0.25em;
+            min-height: 50px;
+            background: transparent;
+        }
+
+        a.mdl-navigation__link {
+            cursor: pointer;
+        }
+
+        .mdl-layout__drawer nav.mdl-navigation a.mdl-navigation__link {
+            padding-top: 0.5em;
+            padding-bottom: 0.5em;
+        }
+
+        nav.mdl-navigation p {
+            color: #00BCD4;
+            margin-left: 40px;
+            padding: 1.5em 0px 0px 0px;
+        }
+
+
+        .mdl-data-table td {
+            text-align: left !important;
+        }
+
+        form {
+            width: 100%;
+        }
+
+
+        /* ==========  Select Field ========== */
+
+        /* Style Select Field */
+        select {
+            font-family: inherit;
+            background-color: transparent;
+            width: 100%;
+            padding: 4px 0;
+            font-size: 16px;
+            color: rgba(0,0,0, 0.7);
+            border: none;
+            border-bottom: 1px solid rgba(0,0,0, 0.12);
+        }
+
+        option {
+            color: rgba(0,0,0, 0.4);
+        }
+
+        /* Remove focus */
+        select:focus {
+            outline: none;
+        }
+
+        /* Hide label */
+        .mdl-selectfield label {
+            display: none;
+        }
+        /* Use custom arrow */
+        .mdl-selectfield select {
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .mdl-selectfield {
+            font-family: 'Roboto','Helvetica','Arial',sans-serif;
+            position: relative;
+        }
+
+            .mdl-selectfield::after {
+                position: absolute;
+                top: 0.75em;
+                right: 0.5em;
+                /* Styling the down arrow */
+                width: 0;
+                height: 0;
+                padding: 0;
+                content: '';
+                border-left: .25em solid transparent;
+                border-right: .25em solid transparent;
+                border-top: .375em solid rgba(0,0,0, 0.4);
+                pointer-events: none;
+            }
+
+        /*END SELECT*/
+
+
+        @media screen and (max-width: 1025px) {
+            nav.mdl-navigation p {
+                margin-left: 15px;
+            }
+        }
+    </style>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <div class="aerolinea-bg mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <a href="Index.aspx" class="mdl-layout-title">
+                    <asp:Image ID="Image1" runat="server" ImageUrl="~/images/aerolinea_logo_white_small.png" Height="60" AlternateText="logo" />
+                </a>
+                <div class="mdl-layout-spacer"></div>
+                <nav class="mdl-navigation mdl-layout--large-screen-only">
+
+                    <a class="mdl-navigation__link " id="s1-dropdown">Migrantes
+                            <i class="material-icons">arrow_drop_down</i></a>
+                    <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="s1-dropdown">
+                        <li><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Migrantes/ConsultaMaximoMigrantes.aspx" CssClass="mdl-menu__item" >Consulta maximo migrantes</asp:HyperLink></li>
+                        <li><asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Migrantes/ListaMaximoMigrantes.aspx" CssClass="mdl-menu__item" >Lista maximo migrantes</asp:HyperLink></li>
+                        <li><asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Migrantes/ListaMigrantesPaises.aspx" CssClass="mdl-menu__item" >Lista migrantes paises</asp:HyperLink></li>
+                        <li><asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/Migrantes/ListaMigrantesTipoRutaPais.aspx" CssClass="mdl-menu__item" >Lista migrantes tipo ruta</asp:HyperLink></li>
+                    </ul>
+
+                    <a class="mdl-navigation__link" id="s2-dropdown">Visitas
+                            <i class="material-icons">arrow_drop_down</i></a>
+                    <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="s2-dropdown">
+                        <li><asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Visitas/ListaVisitas.aspx" CssClass="mdl-menu__item" >Lista visitas</asp:HyperLink></li>
+                        <li><asp:HyperLink ID="HyperLink6" runat="server" NavigateUrl="~/Visitas/ListaVisitasPorFecha.aspx" CssClass="mdl-menu__item" >Lista visitas por fecha</asp:HyperLink></li>
+                        <li><asp:HyperLink ID="HyperLink7" runat="server" NavigateUrl="~/Visitas/ListaVisitasPorLugar.aspx" CssClass="mdl-menu__item" >Lista visitas por lugar</asp:HyperLink></li>
+                        <li><asp:HyperLink ID="HyperLink29" runat="server" NavigateUrl="~/Visitas/RankingVisitasDestinosPeruanos.aspx" CssClass="mdl-menu__item" >ranking visitas destinos peruanos</asp:HyperLink></li>
+                    </ul>
+
+                    <a class="mdl-navigation__link" id="s3-dropdown">Vuelos
+                            <i class="material-icons">arrow_drop_down</i></a>
+                    <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="s3-dropdown">
+                        <li><asp:HyperLink ID="HyperLink8" runat="server" NavigateUrl="~/Vuelos/ConsultaVuelosDescripcion.aspx" CssClass="mdl-menu__item" >Consulta vuelos descripcion</asp:HyperLink></li>
+                        <li><asp:HyperLink ID="HyperLink9" runat="server" NavigateUrl="~/Vuelos/ListaVueloPorEstado.aspx" CssClass="mdl-menu__item" >Lista vuelos por estado</asp:HyperLink></li>
+                        <li><asp:HyperLink ID="HyperLink10" runat="server" NavigateUrl="~/Vuelos/ListaVueloPorFecha.aspx" CssClass="mdl-menu__item" >Lista vuelos por fecha</asp:HyperLink></li>
+                        <li><asp:HyperLink ID="HyperLink30" runat="server" NavigateUrl="~/Vuelos/ListaVueloPorPrecio.aspx" CssClass="mdl-menu__item" >Lista vuelos por precio</asp:HyperLink></li>
+                        <li><asp:HyperLink ID="HyperLink31" runat="server" NavigateUrl="~/Vuelos/ListaVuelosPorCapacidad.aspx" CssClass="mdl-menu__item" >Lista vuelos por capacidad</asp:HyperLink></li>
+                    </ul>
+
+                    <a class="mdl-navigation__link" id="s4-dropdown">Historial Pasajeros
+                            <i class="material-icons">arrow_drop_down</i></a>
+                    <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="s4-dropdown">
+                        <li><asp:HyperLink ID="HyperLink11" runat="server" NavigateUrl="" CssClass="mdl-menu__item" >Consulta</asp:HyperLink></li>
+                        <li><asp:HyperLink ID="HyperLink12" runat="server" NavigateUrl="" CssClass="mdl-menu__item" >Consulta</asp:HyperLink></li>
+                        <li><asp:HyperLink ID="HyperLink13" runat="server" NavigateUrl="" CssClass="mdl-menu__item" >Consulta</asp:HyperLink></li>
+                    </ul>
+
+                </nav>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer">
+            <br />
+            <br />
+            <span class="mdl-layout-title">
+                <asp:Image ID="Image2" runat="server" ImageUrl="~/images/aerolinea_logo.png" Width="180" AlternateText="logo" />
+            </span>
+            <br />
+            <nav class="mdl-navigation">
+                <asp:HyperLink ID="HyperLink14" runat="server" NavigateUrl="~/Index.aspx" CssClass="mdl-navigation__link" >Inicio</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink15" runat="server" NavigateUrl="~/Contactenos.aspx" CssClass="mdl-navigation__link mdl-layout--small-screen-only" >Contactenos</asp:HyperLink>
+                <p>Migrantes</p>
+                <asp:HyperLink ID="HyperLink16" runat="server" NavigateUrl="~/Migrantes/ConsultaMaximoMigrantes.aspx" CssClass="mdl-navigation__link" >Consulta maximo migrantes</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink17" runat="server" NavigateUrl="~/Migrantes/ListaMaximoMigrantes.aspx" CssClass="mdl-navigation__link" >Lista maximo migrantes</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink18" runat="server" NavigateUrl="~/Migrantes/ListaMigrantesPaises.aspx" CssClass="mdl-navigation__link" >Lista migrantes paises</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink28" runat="server" NavigateUrl="~/Migrantes/ListaMigrantesTipoRutaPais.aspx" CssClass="mdl-navigation__link" >Lista migrantes tipo ruta</asp:HyperLink>
+                <p>Visitas</p>
+                <asp:HyperLink ID="HyperLink19" runat="server" NavigateUrl="~/Visitas/ListaVisitas.aspx" CssClass="mdl-navigation__link" >Inicio</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink20" runat="server" NavigateUrl="~/Visitas/ListaVisitasPorFecha.aspx" CssClass="mdl-navigation__link" >Inicio</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink21" runat="server" NavigateUrl="~/Visitas/ListaVisitasPorLugar.aspx" CssClass="mdl-navigation__link" >Inicio</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink33" runat="server" NavigateUrl="~/Visitas/RankingVisitasDestinosPeruanos.aspx" CssClass="mdl-navigation__link" >Inicio</asp:HyperLink>
+                <p>Vuelos</p>
+                <asp:HyperLink ID="HyperLink22" runat="server" NavigateUrl="~/Vuelos/ConsultaVuelosDescripcion.aspx" CssClass="mdl-navigation__link" >Inicio</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink34" runat="server" NavigateUrl="~/Vuelos/ListaVueloPorEstado.aspx" CssClass="mdl-navigation__link" >Inicio</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink35" runat="server" NavigateUrl="~/Vuelos/ListaVueloPorFecha.aspx" CssClass="mdl-navigation__link" >Inicio</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink23" runat="server" NavigateUrl="~/Vuelos/ListaVueloPorPrecio.aspx" CssClass="mdl-navigation__link" >Inicio</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink24" runat="server" NavigateUrl="~/Vuelos/ListaVuelosPorCapacidad.aspx" CssClass="mdl-navigation__link" >Inicio</asp:HyperLink>
+                <p>Historial Pasajeros</p>
+                <asp:HyperLink ID="HyperLink25" runat="server" NavigateUrl="" CssClass="mdl-navigation__link" >Inicio</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink26" runat="server" NavigateUrl="" CssClass="mdl-navigation__link" >Inicio</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink27" runat="server" NavigateUrl="" CssClass="mdl-navigation__link" >Inicio</asp:HyperLink>
+                <br /><br />
+            </nav>
+        </div>
+
+
+        <main class="mdl-layout__content">
+            <br />
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--2-col"></div>
+                <div class="mdl-cell mdl-cell--8-col">
+                    <div class="mdl-typography--text-capitalize mdl-typography--text-center mdl-button--accent mdl-typography--display-2">
+                        <asp:ContentPlaceHolder ID="Titulo" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                    <div class="mdl-typography--subhead mdl-typography--text-center">
+                        <br />
+                        <asp:ContentPlaceHolder ID="Subtitulo" runat="server">
+                        </asp:ContentPlaceHolder>
+                        <br />
+                    </div>
+                    <div class="mdl-typography--body-1 mdl-typography--text-justify">
+                        <asp:ContentPlaceHolder ID="Parrafo" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                    <div class="mdl-grid">
+                        <form runat="server">
+                            <asp:ContentPlaceHolder ID="Contenido" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </form>
+                    </div>
+                </div>
+                <div class="mdl-cell mdl-cell--2-col"></div>
+
+            </div>
+            <br />
+            <br />
+            <br />
+        </main>
+        <footer class="mdl-mini-footer">
+            <div class="mdl-mini-footer__left-section">
+                <ul class="mdl-mini-footer__link-list">
+
+                    <li><asp:HyperLink ID="HyperLink32" runat="server" NavigateUrl="~/Contactenos.aspx" CssClass="mdl-layout--large-screen-only" >Contáctenos</asp:HyperLink></li>
+                    <li>Develorper by: © Anto, Quinto, Reyes</li>
+                </ul>
+            </div>
+        </footer>
+    </div>    
+</body>
+</html>
