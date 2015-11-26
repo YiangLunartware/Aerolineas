@@ -240,16 +240,16 @@ color: #00BCD4;            //primary
                 <asp:HyperLink ID="HyperLink18" runat="server" NavigateUrl="~/Migrantes/ListaMigrantesPaises.aspx" CssClass="mdl-navigation__link" >Lista migrantes paises</asp:HyperLink>
                 <asp:HyperLink ID="HyperLink28" runat="server" NavigateUrl="~/Migrantes/ListaMigrantesTipoRutaPais.aspx" CssClass="mdl-navigation__link" >Lista migrantes tipo ruta</asp:HyperLink>
                 <p>Visitas</p>
-                <asp:HyperLink ID="HyperLink19" runat="server" NavigateUrl="~/Visitas/ListaVisitas.aspx" CssClass="mdl-navigation__link" >Inicio</asp:HyperLink>
-                <asp:HyperLink ID="HyperLink20" runat="server" NavigateUrl="~/Visitas/ListaVisitasPorFecha.aspx" CssClass="mdl-navigation__link" >Inicio</asp:HyperLink>
-                <asp:HyperLink ID="HyperLink21" runat="server" NavigateUrl="~/Visitas/ListaVisitasPorLugar.aspx" CssClass="mdl-navigation__link" >Inicio</asp:HyperLink>
-                <asp:HyperLink ID="HyperLink33" runat="server" NavigateUrl="~/Visitas/RankingVisitasDestinosPeruanos.aspx" CssClass="mdl-navigation__link" >Inicio</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink19" runat="server" NavigateUrl="~/Visitas/ListaVisitas.aspx" CssClass="mdl-navigation__link" >Lista visitas</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink20" runat="server" NavigateUrl="~/Visitas/ListaVisitasPorFecha.aspx" CssClass="mdl-navigation__link" >Lista visitas por fecha</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink21" runat="server" NavigateUrl="~/Visitas/ListaVisitasPorLugar.aspx" CssClass="mdl-navigation__link" >Lista visitas por lugar</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink33" runat="server" NavigateUrl="~/Visitas/RankingVisitasDestinosPeruanos.aspx" CssClass="mdl-navigation__link" >Ranking visitas destinos peruanos</asp:HyperLink>
                 <p>Vuelos</p>
-                <asp:HyperLink ID="HyperLink22" runat="server" NavigateUrl="~/Vuelos/ConsultaVuelosDescripcion.aspx" CssClass="mdl-navigation__link" >Inicio</asp:HyperLink>
-                <asp:HyperLink ID="HyperLink34" runat="server" NavigateUrl="~/Vuelos/ListaVueloPorEstado.aspx" CssClass="mdl-navigation__link" >Inicio</asp:HyperLink>
-                <asp:HyperLink ID="HyperLink35" runat="server" NavigateUrl="~/Vuelos/ListaVueloPorFecha.aspx" CssClass="mdl-navigation__link" >Inicio</asp:HyperLink>
-                <asp:HyperLink ID="HyperLink23" runat="server" NavigateUrl="~/Vuelos/ListaVueloPorPrecio.aspx" CssClass="mdl-navigation__link" >Inicio</asp:HyperLink>
-                <asp:HyperLink ID="HyperLink24" runat="server" NavigateUrl="~/Vuelos/ListaVuelosPorCapacidad.aspx" CssClass="mdl-navigation__link" >Inicio</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink22" runat="server" NavigateUrl="~/Vuelos/ConsultaVuelosDescripcion.aspx" CssClass="mdl-navigation__link" >Consulta vuelos descripcion</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink34" runat="server" NavigateUrl="~/Vuelos/ListaVueloPorEstado.aspx" CssClass="mdl-navigation__link" >Lista vuelos por estado</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink35" runat="server" NavigateUrl="~/Vuelos/ListaVueloPorFecha.aspx" CssClass="mdl-navigation__link" >Lista vuelos por fecha</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink23" runat="server" NavigateUrl="~/Vuelos/ListaVueloPorPrecio.aspx" CssClass="mdl-navigation__link" >Lista vuelos por precio</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink24" runat="server" NavigateUrl="~/Vuelos/ListaVuelosPorCapacidad.aspx" CssClass="mdl-navigation__link" >Lista vuelos por capacidad</asp:HyperLink>
                 <p>Historial Pasajeros</p>
                 <asp:HyperLink ID="HyperLink25" runat="server" NavigateUrl="" CssClass="mdl-navigation__link" >Inicio</asp:HyperLink>
                 <asp:HyperLink ID="HyperLink26" runat="server" NavigateUrl="" CssClass="mdl-navigation__link" >Inicio</asp:HyperLink>
