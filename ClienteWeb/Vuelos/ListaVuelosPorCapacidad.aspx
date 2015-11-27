@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ListaVuelosPorCapacidad.aspx.cs" Inherits="ClienteWeb.ListaVuelosPorCapacidad" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ListaVuelosPorCapacidad.aspx.cs" Inherits="ClienteASP.Vuelos.ListaVuelosPorCapacidad" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

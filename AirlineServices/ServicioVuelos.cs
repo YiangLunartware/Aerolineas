@@ -18,7 +18,6 @@ namespace AirlineServices
 
             try
             {
-
                 var query = MisVuelos.usp_ListaVueloPorDescripcion(descripcion).Take(100);
 
                 foreach (var resultado in query)

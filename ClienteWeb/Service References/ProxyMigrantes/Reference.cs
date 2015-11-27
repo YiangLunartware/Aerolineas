@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ClienteWeb.ProxyMigrantes {
+namespace ClienteASP.ProxyMigrantes {
     using System.Runtime.Serialization;
     using System;
     
@@ -332,51 +332,51 @@ namespace ClienteWeb.ProxyMigrantes {
     public interface IServicioMigrantes {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioMigrantes/ListaPaises", ReplyAction="http://tempuri.org/IServicioMigrantes/ListaPaisesResponse")]
-        ClienteWeb.ProxyMigrantes.PaisBE[] ListaPaises();
+        ClienteASP.ProxyMigrantes.PaisBE[] ListaPaises();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioMigrantes/ListaPaises", ReplyAction="http://tempuri.org/IServicioMigrantes/ListaPaisesResponse")]
-        System.Threading.Tasks.Task<ClienteWeb.ProxyMigrantes.PaisBE[]> ListaPaisesAsync();
+        System.Threading.Tasks.Task<ClienteASP.ProxyMigrantes.PaisBE[]> ListaPaisesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioMigrantes/ConsultaMaximoMigrantesNacionalidad", ReplyAction="http://tempuri.org/IServicioMigrantes/ConsultaMaximoMigrantesNacionalidadResponse" +
             "")]
-        ClienteWeb.ProxyMigrantes.PaisBE ConsultaMaximoMigrantesNacionalidad(string codPaisNacimiento);
+        ClienteASP.ProxyMigrantes.PaisBE ConsultaMaximoMigrantesNacionalidad(string codPaisNacimiento);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioMigrantes/ConsultaMaximoMigrantesNacionalidad", ReplyAction="http://tempuri.org/IServicioMigrantes/ConsultaMaximoMigrantesNacionalidadResponse" +
             "")]
-        System.Threading.Tasks.Task<ClienteWeb.ProxyMigrantes.PaisBE> ConsultaMaximoMigrantesNacionalidadAsync(string codPaisNacimiento);
+        System.Threading.Tasks.Task<ClienteASP.ProxyMigrantes.PaisBE> ConsultaMaximoMigrantesNacionalidadAsync(string codPaisNacimiento);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioMigrantes/ListaMigrantesInternacionales", ReplyAction="http://tempuri.org/IServicioMigrantes/ListaMigrantesInternacionalesResponse")]
-        ClienteWeb.ProxyMigrantes.MigranteBE[] ListaMigrantesInternacionales(string codPaisNacimiento, System.DateTime fecIni, System.DateTime fecFin);
+        ClienteASP.ProxyMigrantes.MigranteBE[] ListaMigrantesInternacionales(string codPaisNacimiento, System.DateTime fecIni, System.DateTime fecFin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioMigrantes/ListaMigrantesInternacionales", ReplyAction="http://tempuri.org/IServicioMigrantes/ListaMigrantesInternacionalesResponse")]
-        System.Threading.Tasks.Task<ClienteWeb.ProxyMigrantes.MigranteBE[]> ListaMigrantesInternacionalesAsync(string codPaisNacimiento, System.DateTime fecIni, System.DateTime fecFin);
+        System.Threading.Tasks.Task<ClienteASP.ProxyMigrantes.MigranteBE[]> ListaMigrantesInternacionalesAsync(string codPaisNacimiento, System.DateTime fecIni, System.DateTime fecFin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioMigrantes/ListaMigrantesNacionales", ReplyAction="http://tempuri.org/IServicioMigrantes/ListaMigrantesNacionalesResponse")]
-        ClienteWeb.ProxyMigrantes.MigranteBE[] ListaMigrantesNacionales(string codPaisNacimiento, System.DateTime fecIni, System.DateTime fecFin);
+        ClienteASP.ProxyMigrantes.MigranteBE[] ListaMigrantesNacionales(string codPaisNacimiento, System.DateTime fecIni, System.DateTime fecFin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioMigrantes/ListaMigrantesNacionales", ReplyAction="http://tempuri.org/IServicioMigrantes/ListaMigrantesNacionalesResponse")]
-        System.Threading.Tasks.Task<ClienteWeb.ProxyMigrantes.MigranteBE[]> ListaMigrantesNacionalesAsync(string codPaisNacimiento, System.DateTime fecIni, System.DateTime fecFin);
+        System.Threading.Tasks.Task<ClienteASP.ProxyMigrantes.MigranteBE[]> ListaMigrantesNacionalesAsync(string codPaisNacimiento, System.DateTime fecIni, System.DateTime fecFin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioMigrantes/ListaMigrantesPaisesFechas", ReplyAction="http://tempuri.org/IServicioMigrantes/ListaMigrantesPaisesFechasResponse")]
-        ClienteWeb.ProxyMigrantes.MigranteBE[] ListaMigrantesPaisesFechas(string codPaisOrigen, string codPaisDestino, System.DateTime fecIni, System.DateTime fecFin);
+        ClienteASP.ProxyMigrantes.MigranteBE[] ListaMigrantesPaisesFechas(string codPaisOrigen, string codPaisDestino, System.DateTime fecIni, System.DateTime fecFin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioMigrantes/ListaMigrantesPaisesFechas", ReplyAction="http://tempuri.org/IServicioMigrantes/ListaMigrantesPaisesFechasResponse")]
-        System.Threading.Tasks.Task<ClienteWeb.ProxyMigrantes.MigranteBE[]> ListaMigrantesPaisesFechasAsync(string codPaisOrigen, string codPaisDestino, System.DateTime fecIni, System.DateTime fecFin);
+        System.Threading.Tasks.Task<ClienteASP.ProxyMigrantes.MigranteBE[]> ListaMigrantesPaisesFechasAsync(string codPaisOrigen, string codPaisDestino, System.DateTime fecIni, System.DateTime fecFin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioMigrantes/ListaPaisesMigrantes", ReplyAction="http://tempuri.org/IServicioMigrantes/ListaPaisesMigrantesResponse")]
-        ClienteWeb.ProxyMigrantes.PaisBE[] ListaPaisesMigrantes(string codPais, System.DateTime fecIni, System.DateTime fecFin);
+        ClienteASP.ProxyMigrantes.PaisBE[] ListaPaisesMigrantes(string codPais, System.DateTime fecIni, System.DateTime fecFin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioMigrantes/ListaPaisesMigrantes", ReplyAction="http://tempuri.org/IServicioMigrantes/ListaPaisesMigrantesResponse")]
-        System.Threading.Tasks.Task<ClienteWeb.ProxyMigrantes.PaisBE[]> ListaPaisesMigrantesAsync(string codPais, System.DateTime fecIni, System.DateTime fecFin);
+        System.Threading.Tasks.Task<ClienteASP.ProxyMigrantes.PaisBE[]> ListaPaisesMigrantesAsync(string codPais, System.DateTime fecIni, System.DateTime fecFin);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IServicioMigrantesChannel : ClienteWeb.ProxyMigrantes.IServicioMigrantes, System.ServiceModel.IClientChannel {
+    public interface IServicioMigrantesChannel : ClienteASP.ProxyMigrantes.IServicioMigrantes, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ServicioMigrantesClient : System.ServiceModel.ClientBase<ClienteWeb.ProxyMigrantes.IServicioMigrantes>, ClienteWeb.ProxyMigrantes.IServicioMigrantes {
+    public partial class ServicioMigrantesClient : System.ServiceModel.ClientBase<ClienteASP.ProxyMigrantes.IServicioMigrantes>, ClienteASP.ProxyMigrantes.IServicioMigrantes {
         
         public ServicioMigrantesClient() {
         }
@@ -397,51 +397,51 @@ namespace ClienteWeb.ProxyMigrantes {
                 base(binding, remoteAddress) {
         }
         
-        public ClienteWeb.ProxyMigrantes.PaisBE[] ListaPaises() {
+        public ClienteASP.ProxyMigrantes.PaisBE[] ListaPaises() {
             return base.Channel.ListaPaises();
         }
         
-        public System.Threading.Tasks.Task<ClienteWeb.ProxyMigrantes.PaisBE[]> ListaPaisesAsync() {
+        public System.Threading.Tasks.Task<ClienteASP.ProxyMigrantes.PaisBE[]> ListaPaisesAsync() {
             return base.Channel.ListaPaisesAsync();
         }
         
-        public ClienteWeb.ProxyMigrantes.PaisBE ConsultaMaximoMigrantesNacionalidad(string codPaisNacimiento) {
+        public ClienteASP.ProxyMigrantes.PaisBE ConsultaMaximoMigrantesNacionalidad(string codPaisNacimiento) {
             return base.Channel.ConsultaMaximoMigrantesNacionalidad(codPaisNacimiento);
         }
         
-        public System.Threading.Tasks.Task<ClienteWeb.ProxyMigrantes.PaisBE> ConsultaMaximoMigrantesNacionalidadAsync(string codPaisNacimiento) {
+        public System.Threading.Tasks.Task<ClienteASP.ProxyMigrantes.PaisBE> ConsultaMaximoMigrantesNacionalidadAsync(string codPaisNacimiento) {
             return base.Channel.ConsultaMaximoMigrantesNacionalidadAsync(codPaisNacimiento);
         }
         
-        public ClienteWeb.ProxyMigrantes.MigranteBE[] ListaMigrantesInternacionales(string codPaisNacimiento, System.DateTime fecIni, System.DateTime fecFin) {
+        public ClienteASP.ProxyMigrantes.MigranteBE[] ListaMigrantesInternacionales(string codPaisNacimiento, System.DateTime fecIni, System.DateTime fecFin) {
             return base.Channel.ListaMigrantesInternacionales(codPaisNacimiento, fecIni, fecFin);
         }
         
-        public System.Threading.Tasks.Task<ClienteWeb.ProxyMigrantes.MigranteBE[]> ListaMigrantesInternacionalesAsync(string codPaisNacimiento, System.DateTime fecIni, System.DateTime fecFin) {
+        public System.Threading.Tasks.Task<ClienteASP.ProxyMigrantes.MigranteBE[]> ListaMigrantesInternacionalesAsync(string codPaisNacimiento, System.DateTime fecIni, System.DateTime fecFin) {
             return base.Channel.ListaMigrantesInternacionalesAsync(codPaisNacimiento, fecIni, fecFin);
         }
         
-        public ClienteWeb.ProxyMigrantes.MigranteBE[] ListaMigrantesNacionales(string codPaisNacimiento, System.DateTime fecIni, System.DateTime fecFin) {
+        public ClienteASP.ProxyMigrantes.MigranteBE[] ListaMigrantesNacionales(string codPaisNacimiento, System.DateTime fecIni, System.DateTime fecFin) {
             return base.Channel.ListaMigrantesNacionales(codPaisNacimiento, fecIni, fecFin);
         }
         
-        public System.Threading.Tasks.Task<ClienteWeb.ProxyMigrantes.MigranteBE[]> ListaMigrantesNacionalesAsync(string codPaisNacimiento, System.DateTime fecIni, System.DateTime fecFin) {
+        public System.Threading.Tasks.Task<ClienteASP.ProxyMigrantes.MigranteBE[]> ListaMigrantesNacionalesAsync(string codPaisNacimiento, System.DateTime fecIni, System.DateTime fecFin) {
             return base.Channel.ListaMigrantesNacionalesAsync(codPaisNacimiento, fecIni, fecFin);
         }
         
-        public ClienteWeb.ProxyMigrantes.MigranteBE[] ListaMigrantesPaisesFechas(string codPaisOrigen, string codPaisDestino, System.DateTime fecIni, System.DateTime fecFin) {
+        public ClienteASP.ProxyMigrantes.MigranteBE[] ListaMigrantesPaisesFechas(string codPaisOrigen, string codPaisDestino, System.DateTime fecIni, System.DateTime fecFin) {
             return base.Channel.ListaMigrantesPaisesFechas(codPaisOrigen, codPaisDestino, fecIni, fecFin);
         }
         
-        public System.Threading.Tasks.Task<ClienteWeb.ProxyMigrantes.MigranteBE[]> ListaMigrantesPaisesFechasAsync(string codPaisOrigen, string codPaisDestino, System.DateTime fecIni, System.DateTime fecFin) {
+        public System.Threading.Tasks.Task<ClienteASP.ProxyMigrantes.MigranteBE[]> ListaMigrantesPaisesFechasAsync(string codPaisOrigen, string codPaisDestino, System.DateTime fecIni, System.DateTime fecFin) {
             return base.Channel.ListaMigrantesPaisesFechasAsync(codPaisOrigen, codPaisDestino, fecIni, fecFin);
         }
         
-        public ClienteWeb.ProxyMigrantes.PaisBE[] ListaPaisesMigrantes(string codPais, System.DateTime fecIni, System.DateTime fecFin) {
+        public ClienteASP.ProxyMigrantes.PaisBE[] ListaPaisesMigrantes(string codPais, System.DateTime fecIni, System.DateTime fecFin) {
             return base.Channel.ListaPaisesMigrantes(codPais, fecIni, fecFin);
         }
         
-        public System.Threading.Tasks.Task<ClienteWeb.ProxyMigrantes.PaisBE[]> ListaPaisesMigrantesAsync(string codPais, System.DateTime fecIni, System.DateTime fecFin) {
+        public System.Threading.Tasks.Task<ClienteASP.ProxyMigrantes.PaisBE[]> ListaPaisesMigrantesAsync(string codPais, System.DateTime fecIni, System.DateTime fecFin) {
             return base.Channel.ListaPaisesMigrantesAsync(codPais, fecIni, fecFin);
         }
     }

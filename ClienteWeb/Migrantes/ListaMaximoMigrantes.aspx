@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ListaMaximoMigrantes.aspx.cs" Inherits="ClienteWeb.ListaMaximoMigrantes" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ListaMaximoMigrantes.aspx.cs" Inherits="ClienteASP.Migrantes.ListaMaximoMigrantes" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>

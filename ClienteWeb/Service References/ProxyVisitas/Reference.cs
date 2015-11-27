@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ClienteWeb.ProxyVisitas {
+namespace ClienteASP.ProxyVisitas {
     using System.Runtime.Serialization;
     using System;
     
@@ -175,37 +175,37 @@ namespace ClienteWeb.ProxyVisitas {
     public interface IServicioVisitas {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioVisitas/GetVisitas_X_Fecha", ReplyAction="http://tempuri.org/IServicioVisitas/GetVisitas_X_FechaResponse")]
-        ClienteWeb.ProxyVisitas.Visitas[] GetVisitas_X_Fecha(System.DateTime fechaInicial, System.DateTime fechaFinal);
+        ClienteASP.ProxyVisitas.Visitas[] GetVisitas_X_Fecha(System.DateTime fechaInicial, System.DateTime fechaFinal);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioVisitas/GetVisitas_X_Fecha", ReplyAction="http://tempuri.org/IServicioVisitas/GetVisitas_X_FechaResponse")]
-        System.Threading.Tasks.Task<ClienteWeb.ProxyVisitas.Visitas[]> GetVisitas_X_FechaAsync(System.DateTime fechaInicial, System.DateTime fechaFinal);
+        System.Threading.Tasks.Task<ClienteASP.ProxyVisitas.Visitas[]> GetVisitas_X_FechaAsync(System.DateTime fechaInicial, System.DateTime fechaFinal);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioVisitas/GetVisitas_X_LugarOrigen", ReplyAction="http://tempuri.org/IServicioVisitas/GetVisitas_X_LugarOrigenResponse")]
-        ClienteWeb.ProxyVisitas.Visitas[] GetVisitas_X_LugarOrigen(string LugarOrigen, System.DateTime fechaInicial, System.DateTime fechaFinal);
+        ClienteASP.ProxyVisitas.Visitas[] GetVisitas_X_LugarOrigen(string LugarOrigen, System.DateTime fechaInicial, System.DateTime fechaFinal);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioVisitas/GetVisitas_X_LugarOrigen", ReplyAction="http://tempuri.org/IServicioVisitas/GetVisitas_X_LugarOrigenResponse")]
-        System.Threading.Tasks.Task<ClienteWeb.ProxyVisitas.Visitas[]> GetVisitas_X_LugarOrigenAsync(string LugarOrigen, System.DateTime fechaInicial, System.DateTime fechaFinal);
+        System.Threading.Tasks.Task<ClienteASP.ProxyVisitas.Visitas[]> GetVisitas_X_LugarOrigenAsync(string LugarOrigen, System.DateTime fechaInicial, System.DateTime fechaFinal);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioVisitas/AllVisitas", ReplyAction="http://tempuri.org/IServicioVisitas/AllVisitasResponse")]
-        ClienteWeb.ProxyVisitas.Visitas[] AllVisitas();
+        ClienteASP.ProxyVisitas.Visitas[] AllVisitas();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioVisitas/AllVisitas", ReplyAction="http://tempuri.org/IServicioVisitas/AllVisitasResponse")]
-        System.Threading.Tasks.Task<ClienteWeb.ProxyVisitas.Visitas[]> AllVisitasAsync();
+        System.Threading.Tasks.Task<ClienteASP.ProxyVisitas.Visitas[]> AllVisitasAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioVisitas/RankingVisitasDestinosPeruanos", ReplyAction="http://tempuri.org/IServicioVisitas/RankingVisitasDestinosPeruanosResponse")]
-        ClienteWeb.ProxyVisitas.Visitas[] RankingVisitasDestinosPeruanos(System.DateTime fechaLLegada);
+        ClienteASP.ProxyVisitas.Visitas[] RankingVisitasDestinosPeruanos(System.DateTime fechaLLegada);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioVisitas/RankingVisitasDestinosPeruanos", ReplyAction="http://tempuri.org/IServicioVisitas/RankingVisitasDestinosPeruanosResponse")]
-        System.Threading.Tasks.Task<ClienteWeb.ProxyVisitas.Visitas[]> RankingVisitasDestinosPeruanosAsync(System.DateTime fechaLLegada);
+        System.Threading.Tasks.Task<ClienteASP.ProxyVisitas.Visitas[]> RankingVisitasDestinosPeruanosAsync(System.DateTime fechaLLegada);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IServicioVisitasChannel : ClienteWeb.ProxyVisitas.IServicioVisitas, System.ServiceModel.IClientChannel {
+    public interface IServicioVisitasChannel : ClienteASP.ProxyVisitas.IServicioVisitas, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ServicioVisitasClient : System.ServiceModel.ClientBase<ClienteWeb.ProxyVisitas.IServicioVisitas>, ClienteWeb.ProxyVisitas.IServicioVisitas {
+    public partial class ServicioVisitasClient : System.ServiceModel.ClientBase<ClienteASP.ProxyVisitas.IServicioVisitas>, ClienteASP.ProxyVisitas.IServicioVisitas {
         
         public ServicioVisitasClient() {
         }
@@ -226,35 +226,35 @@ namespace ClienteWeb.ProxyVisitas {
                 base(binding, remoteAddress) {
         }
         
-        public ClienteWeb.ProxyVisitas.Visitas[] GetVisitas_X_Fecha(System.DateTime fechaInicial, System.DateTime fechaFinal) {
+        public ClienteASP.ProxyVisitas.Visitas[] GetVisitas_X_Fecha(System.DateTime fechaInicial, System.DateTime fechaFinal) {
             return base.Channel.GetVisitas_X_Fecha(fechaInicial, fechaFinal);
         }
         
-        public System.Threading.Tasks.Task<ClienteWeb.ProxyVisitas.Visitas[]> GetVisitas_X_FechaAsync(System.DateTime fechaInicial, System.DateTime fechaFinal) {
+        public System.Threading.Tasks.Task<ClienteASP.ProxyVisitas.Visitas[]> GetVisitas_X_FechaAsync(System.DateTime fechaInicial, System.DateTime fechaFinal) {
             return base.Channel.GetVisitas_X_FechaAsync(fechaInicial, fechaFinal);
         }
         
-        public ClienteWeb.ProxyVisitas.Visitas[] GetVisitas_X_LugarOrigen(string LugarOrigen, System.DateTime fechaInicial, System.DateTime fechaFinal) {
+        public ClienteASP.ProxyVisitas.Visitas[] GetVisitas_X_LugarOrigen(string LugarOrigen, System.DateTime fechaInicial, System.DateTime fechaFinal) {
             return base.Channel.GetVisitas_X_LugarOrigen(LugarOrigen, fechaInicial, fechaFinal);
         }
         
-        public System.Threading.Tasks.Task<ClienteWeb.ProxyVisitas.Visitas[]> GetVisitas_X_LugarOrigenAsync(string LugarOrigen, System.DateTime fechaInicial, System.DateTime fechaFinal) {
+        public System.Threading.Tasks.Task<ClienteASP.ProxyVisitas.Visitas[]> GetVisitas_X_LugarOrigenAsync(string LugarOrigen, System.DateTime fechaInicial, System.DateTime fechaFinal) {
             return base.Channel.GetVisitas_X_LugarOrigenAsync(LugarOrigen, fechaInicial, fechaFinal);
         }
         
-        public ClienteWeb.ProxyVisitas.Visitas[] AllVisitas() {
+        public ClienteASP.ProxyVisitas.Visitas[] AllVisitas() {
             return base.Channel.AllVisitas();
         }
         
-        public System.Threading.Tasks.Task<ClienteWeb.ProxyVisitas.Visitas[]> AllVisitasAsync() {
+        public System.Threading.Tasks.Task<ClienteASP.ProxyVisitas.Visitas[]> AllVisitasAsync() {
             return base.Channel.AllVisitasAsync();
         }
         
-        public ClienteWeb.ProxyVisitas.Visitas[] RankingVisitasDestinosPeruanos(System.DateTime fechaLLegada) {
+        public ClienteASP.ProxyVisitas.Visitas[] RankingVisitasDestinosPeruanos(System.DateTime fechaLLegada) {
             return base.Channel.RankingVisitasDestinosPeruanos(fechaLLegada);
         }
         
-        public System.Threading.Tasks.Task<ClienteWeb.ProxyVisitas.Visitas[]> RankingVisitasDestinosPeruanosAsync(System.DateTime fechaLLegada) {
+        public System.Threading.Tasks.Task<ClienteASP.ProxyVisitas.Visitas[]> RankingVisitasDestinosPeruanosAsync(System.DateTime fechaLLegada) {
             return base.Channel.RankingVisitasDestinosPeruanosAsync(fechaLLegada);
         }
     }

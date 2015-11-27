@@ -7,7 +7,7 @@ using System.Text;
 
 namespace AirlineServices
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IServicioVisitas" in both code and config file together.
+    // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de interfaz "IServicioVisitas" en el código y en el archivo de configuración a la vez.
     [ServiceContract]
     public interface IServicioVisitas
     {
@@ -19,6 +19,9 @@ namespace AirlineServices
         List<Visitas> AllVisitas();
         [OperationContract]
         List<Visitas> RankingVisitasDestinosPeruanos(DateTime fechaLLegada);
+        /*[OperationContract]
+        List<Visitas> ListaRutas();*/
+
     }
 
     [DataContract]
@@ -27,12 +30,6 @@ namespace AirlineServices
     {
         //Miembros privados
         private String _nombrePasajero;
-        private DateTime _ApellidoPasajero;
-        private DateTime _fechaDespeque;
-        private DateTime _fechaLlegada;
-        private String _nomRuta;
-        private String _codigoDestino;
-
         [DataMember]
         public String NombrePasajero
         {
@@ -40,6 +37,8 @@ namespace AirlineServices
             set { _nombrePasajero = value; }
         }
 
+
+        private DateTime _ApellidoPasajero;
         [DataMember]
         public DateTime ApellidoPasajero
         {
@@ -47,6 +46,11 @@ namespace AirlineServices
             set { _ApellidoPasajero = value; }
         }
 
+
+
+
+
+        private DateTime _fechaDespeque;
         [DataMember]
         public DateTime FechaDespeque
         {
@@ -54,6 +58,7 @@ namespace AirlineServices
             set { _fechaDespeque = value; }
         }
 
+        private DateTime _fechaLlegada;
         [DataMember]
         public DateTime FechaLlegada
         {
@@ -61,6 +66,9 @@ namespace AirlineServices
             set { _fechaLlegada = value; }
         }
 
+
+
+        private String _nomRuta;
         [DataMember]
         public String NomRuta
         {
@@ -68,6 +76,8 @@ namespace AirlineServices
             set { _nomRuta = value; }
         }
 
+
+        private String _codigoDestino;
         [DataMember]
         public String CodigoDestino
         {
@@ -75,11 +85,12 @@ namespace AirlineServices
             set { _codigoDestino = value; }
         }
 
+
+
+
         // Cada propiedad es un DataMember de la Data Contractual
 
         private int _rankingVisitasDestinosPeruanos;
-        private string _nombreLugar;
-
         [DataMember]
         public int RankingVisitasDestinosPeruanos
         {
@@ -87,11 +98,13 @@ namespace AirlineServices
             set { _rankingVisitasDestinosPeruanos = value; }
         }
 
+        private string _nombreLugar;
         [DataMember]
         public string NombreLugar
         {
             get { return _nombreLugar; }
             set { _nombreLugar = value; }
         }
+        
     }
 }

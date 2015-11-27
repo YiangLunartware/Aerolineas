@@ -3,6 +3,5 @@ C:\ANTO\Tareas\Software3\ProyectoFinal\Aerolineas\AirlineServices\bin\Debug\Airl
 C:\ANTO\Tareas\Software3\ProyectoFinal\Aerolineas\AirlineServices\bin\Debug\AirlineServices.pdb
 C:\ANTO\Tareas\Software3\ProyectoFinal\Aerolineas\AirlineServices\bin\Debug\EntityFramework.dll
 C:\ANTO\Tareas\Software3\ProyectoFinal\Aerolineas\AirlineServices\bin\Debug\EntityFramework.xml
-C:\ANTO\Tareas\Software3\ProyectoFinal\Aerolineas\AirlineServices\obj\Debug\AirlineServices.csprojResolveAssemblyReference.cache
 C:\ANTO\Tareas\Software3\ProyectoFinal\Aerolineas\AirlineServices\obj\Debug\AirlineServices.dll
 C:\ANTO\Tareas\Software3\ProyectoFinal\Aerolineas\AirlineServices\obj\Debug\AirlineServices.pdb

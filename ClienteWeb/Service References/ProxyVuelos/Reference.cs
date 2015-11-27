@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ClienteWeb.ProxyVuelos {
+namespace ClienteASP.ProxyVuelos {
     using System.Runtime.Serialization;
     using System;
     
@@ -255,67 +255,67 @@ namespace ClienteWeb.ProxyVuelos {
     public interface IServicioVuelos {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioVuelos/ListaVueloXDescipcion", ReplyAction="http://tempuri.org/IServicioVuelos/ListaVueloXDescipcionResponse")]
-        ClienteWeb.ProxyVuelos.Vuelos[] ListaVueloXDescipcion();
+        ClienteASP.ProxyVuelos.Vuelos[] ListaVueloXDescipcion();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioVuelos/ListaVueloXDescipcion", ReplyAction="http://tempuri.org/IServicioVuelos/ListaVueloXDescipcionResponse")]
-        System.Threading.Tasks.Task<ClienteWeb.ProxyVuelos.Vuelos[]> ListaVueloXDescipcionAsync();
+        System.Threading.Tasks.Task<ClienteASP.ProxyVuelos.Vuelos[]> ListaVueloXDescipcionAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioVuelos/ListaPrecios", ReplyAction="http://tempuri.org/IServicioVuelos/ListaPreciosResponse")]
-        ClienteWeb.ProxyVuelos.Vuelos[] ListaPrecios();
+        ClienteASP.ProxyVuelos.Vuelos[] ListaPrecios();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioVuelos/ListaPrecios", ReplyAction="http://tempuri.org/IServicioVuelos/ListaPreciosResponse")]
-        System.Threading.Tasks.Task<ClienteWeb.ProxyVuelos.Vuelos[]> ListaPreciosAsync();
+        System.Threading.Tasks.Task<ClienteASP.ProxyVuelos.Vuelos[]> ListaPreciosAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioVuelos/ListaAvionCapacidad", ReplyAction="http://tempuri.org/IServicioVuelos/ListaAvionCapacidadResponse")]
-        ClienteWeb.ProxyVuelos.Vuelos[] ListaAvionCapacidad();
+        ClienteASP.ProxyVuelos.Vuelos[] ListaAvionCapacidad();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioVuelos/ListaAvionCapacidad", ReplyAction="http://tempuri.org/IServicioVuelos/ListaAvionCapacidadResponse")]
-        System.Threading.Tasks.Task<ClienteWeb.ProxyVuelos.Vuelos[]> ListaAvionCapacidadAsync();
+        System.Threading.Tasks.Task<ClienteASP.ProxyVuelos.Vuelos[]> ListaAvionCapacidadAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioVuelos/ListaVueloPorDescripcion", ReplyAction="http://tempuri.org/IServicioVuelos/ListaVueloPorDescripcionResponse")]
-        ClienteWeb.ProxyVuelos.Vuelos[] ListaVueloPorDescripcion(string descripcion);
+        ClienteASP.ProxyVuelos.Vuelos[] ListaVueloPorDescripcion(string descripcion);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioVuelos/ListaVueloPorDescripcion", ReplyAction="http://tempuri.org/IServicioVuelos/ListaVueloPorDescripcionResponse")]
-        System.Threading.Tasks.Task<ClienteWeb.ProxyVuelos.Vuelos[]> ListaVueloPorDescripcionAsync(string descripcion);
+        System.Threading.Tasks.Task<ClienteASP.ProxyVuelos.Vuelos[]> ListaVueloPorDescripcionAsync(string descripcion);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioVuelos/ListaVueloPorEstado", ReplyAction="http://tempuri.org/IServicioVuelos/ListaVueloPorEstadoResponse")]
-        ClienteWeb.ProxyVuelos.Vuelos[] ListaVueloPorEstado(bool estado, System.DateTime fecini, System.DateTime fecfin);
+        ClienteASP.ProxyVuelos.Vuelos[] ListaVueloPorEstado(bool estado, System.DateTime fecini, System.DateTime fecfin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioVuelos/ListaVueloPorEstado", ReplyAction="http://tempuri.org/IServicioVuelos/ListaVueloPorEstadoResponse")]
-        System.Threading.Tasks.Task<ClienteWeb.ProxyVuelos.Vuelos[]> ListaVueloPorEstadoAsync(bool estado, System.DateTime fecini, System.DateTime fecfin);
+        System.Threading.Tasks.Task<ClienteASP.ProxyVuelos.Vuelos[]> ListaVueloPorEstadoAsync(bool estado, System.DateTime fecini, System.DateTime fecfin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioVuelos/ListaVueloPorFecha", ReplyAction="http://tempuri.org/IServicioVuelos/ListaVueloPorFechaResponse")]
-        ClienteWeb.ProxyVuelos.Vuelos[] ListaVueloPorFecha(System.DateTime fecini, System.DateTime fecfin);
+        ClienteASP.ProxyVuelos.Vuelos[] ListaVueloPorFecha(System.DateTime fecini, System.DateTime fecfin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioVuelos/ListaVueloPorFecha", ReplyAction="http://tempuri.org/IServicioVuelos/ListaVueloPorFechaResponse")]
-        System.Threading.Tasks.Task<ClienteWeb.ProxyVuelos.Vuelos[]> ListaVueloPorFechaAsync(System.DateTime fecini, System.DateTime fecfin);
+        System.Threading.Tasks.Task<ClienteASP.ProxyVuelos.Vuelos[]> ListaVueloPorFechaAsync(System.DateTime fecini, System.DateTime fecfin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioVuelos/ListaVueloPorPrecio", ReplyAction="http://tempuri.org/IServicioVuelos/ListaVueloPorPrecioResponse")]
-        ClienteWeb.ProxyVuelos.Vuelos[] ListaVueloPorPrecio(decimal precio, System.DateTime fecini, System.DateTime fecfin);
+        ClienteASP.ProxyVuelos.Vuelos[] ListaVueloPorPrecio(decimal precio, System.DateTime fecini, System.DateTime fecfin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioVuelos/ListaVueloPorPrecio", ReplyAction="http://tempuri.org/IServicioVuelos/ListaVueloPorPrecioResponse")]
-        System.Threading.Tasks.Task<ClienteWeb.ProxyVuelos.Vuelos[]> ListaVueloPorPrecioAsync(decimal precio, System.DateTime fecini, System.DateTime fecfin);
+        System.Threading.Tasks.Task<ClienteASP.ProxyVuelos.Vuelos[]> ListaVueloPorPrecioAsync(decimal precio, System.DateTime fecini, System.DateTime fecfin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioVuelos/ListaVuelosPorCapacidad", ReplyAction="http://tempuri.org/IServicioVuelos/ListaVuelosPorCapacidadResponse")]
-        ClienteWeb.ProxyVuelos.Vuelos[] ListaVuelosPorCapacidad(int capacidad, System.DateTime fecini, System.DateTime fecfin);
+        ClienteASP.ProxyVuelos.Vuelos[] ListaVuelosPorCapacidad(int capacidad, System.DateTime fecini, System.DateTime fecfin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioVuelos/ListaVuelosPorCapacidad", ReplyAction="http://tempuri.org/IServicioVuelos/ListaVuelosPorCapacidadResponse")]
-        System.Threading.Tasks.Task<ClienteWeb.ProxyVuelos.Vuelos[]> ListaVuelosPorCapacidadAsync(int capacidad, System.DateTime fecini, System.DateTime fecfin);
+        System.Threading.Tasks.Task<ClienteASP.ProxyVuelos.Vuelos[]> ListaVuelosPorCapacidadAsync(int capacidad, System.DateTime fecini, System.DateTime fecfin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioVuelos/ListaCantidadVuelosFechas", ReplyAction="http://tempuri.org/IServicioVuelos/ListaCantidadVuelosFechasResponse")]
-        ClienteWeb.ProxyVuelos.Vuelos[] ListaCantidadVuelosFechas(System.DateTime fecini, System.DateTime fecfin);
+        ClienteASP.ProxyVuelos.Vuelos[] ListaCantidadVuelosFechas(System.DateTime fecini, System.DateTime fecfin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServicioVuelos/ListaCantidadVuelosFechas", ReplyAction="http://tempuri.org/IServicioVuelos/ListaCantidadVuelosFechasResponse")]
-        System.Threading.Tasks.Task<ClienteWeb.ProxyVuelos.Vuelos[]> ListaCantidadVuelosFechasAsync(System.DateTime fecini, System.DateTime fecfin);
+        System.Threading.Tasks.Task<ClienteASP.ProxyVuelos.Vuelos[]> ListaCantidadVuelosFechasAsync(System.DateTime fecini, System.DateTime fecfin);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IServicioVuelosChannel : ClienteWeb.ProxyVuelos.IServicioVuelos, System.ServiceModel.IClientChannel {
+    public interface IServicioVuelosChannel : ClienteASP.ProxyVuelos.IServicioVuelos, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ServicioVuelosClient : System.ServiceModel.ClientBase<ClienteWeb.ProxyVuelos.IServicioVuelos>, ClienteWeb.ProxyVuelos.IServicioVuelos {
+    public partial class ServicioVuelosClient : System.ServiceModel.ClientBase<ClienteASP.ProxyVuelos.IServicioVuelos>, ClienteASP.ProxyVuelos.IServicioVuelos {
         
         public ServicioVuelosClient() {
         }
@@ -336,75 +336,75 @@ namespace ClienteWeb.ProxyVuelos {
                 base(binding, remoteAddress) {
         }
         
-        public ClienteWeb.ProxyVuelos.Vuelos[] ListaVueloXDescipcion() {
+        public ClienteASP.ProxyVuelos.Vuelos[] ListaVueloXDescipcion() {
             return base.Channel.ListaVueloXDescipcion();
         }
         
-        public System.Threading.Tasks.Task<ClienteWeb.ProxyVuelos.Vuelos[]> ListaVueloXDescipcionAsync() {
+        public System.Threading.Tasks.Task<ClienteASP.ProxyVuelos.Vuelos[]> ListaVueloXDescipcionAsync() {
             return base.Channel.ListaVueloXDescipcionAsync();
         }
         
-        public ClienteWeb.ProxyVuelos.Vuelos[] ListaPrecios() {
+        public ClienteASP.ProxyVuelos.Vuelos[] ListaPrecios() {
             return base.Channel.ListaPrecios();
         }
         
-        public System.Threading.Tasks.Task<ClienteWeb.ProxyVuelos.Vuelos[]> ListaPreciosAsync() {
+        public System.Threading.Tasks.Task<ClienteASP.ProxyVuelos.Vuelos[]> ListaPreciosAsync() {
             return base.Channel.ListaPreciosAsync();
         }
         
-        public ClienteWeb.ProxyVuelos.Vuelos[] ListaAvionCapacidad() {
+        public ClienteASP.ProxyVuelos.Vuelos[] ListaAvionCapacidad() {
             return base.Channel.ListaAvionCapacidad();
         }
         
-        public System.Threading.Tasks.Task<ClienteWeb.ProxyVuelos.Vuelos[]> ListaAvionCapacidadAsync() {
+        public System.Threading.Tasks.Task<ClienteASP.ProxyVuelos.Vuelos[]> ListaAvionCapacidadAsync() {
             return base.Channel.ListaAvionCapacidadAsync();
         }
         
-        public ClienteWeb.ProxyVuelos.Vuelos[] ListaVueloPorDescripcion(string descripcion) {
+        public ClienteASP.ProxyVuelos.Vuelos[] ListaVueloPorDescripcion(string descripcion) {
             return base.Channel.ListaVueloPorDescripcion(descripcion);
         }
         
-        public System.Threading.Tasks.Task<ClienteWeb.ProxyVuelos.Vuelos[]> ListaVueloPorDescripcionAsync(string descripcion) {
+        public System.Threading.Tasks.Task<ClienteASP.ProxyVuelos.Vuelos[]> ListaVueloPorDescripcionAsync(string descripcion) {
             return base.Channel.ListaVueloPorDescripcionAsync(descripcion);
         }
         
-        public ClienteWeb.ProxyVuelos.Vuelos[] ListaVueloPorEstado(bool estado, System.DateTime fecini, System.DateTime fecfin) {
+        public ClienteASP.ProxyVuelos.Vuelos[] ListaVueloPorEstado(bool estado, System.DateTime fecini, System.DateTime fecfin) {
             return base.Channel.ListaVueloPorEstado(estado, fecini, fecfin);
         }
         
-        public System.Threading.Tasks.Task<ClienteWeb.ProxyVuelos.Vuelos[]> ListaVueloPorEstadoAsync(bool estado, System.DateTime fecini, System.DateTime fecfin) {
+        public System.Threading.Tasks.Task<ClienteASP.ProxyVuelos.Vuelos[]> ListaVueloPorEstadoAsync(bool estado, System.DateTime fecini, System.DateTime fecfin) {
             return base.Channel.ListaVueloPorEstadoAsync(estado, fecini, fecfin);
         }
         
-        public ClienteWeb.ProxyVuelos.Vuelos[] ListaVueloPorFecha(System.DateTime fecini, System.DateTime fecfin) {
+        public ClienteASP.ProxyVuelos.Vuelos[] ListaVueloPorFecha(System.DateTime fecini, System.DateTime fecfin) {
             return base.Channel.ListaVueloPorFecha(fecini, fecfin);
         }
         
-        public System.Threading.Tasks.Task<ClienteWeb.ProxyVuelos.Vuelos[]> ListaVueloPorFechaAsync(System.DateTime fecini, System.DateTime fecfin) {
+        public System.Threading.Tasks.Task<ClienteASP.ProxyVuelos.Vuelos[]> ListaVueloPorFechaAsync(System.DateTime fecini, System.DateTime fecfin) {
             return base.Channel.ListaVueloPorFechaAsync(fecini, fecfin);
         }
         
-        public ClienteWeb.ProxyVuelos.Vuelos[] ListaVueloPorPrecio(decimal precio, System.DateTime fecini, System.DateTime fecfin) {
+        public ClienteASP.ProxyVuelos.Vuelos[] ListaVueloPorPrecio(decimal precio, System.DateTime fecini, System.DateTime fecfin) {
             return base.Channel.ListaVueloPorPrecio(precio, fecini, fecfin);
         }
         
-        public System.Threading.Tasks.Task<ClienteWeb.ProxyVuelos.Vuelos[]> ListaVueloPorPrecioAsync(decimal precio, System.DateTime fecini, System.DateTime fecfin) {
+        public System.Threading.Tasks.Task<ClienteASP.ProxyVuelos.Vuelos[]> ListaVueloPorPrecioAsync(decimal precio, System.DateTime fecini, System.DateTime fecfin) {
             return base.Channel.ListaVueloPorPrecioAsync(precio, fecini, fecfin);
         }
         
-        public ClienteWeb.ProxyVuelos.Vuelos[] ListaVuelosPorCapacidad(int capacidad, System.DateTime fecini, System.DateTime fecfin) {
+        public ClienteASP.ProxyVuelos.Vuelos[] ListaVuelosPorCapacidad(int capacidad, System.DateTime fecini, System.DateTime fecfin) {
             return base.Channel.ListaVuelosPorCapacidad(capacidad, fecini, fecfin);
         }
         
-        public System.Threading.Tasks.Task<ClienteWeb.ProxyVuelos.Vuelos[]> ListaVuelosPorCapacidadAsync(int capacidad, System.DateTime fecini, System.DateTime fecfin) {
+        public System.Threading.Tasks.Task<ClienteASP.ProxyVuelos.Vuelos[]> ListaVuelosPorCapacidadAsync(int capacidad, System.DateTime fecini, System.DateTime fecfin) {
             return base.Channel.ListaVuelosPorCapacidadAsync(capacidad, fecini, fecfin);
         }
         
-        public ClienteWeb.ProxyVuelos.Vuelos[] ListaCantidadVuelosFechas(System.DateTime fecini, System.DateTime fecfin) {
+        public ClienteASP.ProxyVuelos.Vuelos[] ListaCantidadVuelosFechas(System.DateTime fecini, System.DateTime fecfin) {
             return base.Channel.ListaCantidadVuelosFechas(fecini, fecfin);
         }
         
-        public System.Threading.Tasks.Task<ClienteWeb.ProxyVuelos.Vuelos[]> ListaCantidadVuelosFechasAsync(System.DateTime fecini, System.DateTime fecfin) {
+        public System.Threading.Tasks.Task<ClienteASP.ProxyVuelos.Vuelos[]> ListaCantidadVuelosFechasAsync(System.DateTime fecini, System.DateTime fecfin) {
             return base.Channel.ListaCantidadVuelosFechasAsync(fecini, fecfin);
         }
     }

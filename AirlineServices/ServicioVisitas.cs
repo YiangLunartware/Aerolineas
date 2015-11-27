@@ -7,29 +7,33 @@ using System.Text;
 
 namespace AirlineServices
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "ServicioVisitas" in both code and config file together.
+    // NOTA: puede usar el comando "Rename" del menú "Refactorizar" para cambiar el nombre de clase "ServicioVisitas" en el código y en el archivo de configuración a la vez.
     public class ServicioVisitas : IServicioVisitas
     {
         public List<Visitas> GetVisitas_X_Fecha(DateTime fechaInicial, DateTime fechaFinal)
         {
             AerolineaEntities misAerolineas = new AerolineaEntities();
+            Visitas objVisitasBE = new Visitas();
             List<Visitas> objListaVisitas = new List<Visitas>();
 
+            
             try
             {
                 // Obtenemos con LINQ el registro a consultar
                 var query = (from objVisitas in misAerolineas.VW_VISITAS
-                             let fullName = objVisitas.NOMBRE_PASAJERO + "_" + objVisitas.APELLIDO_PASAJERO
-                             where objVisitas.FECHA_DESPEQUE >= fechaInicial &&
-                                    objVisitas.FECHA_LLEGADA <= fechaFinal
-
-                             select new { fullName, objVisitas.NOM_RUTA, objVisitas.FECHA_DESPEQUE, objVisitas.FECHA_LLEGADA }).Take(100);
+                            let fullName = objVisitas.NOMBRE_PASAJERO + "_" + objVisitas.APELLIDO_PASAJERO
+                            where objVisitas.FECHA_DESPEQUE >= fechaInicial &&
+                                   objVisitas.FECHA_LLEGADA <= fechaFinal &&
+                                   objVisitas.TOMO_VUELO == true &&
+                                   objVisitas.ESTADO_VUELO == false &&
+                                   objVisitas.COD_RUTA.StartsWith("RULLI")
+                            select new { fullName, objVisitas.NOM_RUTA, objVisitas.FECHA_DESPEQUE, objVisitas.FECHA_LLEGADA }).Take(100);
                 //objPasajero.NOMBRE_PASAJERO + ' ' + objPasajero.APELLIDO_PASAJERO
                 // ,objRuta.NOM_RUTA ).FirstOrDefault();
 
+
                 foreach (var resultado in query)
                 {
-                    Visitas objVisitasBE = new Visitas();
                     //Obtenemos los datos del vendedor
                     objVisitasBE.NombrePasajero = resultado.fullName;
                     objVisitasBE.NomRuta = resultado.NOM_RUTA;
@@ -38,6 +42,7 @@ namespace AirlineServices
 
                     objListaVisitas.Add(objVisitasBE);
                 }
+
 
             }
             catch (Exception ex)
@@ -52,7 +57,7 @@ namespace AirlineServices
         {
             AerolineaEntities misAerolineas = new AerolineaEntities();
             List<Visitas> objListaVisitasDestinos = new List<Visitas>();
-
+            
             try
             {
                 // Obtenemos con LINQ el registro a consultar
@@ -72,16 +77,17 @@ namespace AirlineServices
                 foreach (var resultado in query)
                 {
                     Visitas objVisitasBE = new Visitas();
-                    //Obtenemos los datos del vendedor
                     objVisitasBE.NombrePasajero = resultado.fullName;
                     objVisitasBE.NomRuta = resultado.NOM_RUTA;
                     objVisitasBE.FechaDespeque = Convert.ToDateTime(resultado.FECHA_DESPEQUE);
                     objVisitasBE.FechaLlegada = Convert.ToDateTime(resultado.FECHA_LLEGADA);
 
 
+
                     // objListaReservacion.Add(objReservacionBE);
                     objListaVisitasDestinos.Add(objVisitasBE);
                 }
+
 
             }
             catch (Exception ex)
@@ -95,47 +101,73 @@ namespace AirlineServices
         public List<Visitas> AllVisitas()
         {
             AerolineaEntities misAerolineas = new AerolineaEntities();
+            Visitas objVisitasBE = new Visitas();
             List<Visitas> objListaVisitas = new List<Visitas>();
+
 
             try
             {
                 // Obtenemos con LINQ el registro a consultar
                 var query = (from objVisitas in misAerolineas.VW_VISITAS
                              let fullName = objVisitas.NOMBRE_PASAJERO + "_" + objVisitas.APELLIDO_PASAJERO
-
+                             where
+                                    objVisitas.TOMO_VUELO == true &&
+                                    objVisitas.ESTADO_VUELO == false &&
+                                    objVisitas.COD_RUTA.StartsWith("RULLI")
                              select new { fullName, objVisitas.NOM_RUTA }).Take(100);
+
 
                 foreach (var resultado in query)
                 {
-                    Visitas objVisitasBE = new Visitas();
+
                     objVisitasBE.NombrePasajero = resultado.fullName;
                     objVisitasBE.NomRuta = resultado.NOM_RUTA;
 
+
+
                     objListaVisitas.Add(objVisitasBE);
                 }
+
+
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+
             return objListaVisitas;
         }
+
+
+
+
+
+
+
 
         public List<Visitas> RankingVisitasDestinosPeruanos(DateTime fechaLLegada)
         {
             AerolineaEntities misAerolineas = new AerolineaEntities();
+            //  Visitas objVisitasBE = new Visitas();
             List<Visitas> RankingVisitasDestinosPeruanos = new List<Visitas>();
-                        
+
+
             try
             {
+                // Obtenemos con LINQ el registro a consultar
                 var query = misAerolineas.USP_RANKING_VISITAS(fechaLLegada).Take(100);
+
+
                 foreach (var resultado in query)
                 {
-                    
+
+                    //objVisitasBE.NombrePasajero = resultado.fullName;
+                    //objVisitasBE.NomRuta = resultado.NOM_RUTA;
                     Visitas objVisitasBE = new Visitas();
                     objVisitasBE.RankingVisitasDestinosPeruanos = Convert.ToInt32(resultado.RANKING);
                     objVisitasBE.NombreLugar = resultado.NOMBRE_LUGAR;
                     objVisitasBE.CodigoDestino = resultado.COD_DESTINO;
+
                     RankingVisitasDestinosPeruanos.Add(objVisitasBE);
                 }
             }
@@ -146,5 +178,6 @@ namespace AirlineServices
 
             return RankingVisitasDestinosPeruanos;
         }
+
     }
 }

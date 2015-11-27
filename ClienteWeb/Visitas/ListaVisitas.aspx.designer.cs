@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ClienteWeb {
+namespace ClienteASP.Visitas {
     
     
     public partial class ListaVisitas {

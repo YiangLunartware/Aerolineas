@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ClienteWeb {
+namespace ClienteASP.Migrantes {
     
     
     public partial class ListaMaximoMigrantes {

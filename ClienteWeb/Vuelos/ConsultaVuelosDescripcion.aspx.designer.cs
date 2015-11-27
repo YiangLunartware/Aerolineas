@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ClienteWeb {
+namespace ClienteASP.Vuelos {
     
     
     public partial class ConsultaVuelosDescripcion {

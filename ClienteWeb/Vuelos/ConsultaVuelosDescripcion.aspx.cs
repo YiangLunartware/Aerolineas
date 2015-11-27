@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using ClienteWeb.ProxyVuelos;
+using ClienteASP.ProxyVuelos;
 
-namespace ClienteWeb
+namespace ClienteASP.Vuelos
 {
     public partial class ConsultaVuelosDescripcion : System.Web.UI.Page
     {
@@ -22,6 +19,8 @@ namespace ClienteWeb
                     cboDescripcion.DataTextField = "DescVuelo";
                     cboDescripcion.DataValueField = "DescVuelo";
                     cboDescripcion.DataBind();
+
+                    this.cboDescripcion_SelectedIndexChanged(sender, e);
                 }
             }
             catch (Exception ex)

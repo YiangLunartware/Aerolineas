@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using ClienteWeb.ProxyVisitas;
+using ClienteASP.ProxyVisitas;
 
-namespace ClienteWeb
+namespace ClienteASP.Visitas
 {
     public partial class VisitasPorFecha : System.Web.UI.Page
     {

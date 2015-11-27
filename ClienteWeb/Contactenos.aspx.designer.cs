@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ClienteWeb {
+namespace ClienteASP {
     
     
     public partial class Contactenos {

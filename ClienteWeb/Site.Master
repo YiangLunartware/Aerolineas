@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Cliente.Site" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ClienteASP.Site" %>
 
 <!DOCTYPE html>
 
@@ -212,15 +212,7 @@ color: #00BCD4;            //primary
                         <li><asp:HyperLink ID="HyperLink30" runat="server" NavigateUrl="~/Vuelos/ListaVueloPorPrecio.aspx" CssClass="mdl-menu__item" >Lista vuelos por precio</asp:HyperLink></li>
                         <li><asp:HyperLink ID="HyperLink31" runat="server" NavigateUrl="~/Vuelos/ListaVuelosPorCapacidad.aspx" CssClass="mdl-menu__item" >Lista vuelos por capacidad</asp:HyperLink></li>
                     </ul>
-
-                    <a class="mdl-navigation__link" id="s4-dropdown">Historial Pasajeros
-                            <i class="material-icons">arrow_drop_down</i></a>
-                    <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="s4-dropdown">
-                        <li><asp:HyperLink ID="HyperLink11" runat="server" NavigateUrl="" CssClass="mdl-menu__item" >Consulta</asp:HyperLink></li>
-                        <li><asp:HyperLink ID="HyperLink12" runat="server" NavigateUrl="" CssClass="mdl-menu__item" >Consulta</asp:HyperLink></li>
-                        <li><asp:HyperLink ID="HyperLink13" runat="server" NavigateUrl="" CssClass="mdl-menu__item" >Consulta</asp:HyperLink></li>
-                    </ul>
-
+                    <p style="color: transparent">Espacio</p>
                 </nav>
             </div>
         </header>
@@ -250,10 +242,6 @@ color: #00BCD4;            //primary
                 <asp:HyperLink ID="HyperLink35" runat="server" NavigateUrl="~/Vuelos/ListaVueloPorFecha.aspx" CssClass="mdl-navigation__link" >Lista vuelos por fecha</asp:HyperLink>
                 <asp:HyperLink ID="HyperLink23" runat="server" NavigateUrl="~/Vuelos/ListaVueloPorPrecio.aspx" CssClass="mdl-navigation__link" >Lista vuelos por precio</asp:HyperLink>
                 <asp:HyperLink ID="HyperLink24" runat="server" NavigateUrl="~/Vuelos/ListaVuelosPorCapacidad.aspx" CssClass="mdl-navigation__link" >Lista vuelos por capacidad</asp:HyperLink>
-                <p>Historial Pasajeros</p>
-                <asp:HyperLink ID="HyperLink25" runat="server" NavigateUrl="" CssClass="mdl-navigation__link" >Inicio</asp:HyperLink>
-                <asp:HyperLink ID="HyperLink26" runat="server" NavigateUrl="" CssClass="mdl-navigation__link" >Inicio</asp:HyperLink>
-                <asp:HyperLink ID="HyperLink27" runat="server" NavigateUrl="" CssClass="mdl-navigation__link" >Inicio</asp:HyperLink>
                 <br /><br />
             </nav>
         </div>

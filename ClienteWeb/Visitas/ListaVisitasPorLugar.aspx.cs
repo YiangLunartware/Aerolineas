@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using ClienteWeb.ProxyVisitas;
-using ClienteWeb.ProxyVuelos;
+using ClienteASP.ProxyVisitas;
+using ClienteASP.ProxyVuelos;
 
-namespace ClienteWeb
+namespace ClienteASP.Visitas
 {
     public partial class ListaVisitasPorLugar : System.Web.UI.Page
     {
@@ -36,11 +33,14 @@ namespace ClienteWeb
         {
             try
             {
-                string Lugar = cboDescripcion.SelectedValue;
+                string lugar = cboDescripcion.SelectedValue;
                 System.DateTime fi = Convert.ToDateTime(txtFecIni.Text);
                 System.DateTime ff = Convert.ToDateTime(txtFecFin.Text);
 
-                dgvVisitasL.DataSource = objServicioVisitas.GetVisitas_X_LugarOrigen(Lugar, fi, ff);
+                List<ProxyVisitas.Visitas> lista = new List<ProxyVisitas.Visitas>();
+                lista = objServicioVisitas.GetVisitas_X_LugarOrigen(lugar, fi, ff).ToList();
+
+                dgvVisitasL.DataSource = lista;
                 dgvVisitasL.DataBind();
 
                 UpdatePanel1.Update();

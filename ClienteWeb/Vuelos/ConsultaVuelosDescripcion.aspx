@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ConsultaVuelosDescripcion.aspx.cs" Inherits="ClienteWeb.ConsultaVuelosDescripcion" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ConsultaVuelosDescripcion.aspx.cs" Inherits="ClienteASP.Vuelos.ConsultaVuelosDescripcion" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -16,7 +16,7 @@
                 <tr>
                     <td>Descripcion: </td>
                     <td>
-                        <asp:DropDownList ID="cboDescripcion" runat="server" Height="25px" Width="325px" OnSelectedIndexChanged="cboDescripcion_SelectedIndexChanged">
+                        <asp:DropDownList ID="cboDescripcion" runat="server" Height="25px" Width="325px" OnSelectedIndexChanged="cboDescripcion_SelectedIndexChanged" AutoPostBack="True">
                         </asp:DropDownList>
                     </td>
                 </tr>
