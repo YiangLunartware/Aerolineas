@@ -43,13 +43,12 @@
             </table>
 
             <p>
-                <asp:GridView ID="dgvVueloE" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" OnRowDataBound="dgvVueloE_RowDataBound" CssClass="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                <asp:GridView ID="dgvVueloE" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CssClass="mdl-data-table mdl-js-data-table mdl-shadow--2dp" OnPageIndexChanging="dgvVueloE_PageIndexChanging">
                     <Columns>
                         <asp:BoundField DataField="CodVuelo" HeaderText="Código" />
                         <asp:BoundField DataField="DescVuelo" HeaderText="Descripción" />
                         <asp:BoundField DataField="FecDespegue" DataFormatString="{0:d}" HeaderText="Fecha Despegue" />
                         <asp:BoundField DataField="FecLlegada" DataFormatString="{0:d}" HeaderText="Fecha Llegada" />
-                        <asp:BoundField DataField="EstadoVuelo" HeaderText="Estado" />
                     </Columns>
                 </asp:GridView>
             </p>

@@ -13,7 +13,6 @@ namespace AirlineServices
         public List<Visitas> GetVisitas_X_Fecha(DateTime fechaInicial, DateTime fechaFinal)
         {
             AerolineaEntities misAerolineas = new AerolineaEntities();
-            Visitas objVisitasBE = new Visitas();
             List<Visitas> objListaVisitas = new List<Visitas>();
 
             
@@ -34,7 +33,8 @@ namespace AirlineServices
 
                 foreach (var resultado in query)
                 {
-                    //Obtenemos los datos del vendedor
+                    Visitas objVisitasBE = new Visitas();
+
                     objVisitasBE.NombrePasajero = resultado.fullName;
                     objVisitasBE.NomRuta = resultado.NOM_RUTA;
                     objVisitasBE.FechaDespeque = Convert.ToDateTime(resultado.FECHA_DESPEQUE);
@@ -81,9 +81,7 @@ namespace AirlineServices
                     objVisitasBE.NomRuta = resultado.NOM_RUTA;
                     objVisitasBE.FechaDespeque = Convert.ToDateTime(resultado.FECHA_DESPEQUE);
                     objVisitasBE.FechaLlegada = Convert.ToDateTime(resultado.FECHA_LLEGADA);
-
-
-
+                    
                     // objListaReservacion.Add(objReservacionBE);
                     objListaVisitasDestinos.Add(objVisitasBE);
                 }
@@ -101,7 +99,6 @@ namespace AirlineServices
         public List<Visitas> AllVisitas()
         {
             AerolineaEntities misAerolineas = new AerolineaEntities();
-            Visitas objVisitasBE = new Visitas();
             List<Visitas> objListaVisitas = new List<Visitas>();
 
 
@@ -119,12 +116,11 @@ namespace AirlineServices
 
                 foreach (var resultado in query)
                 {
+                    Visitas objVisitasBE = new Visitas();
 
                     objVisitasBE.NombrePasajero = resultado.fullName;
                     objVisitasBE.NomRuta = resultado.NOM_RUTA;
-
-
-
+                    
                     objListaVisitas.Add(objVisitasBE);
                 }
 
@@ -137,13 +133,6 @@ namespace AirlineServices
 
             return objListaVisitas;
         }
-
-
-
-
-
-
-
 
         public List<Visitas> RankingVisitasDestinosPeruanos(DateTime fechaLLegada)
         {

@@ -14,6 +14,18 @@ namespace ClienteASP.Visitas
 
         protected void btnConsultar_Click(object sender, EventArgs e)
         {
+            Consulta();
+        }
+
+        protected void dgvVisita_PageIndexChanging(object sender, System.Web.UI.WebControls.GridViewPageEventArgs e)
+        {
+            dgvVisita.PageIndex = e.NewPageIndex;
+            Consulta();
+        }
+
+        private void Consulta()
+        {
+            lblError.Text = "";
             try
             {
                 System.DateTime fi = Convert.ToDateTime(txtFecIni.Text);

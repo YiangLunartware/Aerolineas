@@ -29,18 +29,16 @@ namespace ClienteASP.Visitas
             }
         }
 
-        protected void btnConsultar_Click(object sender, EventArgs e)
+        private void Consulta()
         {
+            lblError.Text = "";
             try
             {
-                string lugar = cboDescripcion.SelectedValue;
+                string Lugar = cboDescripcion.SelectedValue;
                 System.DateTime fi = Convert.ToDateTime(txtFecIni.Text);
                 System.DateTime ff = Convert.ToDateTime(txtFecFin.Text);
 
-                List<ProxyVisitas.Visitas> lista = new List<ProxyVisitas.Visitas>();
-                lista = objServicioVisitas.GetVisitas_X_LugarOrigen(lugar, fi, ff).ToList();
-
-                dgvVisitasL.DataSource = lista;
+                dgvVisitasL.DataSource = objServicioVisitas.GetVisitas_X_LugarOrigen(Lugar, fi, ff);
                 dgvVisitasL.DataBind();
 
                 UpdatePanel1.Update();
@@ -49,6 +47,17 @@ namespace ClienteASP.Visitas
             {
                 lblError.Text = "Error...." + ex.Message;
             }
+        }
+
+        protected void btnConsultar_Click(object sender, EventArgs e)
+        {
+            Consulta();
+        }
+
+        protected void dgvVisitasL_PageIndexChanging(object sender, System.Web.UI.WebControls.GridViewPageEventArgs e)
+        {
+            dgvVisitasL.PageIndex = e.NewPageIndex;
+            Consulta();
         }
     }
 }

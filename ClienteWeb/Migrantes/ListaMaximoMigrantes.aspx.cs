@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Script.Services;
+using System.Web.Services;
+using System.Web.UI;
 using ClienteASP.ProxyMigrantes;
 
 namespace ClienteASP.Migrantes
@@ -8,7 +11,7 @@ namespace ClienteASP.Migrantes
     public partial class ListaMaximoMigrantes : System.Web.UI.Page
     {
         ServicioMigrantesClient objServicioMigrantes = new ServicioMigrantesClient();
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -46,9 +49,11 @@ namespace ClienteASP.Migrantes
                     x[i] = lista.ElementAt(i).NomPais;
                     y[i] = lista.ElementAt(i).CantVuelos;
                 }
-
+                
                 chtPaisesOrigen.Series[0].Points.DataBindXY(x, y);
                 chtPaisesOrigen.DataBind();
+                chtPaisesOrigen.Series[0].Label = "#PERCENT{P0}"+System.Environment.NewLine+"(#VALY)";
+                chtPaisesOrigen.Titles.Add("Cantidad de migrantes por país");
 
                 if (lista.Count == 0)
                 {

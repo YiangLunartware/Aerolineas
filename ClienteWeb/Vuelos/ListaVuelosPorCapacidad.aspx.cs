@@ -26,8 +26,9 @@ namespace ClienteASP.Vuelos
             }
         }
 
-        protected void btnConsultar_Click(object sender, EventArgs e)
+        private void Consulta()
         {
+            lblError.Text = "";
             try
             {
                 int Capacidad = Convert.ToInt32(cboCapacidad.SelectedValue);
@@ -43,6 +44,17 @@ namespace ClienteASP.Vuelos
             {
                 lblError.Text = "Error...." + ex.Message;
             }
+        }
+
+        protected void btnConsultar_Click(object sender, EventArgs e)
+        {
+            Consulta();
+        }
+
+        protected void dgvVuelosC_PageIndexChanging(object sender, System.Web.UI.WebControls.GridViewPageEventArgs e)
+        {
+            dgvVuelosC.PageIndex = e.NewPageIndex;
+            Consulta();
         }
     }
 }

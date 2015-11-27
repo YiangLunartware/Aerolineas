@@ -24,7 +24,7 @@
             <br />
 
             <p>
-                <asp:GridView ID="dgvVuelosD" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CssClass="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                <asp:GridView ID="dgvVuelosD" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CssClass="mdl-data-table mdl-js-data-table mdl-shadow--2dp" OnPageIndexChanging="dgvVuelosD_PageIndexChanging">
                     <Columns>
                         <asp:BoundField DataField="CodVuelo" HeaderText="Código" />
                         <asp:BoundField DataField="DescVuelo" HeaderText="Descripción" />

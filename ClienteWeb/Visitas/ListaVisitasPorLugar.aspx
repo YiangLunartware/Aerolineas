@@ -41,7 +41,7 @@
             </table>
 
             <p>
-                <asp:GridView ID="dgvVisitasL" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CssClass="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                <asp:GridView ID="dgvVisitasL" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CssClass="mdl-data-table mdl-js-data-table mdl-shadow--2dp" OnPageIndexChanging="dgvVisitasL_PageIndexChanging">
                     <Columns>
                         <asp:BoundField DataField="NomRuta" HeaderText="Ruta" />
                         <asp:BoundField DataField="NombrePasajero" HeaderText="Nombre de Pasajero" />

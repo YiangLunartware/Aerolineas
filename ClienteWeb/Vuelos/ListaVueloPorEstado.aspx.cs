@@ -13,8 +13,9 @@ namespace ClienteASP.Vuelos
 
         }
 
-        protected void btnConsultar_Click(object sender, EventArgs e)
+        private void Consulta()
         {
+            lblError.Text = "";
             try
             {
                 bool estado = Convert.ToBoolean(rbnEstado.SelectedValue);
@@ -40,7 +41,12 @@ namespace ClienteASP.Vuelos
             }
         }
 
-        protected void dgvVueloE_RowDataBound(object sender, GridViewRowEventArgs e)
+        protected void btnConsultar_Click(object sender, EventArgs e)
+        {
+            Consulta();
+        }
+
+        /*protected void dgvVueloE_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.Cells[4].Text.ToLower() == "true")
             {
@@ -50,6 +56,12 @@ namespace ClienteASP.Vuelos
             {
                 e.Row.Cells[4].Text = "no disponible";
             }
+        }*/
+
+        protected void dgvVueloE_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            dgvVueloE.PageIndex = e.NewPageIndex;
+            Consulta();
         }
     }
 }

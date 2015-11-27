@@ -47,19 +47,21 @@
                 </tr>
             </table>
             <br />
-            <asp:Chart ID="chtPaisesOrigen" runat="server" BackColor="Transparent" BorderlineColor="Transparent" Palette="SeaGreen" Width="765px">
+            
+            <asp:Chart ID="chtPaisesOrigen" runat="server" BackColor="Transparent" BorderlineColor="Transparent" Width="765px" EnableViewState="True" TextAntiAliasingQuality="Normal">
                 <Series>
                     <asp:Series Name="Series1">
                     </asp:Series>
                 </Series>
                 <ChartAreas>
                     <asp:ChartArea Name="ChartArea1">
+                        <AxisY Title="Cantidad de Migrantes"/>
+                        <AxisX Title="Países"/>
                     </asp:ChartArea>
                 </ChartAreas>
+                <BorderSkin BackColor="Transparent" BorderColor="Gainsboro" PageColor="Transparent" />
             </asp:Chart>
-            <p>
-                <asp:Label ID="lblError" runat="server" CssClass="mdl-textfield__error"></asp:Label>
-            </p>
+            <asp:Label ID="lblError" runat="server" CssClass="mdl-textfield__error"></asp:Label>
         </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>

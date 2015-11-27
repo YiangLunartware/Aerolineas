@@ -41,11 +41,11 @@
             </table>
 
             <p>
-                <asp:GridView ID="dgvVuelosP" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CssClass="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+                <asp:GridView ID="dgvVuelosP" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" CssClass="mdl-data-table mdl-js-data-table mdl-shadow--2dp" OnPageIndexChanging="dgvVuelosP_PageIndexChanging">
                     <Columns>
                         <asp:BoundField DataField="CodVuelo" HeaderText="Código" />
                         <asp:BoundField DataField="DescVuelo" HeaderText="Descripción" />
-                        <asp:BoundField DataField="PrecioVuelo" HeaderText="Precio" />
+                        <asp:BoundField DataField="PrecioVuelo" HeaderText="Precio S/." />
                         <asp:BoundField DataField="FecDespegue" DataFormatString="{0:d}" HeaderText="Fecha Despegue" />
                         <asp:BoundField DataField="FecLlegada" DataFormatString="{0:d}" HeaderText="Fecha Llegada" />
                     </Columns>
