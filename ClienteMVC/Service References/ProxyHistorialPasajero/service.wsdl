@@ -31,6 +31,12 @@
   <wsdl:message name="IServicioHistorialPasajero_GetCantidadVuelosXPasajero_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetCantidadVuelosXPasajeroResponse" />
   </wsdl:message>
+  <wsdl:message name="IServicioHistorialPasajero_GetAllPasajeros_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPasajeros" />
+  </wsdl:message>
+  <wsdl:message name="IServicioHistorialPasajero_GetAllPasajeros_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllPasajerosResponse" />
+  </wsdl:message>
   <wsdl:portType name="IServicioHistorialPasajero">
     <wsdl:operation name="GetAllHistorialPasajero">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioHistorialPasajero/GetAllHistorialPasajero" message="tns:IServicioHistorialPasajero_GetAllHistorialPasajero_InputMessage" />
@@ -47,6 +53,10 @@
     <wsdl:operation name="GetCantidadVuelosXPasajero">
       <wsdl:input wsaw:Action="http://tempuri.org/IServicioHistorialPasajero/GetCantidadVuelosXPasajero" message="tns:IServicioHistorialPasajero_GetCantidadVuelosXPasajero_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IServicioHistorialPasajero/GetCantidadVuelosXPasajeroResponse" message="tns:IServicioHistorialPasajero_GetCantidadVuelosXPasajero_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPasajeros">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServicioHistorialPasajero/GetAllPasajeros" message="tns:IServicioHistorialPasajero_GetAllPasajeros_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServicioHistorialPasajero/GetAllPasajerosResponse" message="tns:IServicioHistorialPasajero_GetAllPasajeros_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IServicioHistorialPasajero" type="tns:IServicioHistorialPasajero">
@@ -80,6 +90,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetCantidadVuelosXPasajero">
       <soap:operation soapAction="http://tempuri.org/IServicioHistorialPasajero/GetCantidadVuelosXPasajero" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllPasajeros">
+      <soap:operation soapAction="http://tempuri.org/IServicioHistorialPasajero/GetAllPasajeros" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

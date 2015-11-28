@@ -1,49 +1,259 @@
 ﻿<!DOCTYPE html>
 <html lang="es">
-    <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <meta charset="utf-8" />
-        <title>@ViewBag.Title - Mi aplicación ASP.NET MVC</title>
-        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-        <meta name="viewport" content="width=device-width" />
-        @Styles.Render("~/Content/css")
-        @Scripts.Render("~/bundles/modernizr")
-    </head>
-    <body>
-        <header>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p class="site-title">@Html.ActionLink("su logotipo aquí", "Index", "Home")</p>
-                </div>
-                <div class="float-right">
-                    <section id="login">
-                        @Html.Partial("_LoginPartial")
-                    </section>
-                    <nav>
-                        <ul id="menu">
-                            <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                            <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                            <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
-                        </ul>
-                    </nav>
-                </div>
+<head>
+
+    <title>@ViewBag.Title - Aerolinea</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css"/>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script-->
+
+    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.light_blue-red.min.css" />
+    <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+
+    <!--link rel="stylesheet" href="~/custom/mdl/material.cyan-red.min.css" />
+    <script src="~/custom/mdl/material.min.js"></script-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css" />
+
+    <!--link rel="stylesheet" href="custom/styles.css" /-->
+
+    <style type="text/css">
+        body {
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#05abe0+0,53cbf1+60,87e0fd+100 */
+            background: #009688; /* Old browsers */
+            background: -moz-linear-gradient(top, #00BCD4 0%, #53cbf1 60%, #87e0fd 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #00BCD4), color-stop(60%, #53cbf1), color-stop(100%, #87e0fd)) 009688hrome, Safari4 + */background:-webkit-linear-gradient(top, #00BCD4 0%, #53cbf1 60%, #87e0fd 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(top, #00BCD4 0%, #53cbf1 60%, #87e0fd 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(top, #00BCD4 0%, #53cbf1 60%, #87e0fd 100%); /* IE10+ */
+            background: linear-gradient(to bottom, #00BCD4 0%, #53cbf1 60%, #87e0fd 100%); /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00BCD4', endColorstr='#87e0fd', GradientType=0); /* IE6-9 */
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        .aerolinea-bg {
+            background: url('../images/nube_07.png') center/cover;
+        }
+
+        .aerolinea-bg .mdl-layout__header,
+        .aerolinea-bg .mdl-layout__drawer-button,
+        header .mdl-navigation__link {
+            /* This background is dark, so we set text to white. Use 87% black instead if
+               your background is light. */
+            color: white !important;
+        }
+
+        .mdl-layout__content {
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+
+        /*
+        color: rgb(255,82,82); //accent
+        color: #00BCD4;            //primary
+        */
+
+
+        ::selection {
+            background-color: #00BCD4;
+            color: #fff;
+        }
+
+
+
+        .mdl-layout__header {
+            padding-top: 0.25em;
+            min-height: 50px;
+            background: transparent;
+        }
+
+        a.mdl-navigation__link {
+            cursor: pointer;
+        }
+
+        .mdl-layout__drawer nav.mdl-navigation a.mdl-navigation__link {
+            padding-top: 0.5em;
+            padding-bottom: 0.5em;
+        }
+
+        nav.mdl-navigation p {
+            color: #00BCD4;
+            margin-left: 40px;
+            padding: 1.5em 0px 0px 0px;
+        }
+
+        th, td {
+            padding: 0.25em 0.5em;
+            vertical-align: middle !important;
+        }
+
+        .mdl-data-table th {
+            text-align: center !important;
+        }
+
+        .mdl-data-table td {
+            text-align: left !important;
+        }
+
+        form {
+            width: 100%;
+        }
+
+
+        /* ==========  Select Field ========== */
+
+        /* Style Select Field */
+        select {
+            font-family: inherit;
+            background-color: transparent;
+            width: 100%;
+            padding: 4px 0;
+            font-size: 16px;
+            color: rgba(0, 0, 0, 0.7);
+            border: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+        }
+
+        option {
+            color: rgba(0, 0, 0, 0.4);
+        }
+
+        /* Remove focus */
+        select:focus {
+            outline: none;
+        }
+
+        /* Hide label */
+        .mdl-selectfield label {
+            display: none;
+        }
+        /* Use custom arrow */
+        .mdl-selectfield select {
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .mdl-selectfield {
+            font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+            position: relative;
+        }
+
+        .mdl-selectfield::after {
+            position: absolute;
+            top: 0.75em;
+            right: 0.5em;
+            /* Styling the down arrow */
+            width: 0;
+            height: 0;
+            padding: 0;
+            content: '';
+            border-left: .25em solid transparent;
+            border-right: .25em solid transparent;
+            border-top: .375em solid rgba(0, 0, 0, 0.4);
+            pointer-events: none;
+        }
+
+    /*END SELECT*/
+    </style>
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="aerolinea-bg mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <a href="Index.aspx" class="mdl-layout-title">
+                    <img src="~/Content/images/aerolinea_logo_white_small.png" height="60" alt="logo" />
+                </a>
+                <div class="mdl-layout-spacer"></div>
+                <nav class="mdl-navigation mdl-layout--large-screen-only">
+                    <!--Html.ActionLink("Texto", "Pagina", "Carpeta")-->
+                    <a class="mdl-navigation__link " id="s1-dropdown">
+                        Historial Pasajeros
+                        <i class="material-icons">arrow_drop_down</i>
+                    </a>
+                    <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="s1-dropdown">
+                        <li>@Html.ActionLink("Historial por pasajero", "HistorialPasajero", "Pasajero", new {@class = "mdl-menu__item"})</li>
+                        <li>@Html.ActionLink("Historiales según...", "ListaHistorialesPasajeros", "Pasajero", new {@class = "mdl-menu__item"})</li>
+                    </ul>
+                </nav>
             </div>
         </header>
-        <div id="body">
-            @RenderSection("featured", required: false)
-            <section class="content-wrapper main-content clear-fix">
-                @RenderBody()
-            </section>
+        <div class="mdl-layout__drawer">
+            <br />
+            <br />
+            <span class="mdl-layout-title">
+                <img src="~/Content/images/aerolinea_logo.png" width="180" alt="logo" />
+            </span>
+            <br />
+            <nav class="mdl-navigation">
+                @Html.ActionLink("Inicio", "Index", "Home", new { @class = "mdl-navigation__link" })
+                <p>Historial de pasajeros</p>
+
+                @Html.ActionLink("Historial por pasajero", "HistorialPasajero", "Pasajero", new { @class = "mdl-navigation__link" })
+                @Html.ActionLink("Historiales según...", "ListaHistorialesPasajeros", "Pasajero", new { @class = "mdl-navigation__link" })
+            </nav>
         </div>
-        <footer>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET MVC</p>
+
+
+        <main class="mdl-layout__content">
+            <br />
+            <div class="mdl-grid">
+                <div class="mdl-cell mdl-cell--2-col"></div>
+                <div class="mdl-cell mdl-cell--8-col">
+                    @if (@ViewBag.FullTitle != null)
+                    {
+                        <div class="mdl-typography--text-capitalize mdl-typography--text-center mdl-button--accent mdl-typography--display-2">
+                            @ViewBag.FullTitle
+                        </div>
+                    }
+                    @if (@ViewBag.Subtitle != null)
+                    {
+                        <div class="mdl-typography--subhead mdl-typography--text-center">
+                            <br />
+                            @ViewBag.Subtitle
+                            <br />
+                        </div>
+                    }
+                    @if (@ViewBag.Paragraph != null)
+                    {
+                        <div class="mdl-typography--body-1 mdl-typography--text-justify">
+                            <br />
+                            <br />
+                            @ViewBag.Paragraph
+                            <br />
+                            <br />
+                        </div>
+                    }
+                    @RenderSection("featured", required: false)
+                    @RenderBody()
                 </div>
+                <div class="mdl-cell mdl-cell--2-col"></div>
+
+            </div>
+            <br />
+            <br />
+            <br />
+        </main>
+
+
+        <footer class="mdl-mini-footer">
+            <div class="mdl-mini-footer__left-section">
+                <ul class="mdl-mini-footer__link-list">
+                    <li class="mdl-layout--large-screen-only"><a href="#">Contact us</a></li>
+                    <li>Developer by: © Anto, Quinto, Reyes</li>
+                </ul>
             </div>
         </footer>
-
-        @Scripts.Render("~/bundles/jquery")
-        @RenderSection("scripts", required: false)
-    </body>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
 </html>

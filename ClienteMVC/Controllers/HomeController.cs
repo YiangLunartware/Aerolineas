@@ -10,7 +10,7 @@ namespace ClienteMVC.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "Modifique esta plantilla para poner en marcha su aplicación ASP.NET MVC.";
+            ViewBag.Message = "Bienvenid@";
 
             return View();
         }

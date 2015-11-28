@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/AirlineServices" />
+  <xs:element name="GetAllHistorialPasajero">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllHistorialPasajeroResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/AirlineServices" minOccurs="0" name="GetAllHistorialPasajeroResult" nillable="true" type="q1:ArrayOfPasajero" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHistorialPasajeroXNombrePasajero">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nomPasajero" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fecIni" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="fecFin" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHistorialPasajeroXNombrePasajeroResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/AirlineServices" minOccurs="0" name="GetHistorialPasajeroXNombrePasajeroResult" nillable="true" type="q2:ArrayOfPasajero" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHistorialPasajeroXDNI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="dni" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fecIni" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="fecFin" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHistorialPasajeroXDNIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/AirlineServices" minOccurs="0" name="GetHistorialPasajeroXDNIResult" nillable="true" type="q3:ArrayOfPasajero" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCantidadVuelosXPasajero">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="codPasajero" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="fecIni" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="fecFin" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCantidadVuelosXPasajeroResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/AirlineServices" minOccurs="0" name="GetCantidadVuelosXPasajeroResult" nillable="true" type="q4:ArrayOfPasajero" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

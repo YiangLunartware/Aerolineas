@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "ListaHistorialesPasajeros";
+}
+
+<h2>ListaHistorialesPasajeros</h2>
+
+@using (Html.BeginForm("Buscar", "pasajero"))
+{
+    <table>
+        <tr>
+            <td><input type="radio" name="condicion" value="Todas" checked="true" /></td>
+            <td>Todas</td>
+        </tr>
+        <tr>
+            <td><input type="radio" name="condicion" value="PorNombre" checked="true" /></td>
+            <td>Por Nombre</td>
+        </tr>
+        <tr>
+            <td><input type="radio" name="condicion" value="PorDNI" checked="true" /></td>
+            <td>Por DNI</td>
+        </tr>
+        <tr>
+            <td>Fecha inicio: </td>
+            <td><input type="date" name="fecIni" /></td>
+        </tr>
+        <tr>
+            <td>Fecha fin: </td>
+            <td><input type="date" name="fecFin" /></td>
+        </tr>
+        <tr>
+            <td><input type="text" name="criterio" /></td>
+            <td><input type="submit" name="Buscar" /></td>
+        </tr>
+    </table>
+}
+
+<table>
+    <tr>
+        <th>Código</th>
+        <th>Nombre</th>
+        <th>Lugar Origen</th>
+        <th>Lugar Destino</th>
+        <th>Fecha Despeque</th>
+        <th>Fecha Llegada</th>
+        <th>DNI</th>
+        <th>Email</th>
+        <th>Teléfono</th>
+        <th>Nacionalidad</th>
+        <th>Genero</th>
+    </tr>
+    @foreach (var pas in ViewBag.Lista)
+    {
+        <tr>
+            <td>@pas.CodPasajero</td>
+            <td>@pas.NomPasajero</td>
+            <td>@pas.LugarOrigen</td>
+            <td>@pas.LugarDestino</td>
+            <td>@pas.FechaDespeque.ToString("dd/MM/yy")</td>
+            <td>@pas.FechaLlegada.ToString("dd/MM/yy")</td>
+            <td>@pas.DNI</td>
+            <td>@pas.Email</td>
+            <td>@pas.NumTelefono</td>
+            <td>@pas.Nacionalidad</td>
+            <td>@pas.Genero</td>
+        </tr>
+    }
+</table>

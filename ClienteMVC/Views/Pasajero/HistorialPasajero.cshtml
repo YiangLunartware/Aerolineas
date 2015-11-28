@@ -1,8 +1,7 @@
 ﻿@{
-    ViewBag.Title = "HistorialPasajero";
+    ViewBag.Title = "Historial de Pasajero";
+    ViewBag.FullTitle = "Historial de Pasajero";
 }
-
-<h2>HistorialPasajero</h2>
 
 
 @using (Html.BeginForm("BuscarHistPasajero", "pasajero"))
@@ -10,48 +9,90 @@
     <table>
         <tr>
             <td>Fecha inicio: </td>
-            <td><input type="date" name="fecIni" /></td>
+            <td>
+                <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="date" id="sample1" name="fecIni" required>
+                    <label class="mdl-textfield__label" for="sample1"></label>
+                </div>
+            </td>
         </tr>
         <tr>
             <td>Fecha fin: </td>
-            <td><input type="date" name="fecFin" /></td>
+            <td>
+                <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="date" id="sample2" name="fecFin" required>
+                    <label class="mdl-textfield__label" for="sample2"></label>
+                </div>
+            </td>
         </tr>
         <tr>
-            <td><input type="text" name="criterio" /></td>
-            <td><input type="submit" name="Buscar" /></td>
+            <td>
+                <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" id="sample3" name="codPasajero" required>
+                    <label class="mdl-textfield__label" for="sample3">Código del Pasajero</label>
+                </div>
+            </td>
+            <td>
+                <div class="mdl-typography--text-center">
+                    <input type="submit" name="Buscar" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" />
+                </div>
+            </td>
         </tr>
     </table>
 }
 
+@if (!@ViewBag.DatosPasajero.NomPasajero.Equals(""))
+{
+    <hr/><br/>
 
-<table>
-    <tr>
-        <th>Nombre</th>
-        <th>Lugar Origen</th>
-        <th>Lugar Destino</th>
-        <th>Fecha Despeque</th>
-        <th>Fecha Llegada</th>
-        <th>DNI</th>
-        <th>Email</th>
-        <th>Teléfono</th>
-        <th>Nacionalidad</th>
-        <th>Genero</th>
-        <th>Cantidad de Vuelos</th>
-    </tr>
-    @foreach (var pas in ViewBag.Hitorial)
-    {
+    <table>
         <tr>
-            <td>@pas.NomPasajero</td>
-            <td>@pas.LugarOrigen</td>
-            <td>@pas.LugarDestino</td>
-            <td>@pas.FechaDespeque.ToString("dd/MM/yy")</td>
-            <td>@pas.FechaLlegada.ToString("dd/MM/yy")</td>
-            <td>@pas.DNI</td>
-            <td>@pas.Email</td>
-            <td>@pas.NumTelefono</td>
-            <td>@pas.Nacionalidad</td>
-            <td>@pas.Genero</td>
-            <td>@pas.CantVuelos</td>
+            <td>Nombre: </td>
+            <td>@ViewBag.DatosPasajero.NomPasajero</td>
         </tr>
-    }
-</table>
+        <tr>
+            <td>DNI:</td>
+            <td>@ViewBag.DatosPasajero.DNI</td>
+        </tr>
+        <tr>
+            <td>Email: </td>
+            <td>@ViewBag.DatosPasajero.Email</td>
+        </tr>
+        <tr>
+            <td>Teléfono: </td>
+            <td>@ViewBag.DatosPasajero.NumTelefono</td>
+        </tr>
+        <tr>
+            <td>Nacionalidad: </td>
+            <td>@ViewBag.DatosPasajero.Nacionalidad</td>
+        </tr>
+        <tr>
+            <td>Genero: </td>
+            <td>@ViewBag.DatosPasajero.Genero</td>
+        </tr>
+        <tr>
+            <td>Cantidad de Vuelos: </td>
+            <td>@ViewBag.DatosPasajero.CantVuelos</td>
+        </tr>
+    </table>
+    <br/><br/>
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+        <tr>
+            <th>Lugar Origen</th>
+            <th>Lugar Destino</th>
+            <th>Fecha Despeque</th>
+            <th>Fecha Llegada</th>
+        </tr>
+        @foreach (var pas in ViewBag.Historial)
+        {
+            <tr>
+                <td>@pas.LugarOrigen</td>
+                <td>@pas.LugarDestino</td>
+                <td>@pas.FechaDespeque.ToString("dd/MM/yy")</td>
+                <td>@pas.FechaLlegada.ToString("dd/MM/yy")</td>
+            </tr>
+        }
+    </table>
+}
+
+

@@ -1,40 +1,74 @@
 ﻿@{
-    ViewBag.Title = "ListaHistorialesPasajeros";
+    ViewBag.Title = "Lista de Historial de Pasajeros";
+    ViewBag.FullTitle = "Lista de Historial de Pasajeros";
 }
-
-<h2>ListaHistorialesPasajeros</h2>
 
 @using (Html.BeginForm("Buscar", "pasajero"))
 {
+
     <table>
         <tr>
-            <td><input type="radio" name="condicion" value="Todas" checked="true" /></td>
-            <td>Todas</td>
+            <td>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+                    <input type="radio" id="option-1" class="mdl-radio__button"  name="condicion" value="Todas" checked>
+                    <span class="mdl-radio__label">Todas</span>
+                </label>
+            </td>
+            <td></td>
         </tr>
         <tr>
-            <td><input type="radio" name="condicion" value="PorNombre" checked="true" /></td>
-            <td>Por Nombre</td>
+            <td>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+                    <input type="radio" id="option-2" class="mdl-radio__button" name="condicion" value="PorNombre">
+                    <span class="mdl-radio__label">Por Nombre</span>
+                </label>
+            </td>
+            <td></td>
         </tr>
         <tr>
-            <td><input type="radio" name="condicion" value="PorDNI" checked="true" /></td>
-            <td>Por DNI</td>
+            <td>
+                <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-3">
+                    <input type="radio" id="option-3" class="mdl-radio__button" name="condicion" value="PorDNI">
+                    <span class="mdl-radio__label">Por DNI</span>
+                </label>
+            </td>
+            <td></td>
         </tr>
         <tr>
             <td>Fecha inicio: </td>
-            <td><input type="date" name="fecIni" /></td>
+            <td>
+                <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="date" id="sample1" name="fecIni">
+                    <label class="mdl-textfield__label" for="sample1"></label>
+                </div>
+            </td>
         </tr>
         <tr>
             <td>Fecha fin: </td>
-            <td><input type="date" name="fecFin" /></td>
+            <td>
+                <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="date" id="sample2" name="fecFin">
+                    <label class="mdl-textfield__label" for="sample2"></label>
+                </div>
+            </td>
         </tr>
         <tr>
-            <td><input type="text" name="criterio" /></td>
-            <td><input type="submit" name="Buscar" /></td>
+            <td>
+                <div class="mdl-textfield mdl-js-textfield">
+                    <input class="mdl-textfield__input" type="text" id="sample3" name="criterio">
+                    <label class="mdl-textfield__label" for="sample3"></label>
+                </div>
+            </td>
+            <td>
+                <div class="mdl-typography--text-center">
+                    <input type="submit" name="Buscar" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" />
+                </div>
+            </td>
         </tr>
     </table>
 }
 
-<table>
+<table class="mdl-shadow--2dp" style="background-color: white">
     <tr>
         <th>Código</th>
         <th>Nombre</th>

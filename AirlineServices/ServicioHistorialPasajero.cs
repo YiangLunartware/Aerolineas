@@ -194,27 +194,11 @@ namespace AirlineServices
                         Nacionalidad = x.PASAJERO.NACIONALIDAD,
                         Genero = x.PASAJERO.SEXO
                     })
-                    .GroupBy(z => z)
-                    .Select(g => new
-                    {
-                        CodPasajero = g.Key.CodPasajero,
-                        NomCompletoPasajero = g.Key.NomCompletoPasajero,
-                        LugarOrigen = g.Key.LugarOrigen,
-                        LugarDestino = g.Key.LugarDestino,
-                        FechaDespeque = g.Key.FechaDespeque,
-                        FechaLlegada = g.Key.FechaLlegada,
-                        DNI = g.Key.DNI,
-                        Email = g.Key.Email,
-                        Telefono = g.Key.Telefono,
-                        Nacionalidad = g.Key.Nacionalidad,
-                        Genero = g.Key.Genero,
-                        Cantidad = g.Count()
-                    });
-
+                    .OrderBy(y=>y.FechaLlegada);
+                
                 foreach (var item in query)
                 {
                     Pasajero objPasajero = new Pasajero();
-
                     objPasajero.CodPasajero = item.CodPasajero;
                     objPasajero.NomPasajero = item.NomCompletoPasajero;
                     objPasajero.LugarOrigen = item.LugarOrigen;
@@ -226,7 +210,7 @@ namespace AirlineServices
                     objPasajero.NumTelefono = item.Telefono;
                     objPasajero.Nacionalidad = item.Nacionalidad;
                     objPasajero.Genero = item.Genero;
-                    objPasajero.CantVuelos = item.Cantidad;
+                    objPasajero.CantVuelos = query.Count();
 
                     lista.Add(objPasajero);
                 }

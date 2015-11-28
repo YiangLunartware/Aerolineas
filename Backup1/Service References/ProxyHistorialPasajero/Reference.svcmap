@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e9867836-63c7-4857-822c-d2518049be99" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies>
+      <ReferencedAssembly AssemblyName="Antlr3.Runtime" />
+      <ReferencedAssembly AssemblyName="DotNetOpenAuth.AspNet" />
+      <ReferencedAssembly AssemblyName="DotNetOpenAuth.Core" />
+      <ReferencedAssembly AssemblyName="EntityFramework" />
+      <ReferencedAssembly AssemblyName="Microsoft.CSharp" />
+      <ReferencedAssembly AssemblyName="System.Configuration" />
+      <ReferencedAssembly AssemblyName="System.Data" />
+      <ReferencedAssembly AssemblyName="System.Data.Entity" />
+      <ReferencedAssembly AssemblyName="System.Web.Razor" />
+    </ReferencedAssemblies>
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/AirlineServices/ServicioHistorialPasajero/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="de324bd9-628e-4017-829f-8c50f38619ea" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/AirlineServices/ServicioHistorialPasajero/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="31727988-59b6-4d81-b6c6-c6fc51b24809" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/AirlineServices/ServicioHistorialPasajero/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="aaa4b829-f862-42b5-a8cd-88e20e487604" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/AirlineServices/ServicioHistorialPasajero/mex" />
+    <MetadataFile FileName="AirlineServices.xsd" MetadataType="Schema" ID="1be1e218-a758-4319-bf2a-3fb4b98c1e2f" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/AirlineServices/ServicioHistorialPasajero/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

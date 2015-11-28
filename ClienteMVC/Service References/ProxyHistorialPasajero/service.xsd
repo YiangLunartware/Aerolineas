@@ -61,4 +61,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetAllPasajeros">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllPasajerosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/AirlineServices" minOccurs="0" name="GetAllPasajerosResult" nillable="true" type="q5:ArrayOfPasajero" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
