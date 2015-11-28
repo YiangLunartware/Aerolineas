@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using ClienteASP.ProxyVisitas;
 
 namespace ClienteASP.Visitas
@@ -31,8 +33,17 @@ namespace ClienteASP.Visitas
                 System.DateTime fi = Convert.ToDateTime(txtFecIni.Text);
                 System.DateTime ff = Convert.ToDateTime(txtFecFin.Text);
 
-                dgvVisita.DataSource = objServicioVisitas.GetVisitas_X_Fecha(fi, ff);
+                List<ProxyVisitas.Visitas> lista = new List<ProxyVisitas.Visitas>();
+                lista = objServicioVisitas.GetVisitas_X_Fecha(fi, ff).ToList();
+
+                dgvVisita.DataSource = lista;
                 dgvVisita.DataBind();
+
+                if (lista.Count == 0)
+                {
+                    lblError.Text = "No hay elementos";
+                    lblError.ForeColor = System.Drawing.Color.Red;
+                }
 
                 UpdatePanel1.Update();
             }

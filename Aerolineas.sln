@@ -10,11 +10,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClienteASP", "ClienteWeb\Cl
 		{F0B3EE8B-482D-425C-9E1B-78873BB32639} = {F0B3EE8B-482D-425C-9E1B-78873BB32639}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClienteMVC", "ClienteMVC\ClienteMVC.csproj", "{3E537AA2-0889-4461-A92F-F7F827AFF052}"
-	ProjectSection(ProjectDependencies) = postProject
-		{F0B3EE8B-482D-425C-9E1B-78873BB32639} = {F0B3EE8B-482D-425C-9E1B-78873BB32639}
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +24,6 @@ Global
 		{39ABE866-BA8E-4133-ACF6-3B5C97ADDAF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39ABE866-BA8E-4133-ACF6-3B5C97ADDAF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39ABE866-BA8E-4133-ACF6-3B5C97ADDAF5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3E537AA2-0889-4461-A92F-F7F827AFF052}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3E537AA2-0889-4461-A92F-F7F827AFF052}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3E537AA2-0889-4461-A92F-F7F827AFF052}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3E537AA2-0889-4461-A92F-F7F827AFF052}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

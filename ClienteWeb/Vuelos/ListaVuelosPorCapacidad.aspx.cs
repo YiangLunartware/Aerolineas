@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using ClienteASP.ProxyVuelos;
 
 namespace ClienteASP.Vuelos
@@ -29,14 +30,23 @@ namespace ClienteASP.Vuelos
         private void Consulta()
         {
             lblError.Text = "";
+
             try
             {
                 int Capacidad = Convert.ToInt32(cboCapacidad.SelectedValue);
                 System.DateTime fi = Convert.ToDateTime(txtFecIni.Text);
                 System.DateTime ff = Convert.ToDateTime(txtFecFin.Text);
 
+                List<ProxyVuelos.Vuelos> lista = new List<ProxyVuelos.Vuelos>();
+
                 dgvVuelosC.DataSource = objServicioVuelos.ListaVuelosPorCapacidad(Capacidad, fi, ff);
                 dgvVuelosC.DataBind();
+
+                if (lista.Count == 0)
+                {
+                    lblError.Text = "No hay elementos";
+                    lblError.ForeColor = System.Drawing.Color.Red;
+                }
 
                 UpdatePanel1.Update();
             }

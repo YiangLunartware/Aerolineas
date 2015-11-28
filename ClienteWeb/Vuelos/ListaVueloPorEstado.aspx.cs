@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web.UI.WebControls;
 using ClienteASP.ProxyVuelos;
 
@@ -22,15 +24,25 @@ namespace ClienteASP.Vuelos
                 System.DateTime fi = Convert.ToDateTime(txtFecIni.Text);
                 System.DateTime ff = Convert.ToDateTime(txtFecFin.Text);
 
+                List<ProxyVuelos.Vuelos> lista = new List<ProxyVuelos.Vuelos>();
+
                 if (estado == true)
                 {
-                    dgvVueloE.DataSource = objServicioVuelos.ListaVueloPorEstado(estado, fi, ff);
+                    lista = objServicioVuelos.ListaVueloPorEstado(estado, fi, ff).ToList();
+                    dgvVueloE.DataSource = lista;
                     dgvVueloE.DataBind();
                 }
                 else if (estado == false)
                 {
-                    dgvVueloE.DataSource = objServicioVuelos.ListaVueloPorEstado(estado, fi, ff);
+                    lista = objServicioVuelos.ListaVueloPorEstado(estado, fi, ff).ToList();
+                    dgvVueloE.DataSource = lista;
                     dgvVueloE.DataBind();
+                }
+
+                if (lista.Count == 0)
+                {
+                    lblError.Text = "No hay elementos";
+                    lblError.ForeColor = System.Drawing.Color.Red;
                 }
 
                 UpdatePanel1.Update();

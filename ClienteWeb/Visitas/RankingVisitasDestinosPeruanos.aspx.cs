@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using ClienteASP.ProxyVisitas;
 
 namespace ClienteASP.Visitas
@@ -19,8 +21,17 @@ namespace ClienteASP.Visitas
             {
                 System.DateTime fi = Convert.ToDateTime(txtFecIni.Text);
 
-                dgvVisitasD.DataSource = objServicioVisitas.RankingVisitasDestinosPeruanos(fi);
+                List<ProxyVisitas.Visitas> lista = new List<ProxyVisitas.Visitas>();
+                lista = objServicioVisitas.RankingVisitasDestinosPeruanos(fi).ToList();
+
+                dgvVisitasD.DataSource = lista;
                 dgvVisitasD.DataBind();
+
+                if (lista.Count == 0)
+                {
+                    lblError.Text = "No hay elementos";
+                    lblError.ForeColor = System.Drawing.Color.Red;
+                }
 
                 UpdatePanel1.Update();
             }

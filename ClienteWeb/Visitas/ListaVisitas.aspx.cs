@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web.UI.WebControls;
 using ClienteASP.ProxyVisitas;
 
@@ -18,8 +20,16 @@ namespace ClienteASP.Visitas
             lblError.Text = "";
             try
             {
-                dgvVisitas.DataSource = objServicioVisitas.AllVisitas();
+                List<ProxyVisitas.Visitas> lista = objServicioVisitas.AllVisitas().ToList();
+
+                dgvVisitas.DataSource = lista;
                 dgvVisitas.DataBind();
+
+                if (lista.Count == 0)
+                {
+                    lblError.Text = "No hay elementos";
+                    lblError.ForeColor = System.Drawing.Color.Red;
+                }
 
                 UpdatePanel1.Update();
             }

@@ -35,9 +35,18 @@ namespace ClienteASP.Vuelos
             try
             {
                 string Descripcion = cboDescripcion.SelectedValue;
-                dgvVuelosD.DataSource = objServicioVuelos.ListaVueloPorDescripcion(Descripcion); ;
+
+                List<ProxyVuelos.Vuelos> lista = new List<ProxyVuelos.Vuelos>();
+                lista = objServicioVuelos.ListaVueloPorDescripcion(Descripcion).ToList();
+
+                dgvVuelosD.DataSource =  lista;
                 dgvVuelosD.DataBind();
 
+                if (lista.Count == 0)
+                {
+                    lblError.Text = "No hay elementos";
+                    lblError.ForeColor = System.Drawing.Color.Red;
+                }
             }
             catch (Exception ex)
             {

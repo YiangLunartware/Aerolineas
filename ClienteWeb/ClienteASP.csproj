@@ -345,9 +345,7 @@
     <WCFMetadataStorage Include="Service References\ProxyVisitas\" />
     <WCFMetadataStorage Include="Service References\ProxyVuelos\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ClienteMVC\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
