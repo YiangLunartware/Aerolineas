@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "HistorialPasajero";
+}
+
+<h2>HistorialPasajero</h2>
+
+
+@using (Html.BeginForm("BuscarHistPasajero", "pasajero"))
+{
+    <table>
+        <tr>
+            <td>Fecha inicio: </td>
+            <td><input type="date" name="fecIni" /></td>
+        </tr>
+        <tr>
+            <td>Fecha fin: </td>
+            <td><input type="date" name="fecFin" /></td>
+        </tr>
+        <tr>
+            <td><input type="text" name="criterio" /></td>
+            <td><input type="submit" name="Buscar" /></td>
+        </tr>
+    </table>
+}
+
+
+<table>
+    <tr>
+        <th>Nombre</th>
+        <th>Lugar Origen</th>
+        <th>Lugar Destino</th>
+        <th>Fecha Despeque</th>
+        <th>Fecha Llegada</th>
+        <th>DNI</th>
+        <th>Email</th>
+        <th>Teléfono</th>
+        <th>Nacionalidad</th>
+        <th>Genero</th>
+        <th>Cantidad de Vuelos</th>
+    </tr>
+    @foreach (var pas in ViewBag.Hitorial)
+    {
+        <tr>
+            <td>@pas.NomPasajero</td>
+            <td>@pas.LugarOrigen</td>
+            <td>@pas.LugarDestino</td>
+            <td>@pas.FechaDespeque.ToString("dd/MM/yy")</td>
+            <td>@pas.FechaLlegada.ToString("dd/MM/yy")</td>
+            <td>@pas.DNI</td>
+            <td>@pas.Email</td>
+            <td>@pas.NumTelefono</td>
+            <td>@pas.Nacionalidad</td>
+            <td>@pas.Genero</td>
+            <td>@pas.CantVuelos</td>
+        </tr>
+    }
+</table>

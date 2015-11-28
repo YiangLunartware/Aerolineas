@@ -237,5 +237,39 @@ namespace AirlineServices
             }
             return lista;
         }
+        
+        public List<Pasajero> GetAllPasajeros()
+        {
+            List<Pasajero> lista = new List<Pasajero>();
+
+            try
+            {
+                AerolineaEntities miAerolinea = new AerolineaEntities();
+
+                var query = miAerolinea.PASAJERO.ToList();
+
+                foreach (var item in query)
+                {
+                    Pasajero objPasajero = new Pasajero();
+
+                    objPasajero.CodPasajero = item.COD_PASAJERO;
+
+                    objPasajero.NomPasajero = item.APELLIDO_PASAJERO + ", " + item.NOMBRE_PASAJERO;
+                    objPasajero.DNI = item.DNI;
+                    objPasajero.Email = item.EMAIL;
+                    objPasajero.NumTelefono = item.NUMERO_TELEFONICO;
+                    objPasajero.Nacionalidad = item.NACIONALIDAD;
+                    objPasajero.Genero = item.SEXO;
+
+                    lista.Add(objPasajero);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return lista;
+        }
     }
 }

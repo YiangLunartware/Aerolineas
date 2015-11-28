@@ -6,3 +6,11 @@ C:\ANTO\Tareas\Software3\ProyectoFinal\Aerolineas\AirlineServices\bin\Debug\Enti
 C:\ANTO\Tareas\Software3\ProyectoFinal\Aerolineas\AirlineServices\obj\Debug\AirlineServices.dll
 C:\ANTO\Tareas\Software3\ProyectoFinal\Aerolineas\AirlineServices\obj\Debug\AirlineServices.pdb
 C:\ANTO\Tareas\Software3\ProyectoFinal\Aerolineas\AirlineServices\obj\Debug\AirlineServices.csprojResolveAssemblyReference.cache
+C:\Users\polivares\Desktop\ANTO\Aerolineas\AirlineServices\bin\Debug\AirlineServices.dll.config
+C:\Users\polivares\Desktop\ANTO\Aerolineas\AirlineServices\bin\Debug\AirlineServices.dll
+C:\Users\polivares\Desktop\ANTO\Aerolineas\AirlineServices\bin\Debug\AirlineServices.pdb
+C:\Users\polivares\Desktop\ANTO\Aerolineas\AirlineServices\bin\Debug\EntityFramework.dll
+C:\Users\polivares\Desktop\ANTO\Aerolineas\AirlineServices\bin\Debug\EntityFramework.xml
+C:\Users\polivares\Desktop\ANTO\Aerolineas\AirlineServices\obj\Debug\AirlineServices.csprojResolveAssemblyReference.cache
+C:\Users\polivares\Desktop\ANTO\Aerolineas\AirlineServices\obj\Debug\AirlineServices.dll
+C:\Users\polivares\Desktop\ANTO\Aerolineas\AirlineServices\obj\Debug\AirlineServices.pdb

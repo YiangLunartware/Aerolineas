@@ -22,6 +22,9 @@ namespace AirlineServices
 
         [OperationContract]
         List<Pasajero> GetCantidadVuelosXPasajero(String codPasajero, System.DateTime fecIni, System.DateTime fecFin);
+
+        [OperationContract]
+        List<Pasajero> GetAllPasajeros();
     }
 
     [DataContract]
